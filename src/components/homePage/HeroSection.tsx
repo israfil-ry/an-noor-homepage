@@ -1,6 +1,5 @@
-import { Badge } from "@/components/ui/badge";
-import { AppDownloadBadges } from "@/components/shared/AppDownloadBadges";
-import { APP_CONFIG } from "@/lib/constants";
+import { HeroContent } from "./HeroContent";
+import { HeroMockupPreview } from "./HeroMockupPreview";
 import { cn } from "@/lib/utils";
 
 export interface HeroSectionProps {
@@ -13,37 +12,24 @@ export function HeroSection({ className }: HeroSectionProps) {
       id="hero"
       aria-label="Hero Section"
       className={cn(
-        "relative overflow-hidden py-20 sm:py-28 lg:py-32 bg-gradient-to-b from-muted/50 via-background to-background",
+        "relative overflow-hidden pt-12 pb-16 sm:pt-20 sm:pb-24 lg:pt-28 lg:pb-32 bg-gradient-to-b from-muted/40 via-background to-background",
         className
       )}
     >
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center">
-        {/* Trust Tag Badge */}
-        <Badge
-          variant="outline"
-          className="mb-6 inline-flex items-center gap-2 py-1.5 px-4 text-xs font-medium border-primary/20 bg-primary/5 text-primary rounded-full shadow-xs"
-        >
-          <span className="size-2 rounded-full bg-accent animate-pulse" />
-          <span>100% Free • Ad-Free • Built for the Global Ummah</span>
-        </Badge>
+      {/* Decorative Subtle Background Elements */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-96 bg-[radial-gradient(ellipse_at_top,_var(--color-primary)_0%,_transparent_65%)] opacity-[0.06] pointer-events-none -z-10" />
 
-        {/* Value Proposition Headline */}
-        <h1 className="max-w-4xl text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-foreground leading-[1.15]">
-          Your Complete Daily{" "}
-          <span className="text-primary underline decoration-primary/30 underline-offset-8">
-            Islamic Companion
-          </span>{" "}
-          & Local Halal Living Guide
-        </h1>
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+          {/* Left Column: Value Proposition & Conversion Actions */}
+          <div className="lg:col-span-7">
+            <HeroContent />
+          </div>
 
-        {/* Sub-headline */}
-        <p className="mt-6 max-w-2xl text-base sm:text-lg text-muted-foreground leading-relaxed">
-          {APP_CONFIG.subTagline}
-        </p>
-
-        {/* App Download Badges CTA Group */}
-        <div className="mt-10 flex flex-col sm:flex-row items-center gap-4">
-          <AppDownloadBadges variant="hero" showDirectApk={true} />
+          {/* Right Column: Native Mobile Phone Mockup & Floating Contextual Cards */}
+          <div className="lg:col-span-5">
+            <HeroMockupPreview />
+          </div>
         </div>
       </div>
     </section>
