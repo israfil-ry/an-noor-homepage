@@ -28,5 +28,5 @@ When the user asks you to execute this skill (or asks you to commit and push cha
    - Run `git push origin <active-branch-name>` to push the changes.
 
 7. **Notify the User**:
-   - Let the user know in Bengali that the changes have been successfully committed and pushed, and briefly summarize what was included in the commit.
+   - Let the user know in clear, professional English that the changes have been successfully committed and pushed, and briefly summarize what was included in the commit.
 

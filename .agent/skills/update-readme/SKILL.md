@@ -17,60 +17,52 @@ When the user asks you to execute this skill (or asks to update the README after
    git log -n 10 --oneline
    git status
    ```
-3. Review newly created or modified backend routes, services, database models, frontend components, hooks, and tests.
+3. Review newly created or modified components, hooks, styles, and unit tests in `src/` and `__tests__/`.
 
 ## 2. Review Current README.md
-- View `README.md` to locate the `## ✨ Recent Features` section.
-- Ensure the documentation style and markdown structure remain completely consistent with existing feature entries.
+- View `README.md` to locate or establish the `## ✨ Recent Features` section.
+- Ensure the documentation style and markdown structure remain completely consistent with existing entries.
 
 ## 3. Formulate Feature Documentation
 Structure the documentation for the newly implemented feature under `## ✨ Recent Features` as follows:
 
 ```markdown
 ### [Feature Title] (`[branch-name]`)
-- **[Component/Aspect 1]**: Concise explanation of architectural decisions, schema updates, or UI fixes.
-- **Backend APIs (`/api/v1/...`)**:
-  - `METHOD /endpoint`: Endpoint description and functionality.
-- **Frontend Integration**:
-  - Service abstraction using `serverFetch` in `src/services/`.
-  - Next.js RSC data loading / client components / optimistic UI updates.
-  - Device responsiveness and UX standards.
-- **Automated Tests**: Colocated unit tests and coverage summary.
+- **[Component/Aspect 1]**: Concise explanation of architectural decisions, layout structure, or UI implementation.
+- **Frontend Architecture & Components**:
+  - Components added in `src/components/modules/` or `src/components/shared/`.
+  - Custom React hooks in `src/hooks/`.
+  - Design token integration in `src/app/globals.css`.
+  - Device responsiveness and UX standards across Mobile (<640px), Tablet (640-1024px), and Desktop (1024px+).
+- **Automated Tests**: Unit tests in `__tests__/` and coverage summary.
 
-#### How to Test the [Feature Title]
+#### How to Test [Feature Title]
 
-1. **Run Unit Tests**:
-   - Backend test suite:
+1. **Run Unit Tests & Quality Checks**:
+   - Run unit test suite:
      ```bash
-     pnpm --filter backend test
+     npm test
      ```
-   - Frontend test suite:
+   - TypeScript compiler check:
      ```bash
-     pnpm --filter frontend test -- --run
+     npx tsc --noEmit
      ```
-   - Typecheck and Lint:
+   - Run linter:
      ```bash
-     pnpm --filter frontend exec tsc --noEmit
-     pnpm --filter frontend lint
+     npm run lint
      ```
 
-2. **Database Seeding (if applicable)**:
-   ```bash
-   cd backend
-   pnpm dlx tsx src/prisma/seed.ts
-   ```
-
-3. **Verify Backend APIs via curl**:
-   - Include curl commands with auth headers, request bodies, and expected outputs.
-
-4. **Verify in Browser**:
-   - Step-by-step walkthrough describing routes, interactive actions, optimistic updates, and responsive checks (<640px).
+2. **Verify in Browser**:
+   - Start local development server:
+     ```bash
+     npm run dev
+     ```
+   - Step-by-step walkthrough describing section navigations, interactive actions, drawer toggles, and responsive views (<640px, 768px, 1280px+).
 ```
 
 ## 4. Update README.md
-- Use the dedicated file editing tool (`replace_file_content`) to update `README.md`.
+- Use the dedicated file editing tool to update `README.md`.
 - Preserve all existing sections, prerequisites, and setup instructions.
 
 ## 5. Report Back to User
 - Provide a concise summary in clear, professional English confirming that `README.md` has been updated with the feature details and testing guidelines.
-

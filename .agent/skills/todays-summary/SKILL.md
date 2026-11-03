@@ -12,13 +12,12 @@ Do not use conversational filler. Provide only the summary. Adapt the bullet poi
 ## Format Template
 
 **Today's Accomplishments:**
-*   **Backend:** [1-sentence summary of backend work, e.g., Developed the /api/v1/auth/login endpoint with Prisma, Express, and strict Zod validation.]
-*   **Frontend:** [1-sentence summary of frontend work, e.g., Built the /login UI, integrated the API via Server Actions, and implemented logout functionality.]
-*   **Security/Architecture:** [1-sentence summary of security or architectural changes, e.g., Implemented Next.js AuthGuard using proxy.ts and HTTP-only JWT cookies for route protection.]
-*   **Quality & Version Control:** [1-sentence summary of testing and git operations, e.g., Added unit tests, updated the README.md, merged the completed feature to the dev branch.]
+*   **Design System & Styling:** [1-sentence summary of styling/theme work, e.g., Configured centralized Emerald color variables and design tokens in src/app/globals.css according to zero-hardcoded-color rules.]
+*   **Components & UI:** [1-sentence summary of UI work, e.g., Built the responsive Navbar, MobileNavSheet, and HeroSection using official shadcn/ui components.]
+*   **Hooks & Logic:** [1-sentence summary of state/hooks, e.g., Implemented useHeaderScroll for sticky elevation and usePrayerTimePreview for live prayer calculations.]
+*   **Quality & Testing:** [1-sentence summary of testing and verification, e.g., Added unit tests in __tests__/, executed 16 checks and browser viewport QA audits with 100% pass rate.]
 
 **Tomorrow's Plan ([Core Focus Area]):**
 *   **[Component/Task 1]:** [Brief description of the first thing to start tomorrow]
 *   **[Component/Task 2]:** [Brief description of the next steps]
 *   *(Include this exact sentence at the end)*: I will start tomorrow's execution from [Core Focus Area], but will not be limited to it if time permits.
-

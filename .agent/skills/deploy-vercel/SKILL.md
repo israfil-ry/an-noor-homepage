@@ -1,9 +1,9 @@
 ---
 name: deploy-vercel
-description: Strictly isolates uncommitted modifications and untracked files, safely syncs schema to Neon Cloud PostgreSQL, builds and deploys only the latest commit of the dev branch for both Express backend and Next.js frontend to Vercel using Vercel CLI, restores local workspace state, and verifies live production URLs. Trigger whenever the user asks to deploy to vercel, deploy production, or runs @deploy-vercel.
+description: Strictly isolates uncommitted modifications and untracked files, builds and deploys only the latest commit of the dev branch for the Next.js frontend to Vercel using Vercel CLI, restores local workspace state, and verifies live production URLs. Trigger whenever the user asks to deploy to vercel, deploy production, or runs @deploy-vercel.
 ---
 
-# Deploy to Vercel (Frontend, Backend & Neon Cloud DB)
+# Deploy to Vercel (An-Noor Next.js Homepage)
 
 When this skill is executed, follow these exact automated steps strictly:
 
@@ -23,16 +23,16 @@ When this skill is executed, follow these exact automated steps strictly:
 ## 📋 Step-by-Step Execution Guide
 
 ### 1. Isolate Untracked Files & Ensure `dev` Branch
-1. Check current branch and dirty status (excluding `.agents` which is ignored by `.vercelignore`):
+1. Check current branch and dirty status (excluding `.agent` / `.agents` which are ignored):
    ```bash
    ORIGINAL_BRANCH=$(git branch --show-current)
-   STATUS_OUTPUT=$(git status --porcelain -- ':!.agents')
+   STATUS_OUTPUT=$(git status --porcelain -- ':!.agent' ':!.agents')
    ```
 2. If any untracked files or uncommitted changes are detected, stash them safely:
    ```bash
    if [ -n "$STATUS_OUTPUT" ]; then
      echo "Untracked or uncommitted changes detected. Stashing to ensure clean build..."
-     git stash push --include-untracked -m "deploy_vercel_temp_stash_$(date +%s)" -- ':!.agents'
+     git stash push --include-untracked -m "deploy_vercel_temp_stash_$(date +%s)" -- ':!.agent' ':!.agents'
      STASHED=true
    fi
    ```
@@ -51,69 +51,24 @@ When this skill is executed, follow these exact automated steps strictly:
 
 ---
 
-### 2. Safe Database Schema Sync to Neon Cloud DB (Zero Data Loss)
-1. Read the Neon database URL from `backend/.env` (line with `# DATABASE_URL=postgresql://neondb_owner:...` or active URL).
-2. Execute safe schema comparison using dry-run first:
+### 2. Local Production Build Check
+1. Ensure the Next.js application builds cleanly:
    ```bash
-   cd backend && pnpm exec prisma db update --dry-run --db "<NEON_DATABASE_URL>"
+   npm run build
    ```
-3. Apply schema updates safely to Neon Cloud database:
-   ```bash
-   cd backend && pnpm exec prisma db update --db "<NEON_DATABASE_URL>"
-   ```
-4. Verify that no tables or data were dropped or damaged.
 
 ---
 
-### 3. Build and Deploy Backend to Vercel
-1. Ensure the standalone serverless bundle is built:
+### 3. Deploy to Vercel Production
+1. Deploy to Vercel production using npm / npx:
    ```bash
-   pnpm --filter backend run build
+   npx vercel deploy --prod --yes
    ```
-2. Verify `backend/public/index.html` exists and `backend/vercel.json` has:
-   ```json
-   {
-     "version": 2,
-     "outputDirectory": "public",
-     "rewrites": [
-       { "source": "/(.*)", "destination": "/api/index.js" }
-     ]
-   }
-   ```
-3. Set the active Vercel project configuration to Backend:
-   ```bash
-   cp .vercel/project.backend.json .vercel/project.json
-   ```
-4. Deploy backend to Vercel production:
-   ```bash
-   pnpm dlx vercel deploy --prod --yes
-   ```
-5. Monitor deployment status using:
-   ```bash
-   pnpm dlx vercel inspect https://nextra-crm-backend.vercel.app
-   ```
-   Wait until status shows `● Ready`.
+2. Monitor deployment status until ready.
 
 ---
 
-### 4. Build and Deploy Frontend to Vercel
-1. Restore the active Vercel project configuration to Frontend:
-   ```bash
-   cp .vercel/project.frontend.json .vercel/project.json
-   ```
-2. Deploy frontend to Vercel production:
-   ```bash
-   pnpm dlx vercel deploy --prod --yes
-   ```
-3. Monitor deployment status using:
-   ```bash
-   pnpm dlx vercel inspect https://nextra-crm.vercel.app
-   ```
-   Wait until status shows `● Ready`.
-
----
-
-### 5. Restore Developer Workspace State
+### 4. Restore Developer Workspace State
 1. If the user was originally on a different branch:
    ```bash
    if [ "$ORIGINAL_BRANCH" != "dev" ]; then
@@ -130,33 +85,17 @@ When this skill is executed, follow these exact automated steps strictly:
 
 ---
 
-### 6. Live Production Verification (E2E)
-1. Verify live backend authentication:
+### 5. Live Production Verification (E2E)
+1. Verify live URL responds with HTTP 200:
    ```bash
-   curl -s -X POST https://nextra-crm-backend.vercel.app/api/v1/auth/login \
-     -H "Content-Type: application/json" \
-     -d '{"email":"admin@gmail.com","password":"123456"}'
-   ```
-2. Run live E2E browser verification script:
-   ```bash
-   node .agents/scripts/qa_live_vercel_e2e.js
+   curl -s -I <LIVE_VERCEL_URL>
    ```
 
 ---
 
-### 7. One-Click Script Alternative
-All of the above steps are also bundled into a single script with automated `trap` handlers:
-```bash
-bash .agents/scripts/deploy_vercel.sh
-```
-
----
-
-### 8. Report Back to User
-Report the deployment summary in natural, fluent Bengali (বাংলা) including:
-- **Deployed Branch & Commit:** `dev` ব্রাঞ্চের লেটেস্ট কমিট হ্যাশ ও মেসেজ।
-- **Untracked Files Isolation:** আনট্র্যাকড ফাইল সম্পূর্ণরূপে বাদ দেওয়ার নিশ্চয়তা এবং ওয়ার্কস্পেস রিস্টোরেশন স্ট্যাটাস।
-- **Neon Database Safe Schema Update Status:** (Zero data loss).
-- **Live Backend URL:** `https://nextra-crm-backend.vercel.app`
-- **Live Frontend URL:** `https://nextra-crm.vercel.app`
-- **E2E Smoke Test Results:** (Login, Dashboard, Contacts, Leads, Deals).
+### 6. Report Back to User
+Report the deployment summary in clear, professional English including:
+- **Deployed Branch & Commit:** Hash and commit message from the `dev` branch.
+- **Untracked Files Isolation:** Confirmation that untracked files were safely stashed and local workspace restored.
+- **Build & Deployment Status:** Vercel deployment confirmation.
+- **Live Production URL:** Verified accessible URL.

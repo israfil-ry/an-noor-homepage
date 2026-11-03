@@ -83,3 +83,8 @@ These rules apply to the entire project workspace. You must strictly follow thes
     - When designing any UI logic, function, or form handler, deliberately enumerate all possible edge cases, unexpected runtime conditions, empty/null/undefined states, and error paths.
     - Proactively handle all edge cases in advance (informative user-friendly feedback, error messages, and fallback UI).
     - Write robust unit tests covering every single edge case and error path before declaring any feature or code complete.
+
+15. **Zero Hardcoded Colors & Centralized Design Tokens (Strict Prohibition)**:
+    - Using hardcoded colors (such as inline hex codes `#123456`, `rgb()`, `hsl()`, or ad-hoc arbitrary Tailwind values like `bg-[#f0f0f0]` or `text-[#333]`) is **strictly prohibited** across the entire project.
+    - All colors MUST be configured and defined as CSS variables inside `src/app/globals.css` (under `:root`, `.dark`, and mapped via `@theme inline`).
+    - Every component across the website must exclusively reuse these centralized CSS variables via Tailwind semantic utility classes (e.g., `bg-primary`, `text-muted-foreground`, `border-border`) or custom configured theme variables.

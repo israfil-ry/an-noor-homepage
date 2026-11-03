@@ -12,7 +12,8 @@ The frontend code is located in the `src/` directory. Inside `src/`, adhere to t
 - `components/`: 
   - `ui/`: shadcn/ui basic components.
   - `shared/`: Reusable components used across multiple modules (e.g., Header, Footer, Navbar, Dialogs).
-  - `modules/`: Feature/section-based grouping (e.g., `Home/`, `About/`, `Services/`, `Contact/`). Each subfolder contains components specific to that section.
+  - `homePage/`: All landing page section components (e.g., `HeroSection.tsx`, `PrayerSnapshotSection.tsx`). Every section in the home page must reside here as an independent component.
+  - `modules/`: Feature/section-based grouping for other modules (e.g., `About/`, `Services/`, `Contact/`).
 - `hooks/`: Custom React hooks, optionally grouped by feature (e.g., `useHeaderScroll.ts`).
 - `lib/`: Utility functions, formatters, and configurations (e.g., `utils.ts`).
 - `services/`: API call and data fetching functions if needed.
@@ -43,13 +44,29 @@ The frontend code is located in the `src/` directory. Inside `src/`, adhere to t
 6. **Naming Convention**: 
    - Use PascalCase for component file names (e.g., `HeroSection.tsx`, `Navbar.tsx`, `ContactForm.tsx`).
    - Use camelCase for utility, service, hook, type, and zod schema file names (e.g., `useHeaderScroll.ts`, `siteConfig.ts`, `contact.validation.ts`).
+7. **Independent Home Page Section Components**:
+   - Every single section on the home page MUST be designed as an independent, self-contained component inside `src/components/homePage/`.
+   - The root home page file (`src/app/(commonLayout)/page.tsx`) must strictly act as a clean orchestrator, importing and assembling these independent section components with zero monolithic section markup.
+8. **Next.js `Link` Component for All Internal Navigation & Anchors**:
+   - Using raw HTML `<a>` tags for internal site routes or page section anchors (`href="#..."`) is strictly prohibited.
+   - Always import and use `Link` from `next/link` for all internal navigation, navbar items, footer links, and section anchor targets.
 
 ## Styling, Libraries & UI Component Strategy
 - **1st Priority - shadcn/ui Components**: When planning or designing any frontend UI, official **shadcn/ui** components MUST ALWAYS be the first priority.
 - **Fallback to Tailwind CSS Custom Components**: Only when a suitable shadcn component does not exist or does not match our project's specific design direction/theme, only then should custom components/designs be crafted using pure Tailwind CSS.
 - **shadcn/ui Installation Exemption**: You do NOT need explicit user permission to install official shadcn/ui components (`npx shadcn@latest add ...`). You can install them autonomously as needed, provided that you explicitly document and report all installed shadcn components in your plan, walkthrough, and overview message.
-- **Other Third-Party npm Packages**: For ANY other third-party npm packages, you MUST strictly obtain explicit permission from the user before installing.
+- **Iconography Standard — Hugeicons**:
+   - **Hugeicons** (`@hugeicons/react` and `@hugeicons/core-free-icons`) MUST be used exclusively for all icons throughout the entire application.
+   - Do NOT use `lucide-react`.
+   - Render icons using the standard Hugeicons pattern:
+     ```tsx
+     import { HugeiconsIcon } from "@hugeicons/react";
+     import { Download01Icon } from "@hugeicons/core-free-icons";
+     <HugeiconsIcon icon={Download01Icon} size={20} className="..." />
+     ```
+- **Other Third-Party npm Packages**: For ANY other third-party npm packages, you MUST strictly obtain explicit permission from the user before installing. (Note: The user has explicitly authorized `@hugeicons/react` and `@hugeicons/core-free-icons`).
 - Use **Tailwind CSS** for layout, spacing, colors, and responsive styling.
+- **Strict Prohibition on Hardcoded Colors**: Using hardcoded colors (hex `#...`, `rgb()`, `hsl()`, or arbitrary inline Tailwind classes like `bg-[#123]`) is strictly prohibited. All colors must be configured as CSS variables in `src/app/globals.css` and reused across the entire application using semantic utility classes (e.g., `bg-primary`, `text-muted-foreground`).
 
 ## Strict Responsiveness & UX Standard
 - **100% Device Responsiveness**: Every single page, layout, modal, and component MUST be completely responsive across ALL device screen sizes (Mobile: <640px, Tablet: 640px-1024px, Laptop/Desktop: 1024px-1536px, Ultra-wide: >1536px).
