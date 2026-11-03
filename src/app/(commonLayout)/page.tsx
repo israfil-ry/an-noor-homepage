@@ -17,19 +17,19 @@ export default function HomePage() {
       <HeroSection />
 
       {/* 2. Live Interactive Daily Prayer Snapshot Bar Component */}
-      <PrayerSnapshotSection />
+      {/* <PrayerSnapshotSection /> */}
 
       {/* 3. Quick Pillars Navigation Jump Strip */}
-      <QuickPillarsSection />
+      {/* <QuickPillarsSection /> */}
 
       {/* 4. Core Feature Ecosystem Grid (9 Pillars with Category Filter Tabs) */}
       <FeatureEcosystemSection />
 
       {/* 5. Spiritual Essentials 4-Pillar Showcase with Mobile App UI Previews */}
-      <SpiritualEssentialsSection />
+      {/* <SpiritualEssentialsSection /> */}
 
       {/* 6. Community Showcase 1: Mosque Sync & Live Iqamah Times */}
-      <MosqueSyncSection />
+      {/* <MosqueSyncSection /> */}
 
       {/* 7. Community Showcase 2: Nearby Halal Food & Grocery Directory */}
       <HalalFinderSection />

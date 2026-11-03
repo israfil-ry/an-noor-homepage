@@ -1,6 +1,7 @@
 import { Badge } from "@/components/ui/badge";
-import { AppDownloadBadges } from "@/components/shared/AppDownloadBadges";
+import { HeroStoreBadges } from "./HeroStoreBadges";
 import { QrCodeModal } from "./QrCodeModal";
+import { HeroSocialProof } from "./HeroSocialProof";
 import { APP_CONFIG } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 
@@ -39,27 +40,14 @@ export function HeroContent({ className }: HeroContentProps) {
         {APP_CONFIG.subTagline}
       </p>
 
-      {/* CTA Group: Store Badges + Desktop QR Code Trigger */}
-      <div className="mt-8 sm:mt-10 flex flex-wrap items-center justify-center lg:justify-start gap-3 sm:gap-4">
-        <AppDownloadBadges variant="hero" showDirectApk={true} />
-        <QrCodeModal className="hidden sm:inline-flex" />
+      {/* CTA Group: Official Store Badges + Harmonized Dark QR Code Trigger */}
+      <div className="mt-8 sm:mt-10 flex flex-wrap items-center justify-center lg:justify-start gap-3 sm:gap-3.5">
+        <HeroStoreBadges />
+        <QrCodeModal />
       </div>
 
-      {/* Micro Social Proof / Diaspora note */}
-      <div className="mt-8 flex items-center gap-3 text-xs text-muted-foreground">
-        <div className="flex -space-x-1.5 overflow-hidden">
-          <div className="inline-block size-6 rounded-full bg-primary/20 border-2 border-background flex items-center justify-center text-[9px] font-bold text-primary">
-            TX
-          </div>
-          <div className="inline-block size-6 rounded-full bg-accent/20 border-2 border-background flex items-center justify-center text-[9px] font-bold text-accent">
-            IL
-          </div>
-          <div className="inline-block size-6 rounded-full bg-secondary border-2 border-background flex items-center justify-center text-[9px] font-bold text-secondary-foreground">
-            UK
-          </div>
-        </div>
-        <span>Trusted by Muslims in Irving, Dallas, Chicago, London & beyond.</span>
-      </div>
+      {/* Micro Social Proof & Community Avatar Stack */}
+      <HeroSocialProof />
     </div>
   );
 }

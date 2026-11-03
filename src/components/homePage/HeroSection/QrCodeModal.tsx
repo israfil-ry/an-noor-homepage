@@ -1,9 +1,7 @@
 "use client";
 
-import Link from "next/link";
 import { HugeiconsIcon } from "@hugeicons/react";
-import { QrCode01Icon, Download01Icon } from "@hugeicons/core-free-icons";
-import { Button } from "@/components/ui/button";
+import { QrCode01Icon } from "@hugeicons/core-free-icons";
 import {
   Dialog,
   DialogContent,
@@ -12,118 +10,79 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { APP_CONFIG } from "@/lib/constants";
+import { QrPlatformCard } from "./QrPlatformCard";
 import { cn } from "@/lib/utils";
 
 export interface QrCodeModalProps {
   className?: string;
+  defaultOpen?: boolean;
 }
 
-export function QrCodeModal({ className }: QrCodeModalProps) {
+export function QrCodeModal({ className, defaultOpen }: QrCodeModalProps) {
   return (
-    <Dialog>
+    <Dialog defaultOpen={defaultOpen}>
       <DialogTrigger
         render={
-          <Button
-            variant="outline"
-            size="sm"
+          <button
+            type="button"
+            aria-label="Scan QR Code to Download An-Noor"
             className={cn(
-              "gap-2 rounded-xl border-border bg-card text-foreground hover:bg-muted active:scale-[0.98] min-h-[44px] px-3.5 cursor-pointer shadow-xs",
+              "group inline-flex items-center gap-2.5 rounded-xl border border-border/40 bg-foreground text-background font-medium transition-all duration-200 hover:opacity-90 active:scale-[0.98] focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring h-[44px] px-3.5 sm:px-4 cursor-pointer select-none shadow-xs",
               className
             )}
           >
             <HugeiconsIcon
               icon={QrCode01Icon}
-              size={18}
-              strokeWidth={1.5}
-              className="text-primary"
+              size={20}
+              strokeWidth={1.8}
+              className="shrink-0 text-background"
             />
-            <span className="text-xs sm:text-sm font-medium">Scan QR Code</span>
-          </Button>
+            <div className="flex flex-col text-left leading-tight">
+              <span className="text-[9px] font-normal uppercase tracking-wider text-background/80">
+                Scan To Get
+              </span>
+              <span className="text-xs sm:text-sm font-semibold tracking-tight">
+                QR Code
+              </span>
+            </div>
+          </button>
         }
       />
 
-      <DialogContent className="sm:max-w-md rounded-2xl bg-card border-border p-6 text-foreground shadow-lg">
-        <DialogHeader className="text-center sm:text-center space-y-2">
-          <DialogTitle className="text-xl font-bold tracking-tight text-foreground">
-            Download An-Noor on Android
+      <DialogContent className="sm:max-w-xl max-h-[90vh] overflow-y-auto rounded-2xl bg-card border-border p-6 text-foreground shadow-lg">
+        <DialogHeader className="text-center sm:text-center space-y-1.5">
+          <DialogTitle className="text-xl sm:text-2xl font-bold tracking-tight text-foreground">
+            Download An-Noor App
           </DialogTitle>
-          <DialogDescription className="text-sm text-muted-foreground">
-            Point your mobile camera at this QR code to open the Google Play Store directly.
+          <DialogDescription className="text-xs sm:text-sm text-muted-foreground max-w-md mx-auto">
+            Scan the QR code with your smartphone camera to open the official app store directly.
           </DialogDescription>
         </DialogHeader>
 
-        <div className="flex flex-col items-center justify-center py-4 space-y-4">
-          {/* Branded QR Code Container */}
-          <div className="relative flex size-52 items-center justify-center rounded-2xl border-2 border-primary/20 bg-muted/40 p-4 shadow-inner">
-            <svg
-              className="size-44 text-foreground"
-              viewBox="0 0 100 100"
-              fill="currentColor"
-              aria-label="QR Code to Download An-Noor"
-            >
-              {/* Stylized QR Code SVG Pattern */}
-              <rect x="0" y="0" width="30" height="30" rx="4" fill="currentColor" />
-              <rect x="6" y="6" width="18" height="18" rx="2" fill="var(--color-card)" />
-              <rect x="10" y="10" width="10" height="10" rx="1" fill="var(--color-primary)" />
-
-              <rect x="70" y="0" width="30" height="30" rx="4" fill="currentColor" />
-              <rect x="76" y="6" width="18" height="18" rx="2" fill="var(--color-card)" />
-              <rect x="80" y="10" width="10" height="10" rx="1" fill="var(--color-primary)" />
-
-              <rect x="0" y="70" width="30" height="30" rx="4" fill="currentColor" />
-              <rect x="6" y="76" width="18" height="18" rx="2" fill="var(--color-card)" />
-              <rect x="10" y="80" width="10" height="10" rx="1" fill="var(--color-primary)" />
-
-              {/* Data Blocks */}
-              <rect x="36" y="6" width="8" height="8" rx="1" fill="currentColor" />
-              <rect x="48" y="6" width="8" height="8" rx="1" fill="currentColor" />
-              <rect x="36" y="18" width="8" height="8" rx="1" fill="currentColor" />
-              <rect x="48" y="24" width="8" height="8" rx="1" fill="currentColor" />
-              <rect x="18" y="36" width="8" height="8" rx="1" fill="currentColor" />
-              <rect x="36" y="36" width="12" height="12" rx="2" fill="var(--color-accent)" />
-              <rect x="54" y="36" width="8" height="8" rx="1" fill="currentColor" />
-              <rect x="72" y="36" width="8" height="8" rx="1" fill="currentColor" />
-              <rect x="84" y="44" width="8" height="8" rx="1" fill="currentColor" />
-              <rect x="36" y="54" width="8" height="8" rx="1" fill="currentColor" />
-              <rect x="52" y="54" width="14" height="8" rx="1" fill="currentColor" />
-              <rect x="72" y="54" width="8" height="8" rx="1" fill="currentColor" />
-              <rect x="36" y="72" width="8" height="8" rx="1" fill="currentColor" />
-              <rect x="50" y="72" width="12" height="12" rx="2" fill="currentColor" />
-              <rect x="70" y="70" width="10" height="10" rx="2" fill="currentColor" />
-              <rect x="84" y="84" width="10" height="10" rx="2" fill="currentColor" />
-            </svg>
-          </div>
-
-          <p className="text-xs text-muted-foreground text-center max-w-xs">
-            Compatible with Android 8.0 and above. 100% ad-free & privacy-respecting.
-          </p>
+        {/* Dual Platform QR Cards (Android & iOS) */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 py-3">
+          <QrPlatformCard
+            platform="android"
+            title="Android"
+            subtitle="For Android 8.0 & above"
+            badgeSrc="/images/badges/google-play-badge.png"
+            badgeAlt="GET IT ON Google Play"
+            badgeHref="#"
+          />
+          <QrPlatformCard
+            platform="ios"
+            title="iPhone & iPad"
+            subtitle="For iOS 15.0 & above"
+            badgeSrc="/images/badges/app-store-badge.png"
+            badgeAlt="Download on the App Store"
+            badgeHref="#"
+          />
         </div>
 
-        {/* Fallback Direct Action Links */}
-        <div className="flex flex-col sm:flex-row gap-2 pt-2 border-t border-border">
-          <Link
-            href={APP_CONFIG.playStoreUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex-1"
-          >
-            <Button
-              className="w-full gap-2 rounded-xl bg-primary text-primary-foreground hover:bg-primary-hover active:scale-[0.98] min-h-[44px]"
-            >
-              <span>Open in Google Play</span>
-            </Button>
-          </Link>
-          <Link href={APP_CONFIG.apkDownloadUrl} className="flex-1">
-            <Button
-              variant="outline"
-              className="w-full gap-2 rounded-xl border-border bg-card text-foreground hover:bg-muted active:scale-[0.98] min-h-[44px]"
-            >
-              <HugeiconsIcon icon={Download01Icon} size={15} />
-              <span>Direct APK</span>
-            </Button>
-          </Link>
-        </div>
+        {/* Trust & Compatibility Footnote */}
+        <p className="text-center text-xs text-muted-foreground pt-2 border-t border-border">
+          Compatible with Android 8.0+ and iOS 15.0+. 100% free, ad-free & privacy-respecting.
+        </p>
       </DialogContent>
     </Dialog>
   );

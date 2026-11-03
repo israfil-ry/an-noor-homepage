@@ -3,11 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { HugeiconsIcon } from "@hugeicons/react";
-import {
-  Menu01Icon,
-  Location01Icon,
-  SmartPhone01Icon,
-} from "@hugeicons/core-free-icons";
+import { Menu01Icon, Location01Icon } from "@hugeicons/core-free-icons";
 import {
   Sheet,
   SheetContent,
@@ -17,14 +13,16 @@ import {
 } from "@/components/ui/sheet";
 import { Badge } from "@/components/ui/badge";
 import { Logo } from "@/components/shared/Logo";
+import { StoreDownloadBadges } from "@/components/shared/StoreDownloadBadges";
 import { APP_CONFIG, NAV_ITEMS } from "@/lib/constants";
 
 export interface MobileNavSheetProps {
   className?: string;
+  defaultOpen?: boolean;
 }
 
-export function MobileNavSheet({ className }: MobileNavSheetProps) {
-  const [open, setOpen] = useState(false);
+export function MobileNavSheet({ className, defaultOpen = false }: MobileNavSheetProps) {
+  const [open, setOpen] = useState(defaultOpen);
 
   return (
     <div className={className}>
@@ -78,18 +76,15 @@ export function MobileNavSheet({ className }: MobileNavSheetProps) {
             </nav>
           </div>
 
-          {/* Bottom Mobile Download Action */}
-          <div className="flex flex-col gap-3 pt-6 border-t border-border">
-            <Link
-              href={APP_CONFIG.playStoreUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() => setOpen(false)}
-              className="flex min-h-[44px] w-full items-center justify-center gap-2 rounded-xl bg-primary text-primary-foreground px-4 py-2.5 text-sm font-medium transition-colors hover:bg-primary-hover shadow-sm active:scale-[0.98]"
-            >
-              <HugeiconsIcon icon={SmartPhone01Icon} size={16} strokeWidth={1.5} />
-              <span>Get Android App</span>
-            </Link>
+          {/* Bottom Mobile Download Action Group */}
+          <div className="flex flex-col gap-3 pt-5 border-t border-border">
+            <StoreDownloadBadges
+              direction="column"
+              size="md"
+              googlePlayHref="#"
+              appStoreHref="#"
+              className="w-full"
+            />
             <p className="text-center text-[11px] text-muted-foreground">
               100% Free • Ad-Free • Privacy First
             </p>

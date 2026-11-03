@@ -1,16 +1,11 @@
 "use client";
 
-import Link from "next/link";
-import { HugeiconsIcon } from "@hugeicons/react";
-import { Location01Icon, Download01Icon } from "@hugeicons/core-free-icons";
-import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
 import { Logo } from "@/components/shared/Logo";
 import { useHeaderScroll } from "@/hooks/useHeaderScroll";
-import { APP_CONFIG } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 import { NavLinks } from "./NavLinks";
 import { MobileNavSheet } from "./MobileNavSheet";
+import { NavbarDownloadDropdown } from "./NavbarDownloadDropdown";
 
 export interface NavbarProps {
   className?: string;
@@ -40,35 +35,8 @@ export function Navbar({ className }: NavbarProps) {
 
         {/* Right Action Group */}
         <div className="flex items-center gap-2.5 sm:gap-3">
-          {/* Location Badge */}
-          <Badge
-            variant="outline"
-            className="hidden sm:inline-flex items-center gap-1.5 py-1 px-2.5 text-xs font-normal border-border bg-muted/60 text-muted-foreground"
-          >
-            <HugeiconsIcon
-              icon={Location01Icon}
-              size={13}
-              strokeWidth={1.5}
-              className="text-primary shrink-0"
-            />
-            <span className="truncate max-w-[100px]">{APP_CONFIG.defaultLocation}</span>
-          </Badge>
-
-          {/* Primary CTA Button */}
-          <Link
-            href={APP_CONFIG.playStoreUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hidden sm:inline-flex"
-          >
-            <Button
-              size="sm"
-              className="gap-1.5 rounded-xl bg-primary text-primary-foreground font-medium shadow-xs hover:bg-primary-hover active:scale-[0.98] min-h-[38px] px-3.5 cursor-pointer"
-            >
-              <HugeiconsIcon icon={Download01Icon} size={14} strokeWidth={1.5} />
-              <span>Get The App</span>
-            </Button>
-          </Link>
+          {/* Multi-Store Download Dropdown */}
+          <NavbarDownloadDropdown className="hidden sm:inline-flex" />
 
           {/* Mobile Sheet Navigation Drawer */}
           <MobileNavSheet className="flex md:hidden" />

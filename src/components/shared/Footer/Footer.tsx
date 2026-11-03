@@ -3,7 +3,7 @@ import { ShieldCheckIcon, HeartIcon } from "@hugeicons/core-free-icons";
 import { APP_CONFIG } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 import { Logo } from "@/components/shared/Logo";
-import { AppDownloadBadges } from "@/components/shared/AppDownloadBadges";
+import { StoreDownloadBadges } from "@/components/shared/StoreDownloadBadges";
 import { FooterLinks } from "./FooterLinks";
 
 export interface FooterProps {
@@ -34,9 +34,14 @@ export function Footer({ className }: FooterProps) {
               <span>100% Free • Zero Disruptive Ads • Privacy-First</span>
             </div>
 
-            {/* App Store Download Badges */}
+            {/* Official Store Download Badges */}
             <div className="pt-2">
-              <AppDownloadBadges variant="compact" showDirectApk={false} />
+              <StoreDownloadBadges
+                size="sm"
+                direction="row"
+                googlePlayHref="#"
+                appStoreHref="#"
+              />
             </div>
           </div>
 

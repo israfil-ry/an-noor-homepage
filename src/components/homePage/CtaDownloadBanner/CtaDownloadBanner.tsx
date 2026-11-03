@@ -1,7 +1,7 @@
 import { HugeiconsIcon } from "@hugeicons/react";
 import { SmartPhone01Icon, ShieldCheckIcon } from "@hugeicons/core-free-icons";
 import { Badge } from "@/components/ui/badge";
-import { AppDownloadBadges } from "@/components/shared/AppDownloadBadges";
+import { StoreDownloadBadges } from "@/components/shared/StoreDownloadBadges";
 import { CtaQrScannerBox } from "./CtaQrScannerBox";
 import { CtaMockupVisual } from "./CtaMockupVisual";
 import { cn } from "@/lib/utils";
@@ -31,7 +31,7 @@ export function CtaDownloadBanner({ className }: CtaDownloadBannerProps) {
                 className="mb-4 inline-flex items-center gap-1.5 py-1 px-3.5 text-xs font-semibold border-primary-foreground/30 bg-primary-foreground/10 text-primary-foreground rounded-full shadow-2xs backdrop-blur-xs"
               >
                 <HugeiconsIcon icon={SmartPhone01Icon} size={14} />
-                <span>Download Official Android App</span>
+                <span>Download Official App</span>
               </Badge>
 
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-primary-foreground leading-[1.12]">
@@ -48,15 +48,17 @@ export function CtaDownloadBanner({ className }: CtaDownloadBannerProps) {
                 unified and 100% ad-free.
               </p>
 
-              {/* Conversion Actions Group */}
+              {/* Conversion Actions Group: Official Store Badges + QR Scanner */}
               <div className="mt-8 flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-4 w-full">
-                <AppDownloadBadges
-                  variant="hero"
-                  showDirectApk={true}
+                <StoreDownloadBadges
+                  size="md"
+                  direction="row"
+                  googlePlayHref="#"
+                  appStoreHref="#"
                   className="[&_a]:border-primary-foreground/20"
                 />
 
-                <CtaQrScannerBox className="hidden md:flex" />
+                {/* <CtaQrScannerBox className="hidden md:flex" /> */}
               </div>
 
               {/* Trust Guarantee Footnote */}
@@ -67,14 +69,13 @@ export function CtaDownloadBanner({ className }: CtaDownloadBannerProps) {
                   className="shrink-0 text-primary-foreground"
                 />
                 <span>
-                  Compatible with Android 8.0+ • 100% Free &amp; Ad-Free • No Data
-                  Monetization
+                  Compatible with Android 8.0+ &amp; iOS 15.0+ • 100% Free &amp; Ad-Free • No Data Monetization
                 </span>
               </div>
             </div>
 
-            {/* Right Column: Visual Centerpiece Phone Mockup */}
-            <div className="lg:col-span-5 flex justify-center lg:justify-end">
+            {/* Right Column: Mobile App Showcase Mockup Visual */}
+            <div className="lg:col-span-5 flex items-center justify-center relative">
               <CtaMockupVisual />
             </div>
           </div>
@@ -83,4 +84,3 @@ export function CtaDownloadBanner({ className }: CtaDownloadBannerProps) {
     </section>
   );
 }
-
