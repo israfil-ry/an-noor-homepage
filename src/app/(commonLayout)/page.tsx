@@ -3,6 +3,9 @@ import { PrayerSnapshotSection } from "@/components/homePage/PrayerSnapshotSecti
 import { QuickPillarsSection } from "@/components/homePage/QuickPillarsSection/QuickPillarsSection";
 import { FeatureEcosystemSection } from "@/components/homePage/FeatureEcosystemSection/FeatureEcosystemSection";
 import { SpiritualEssentialsSection } from "@/components/homePage/SpiritualEssentialsSection/SpiritualEssentialsSection";
+import { MosqueSyncSection } from "@/components/homePage/MosqueSyncSection/MosqueSyncSection";
+import { HalalFinderSection } from "@/components/homePage/HalalFinderSection/HalalFinderSection";
+import { EventsShowcaseSection } from "@/components/homePage/EventsShowcaseSection/EventsShowcaseSection";
 
 export default function HomePage() {
   return (
@@ -22,10 +25,17 @@ export default function HomePage() {
       {/* 5. Spiritual Essentials 4-Pillar Showcase with Mobile App UI Previews */}
       <SpiritualEssentialsSection />
 
+      {/* 6. Community Showcase 1: Mosque Sync & Live Iqamah Times */}
+      <MosqueSyncSection />
+
+      {/* 7. Community Showcase 2: Nearby Halal Food & Grocery Directory */}
+      <HalalFinderSection />
+
+      {/* 8. Community Showcase 3: Islamic Community Events & Gatherings */}
+      <EventsShowcaseSection />
+
       {/* Target Section Anchor Placeholders for Subsequent Roadmap Phases */}
       <div className="sr-only">
-        <section id="halal-finder" aria-label="Nearby Halal Section Anchor" />
-        <section id="community" aria-label="Mosques and Events Section Anchor" />
         <section id="about" aria-label="About Section Anchor" />
         <section id="download" aria-label="Download App Section Anchor" />
       </div>
