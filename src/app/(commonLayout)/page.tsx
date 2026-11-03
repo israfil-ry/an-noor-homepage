@@ -6,6 +6,9 @@ import { SpiritualEssentialsSection } from "@/components/homePage/SpiritualEssen
 import { MosqueSyncSection } from "@/components/homePage/MosqueSyncSection/MosqueSyncSection";
 import { HalalFinderSection } from "@/components/homePage/HalalFinderSection/HalalFinderSection";
 import { EventsShowcaseSection } from "@/components/homePage/EventsShowcaseSection/EventsShowcaseSection";
+import { TrustPledgeSection } from "@/components/homePage/TrustPledgeSection/TrustPledgeSection";
+import { FaqSection } from "@/components/homePage/FaqSection/FaqSection";
+import { CtaDownloadBanner } from "@/components/homePage/CtaDownloadBanner/CtaDownloadBanner";
 
 export default function HomePage() {
   return (
@@ -34,11 +37,14 @@ export default function HomePage() {
       {/* 8. Community Showcase 3: Islamic Community Events & Gatherings */}
       <EventsShowcaseSection />
 
-      {/* Target Section Anchor Placeholders for Subsequent Roadmap Phases */}
-      <div className="sr-only">
-        <section id="about" aria-label="About Section Anchor" />
-        <section id="download" aria-label="Download App Section Anchor" />
-      </div>
+      {/* 9. Trust, Ethics & Privacy Pledge Component (#about) */}
+      <TrustPledgeSection />
+
+      {/* 10. Frequently Asked Questions Accordion (#faq) */}
+      <FaqSection />
+
+      {/* 11. High-Converting App Store Download CTA Banner (#download) */}
+      <CtaDownloadBanner />
     </div>
   );
 }

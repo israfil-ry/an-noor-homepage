@@ -1,0 +1,86 @@
+import { HugeiconsIcon } from "@hugeicons/react";
+import { SmartPhone01Icon, ShieldCheckIcon } from "@hugeicons/core-free-icons";
+import { Badge } from "@/components/ui/badge";
+import { AppDownloadBadges } from "@/components/shared/AppDownloadBadges";
+import { CtaQrScannerBox } from "./CtaQrScannerBox";
+import { CtaMockupVisual } from "./CtaMockupVisual";
+import { cn } from "@/lib/utils";
+
+export interface CtaDownloadBannerProps {
+  className?: string;
+}
+
+export function CtaDownloadBanner({ className }: CtaDownloadBannerProps) {
+  return (
+    <section
+      id="download"
+      aria-label="Download An-Noor App"
+      className={cn("w-full py-16 sm:py-24 bg-background", className)}
+    >
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="relative overflow-hidden rounded-[2.5rem] bg-gradient-to-br from-brand-emerald-dark via-primary to-brand-emerald p-8 sm:p-12 lg:p-16 text-primary-foreground shadow-2xl">
+          {/* Subtle Ambient Decorative Circles */}
+          <div className="absolute top-0 right-0 -mt-16 -mr-16 size-96 rounded-full bg-primary-foreground/5 blur-3xl pointer-events-none" />
+          <div className="absolute bottom-0 left-0 -mb-16 -ml-16 size-96 rounded-full bg-primary-foreground/5 blur-3xl pointer-events-none" />
+
+          <div className="relative grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+            {/* Left Column: Conversion Copy & Actions */}
+            <div className="lg:col-span-7 flex flex-col items-start text-left">
+              <Badge
+                variant="outline"
+                className="mb-4 inline-flex items-center gap-1.5 py-1 px-3.5 text-xs font-semibold border-primary-foreground/30 bg-primary-foreground/10 text-primary-foreground rounded-full shadow-2xs backdrop-blur-xs"
+              >
+                <HugeiconsIcon icon={SmartPhone01Icon} size={14} />
+                <span>Download Official Android App</span>
+              </Badge>
+
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-primary-foreground leading-[1.12]">
+                Begin Your Daily Journey with{" "}
+                <span className="underline decoration-primary-foreground/30 underline-offset-8">
+                  An-Noor
+                </span>{" "}
+                Today
+              </h2>
+
+              <p className="mt-4 sm:mt-5 text-sm sm:text-base text-primary-foreground/90 leading-relaxed max-w-xl">
+                Experience accurate prayer calculations, live mosque Iqamah
+                synchronization, verified nearby halal food, and sacred knowledge—beautifully
+                unified and 100% ad-free.
+              </p>
+
+              {/* Conversion Actions Group */}
+              <div className="mt-8 flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-4 w-full">
+                <AppDownloadBadges
+                  variant="hero"
+                  showDirectApk={true}
+                  className="[&_a]:border-primary-foreground/20"
+                />
+
+                <CtaQrScannerBox className="hidden md:flex" />
+              </div>
+
+              {/* Trust Guarantee Footnote */}
+              <div className="mt-6 flex items-center gap-2 text-xs text-primary-foreground/80">
+                <HugeiconsIcon
+                  icon={ShieldCheckIcon}
+                  size={15}
+                  className="shrink-0 text-primary-foreground"
+                />
+                <span>
+                  Compatible with Android 8.0+ • 100% Free &amp; Ad-Free • No Data
+                  Monetization
+                </span>
+              </div>
+            </div>
+
+            {/* Right Column: Visual Centerpiece Phone Mockup */}
+            <div className="lg:col-span-5 flex justify-center lg:justify-end">
+              <CtaMockupVisual />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
