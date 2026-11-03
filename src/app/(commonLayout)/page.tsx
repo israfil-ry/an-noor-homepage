@@ -1,8 +1,8 @@
-import { HeroSection } from "@/components/homePage/HeroSection";
-import { PrayerSnapshotSection } from "@/components/homePage/PrayerSnapshotSection";
-import { QuickPillarsSection } from "@/components/homePage/QuickPillarsSection";
-import { FeatureEcosystemSection } from "@/components/homePage/FeatureEcosystemSection";
-import { SpiritualEssentialsSection } from "@/components/homePage/SpiritualEssentialsSection";
+import { HeroSection } from "@/components/homePage/HeroSection/HeroSection";
+import { PrayerSnapshotSection } from "@/components/homePage/PrayerSnapshotSection/PrayerSnapshotSection";
+import { QuickPillarsSection } from "@/components/homePage/QuickPillarsSection/QuickPillarsSection";
+import { FeatureEcosystemSection } from "@/components/homePage/FeatureEcosystemSection/FeatureEcosystemSection";
+import { SpiritualEssentialsSection } from "@/components/homePage/SpiritualEssentialsSection/SpiritualEssentialsSection";
 
 export default function HomePage() {
   return (
