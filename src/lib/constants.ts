@@ -70,11 +70,11 @@ export const FOOTER_CATEGORIES: readonly FooterCategory[] = [
   {
     title: "Legal & Trust",
     links: [
-      { label: "Privacy Policy", href: "#privacy" },
-      { label: "Terms of Service", href: "#terms" },
+      { label: "Privacy Policy", href: "privacy-policy" },
+      { label: "Terms of Service", href: "terms-and-conditions" },
       { label: "Ad-Free & Ethics Pledge", href: "#about" },
       { label: "Data Integrity & Verification", href: "#about" },
-      { label: "Contact & Support", href: "mailto:support@annoor.app" },
+      { label: "Contact & Support", href: "contact" },
     ],
   },
 ] as const;
