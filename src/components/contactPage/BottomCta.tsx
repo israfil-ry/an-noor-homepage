@@ -15,7 +15,7 @@ export default function ContactCTA() {
 
       <Link
         href="mailto:annoor@annoor.app"
-        className="mt-6 inline-flex h-12 items-center justify-center rounded-xl bg-emerald-700 px-6 font-semibold text-white transition-colors hover:bg-emerald-800"
+        className="mt-6 inline-flex h-12 items-center justify-center rounded-full bg-emerald-700 px-6 font-semibold text-white transition-colors hover:bg-emerald-800"
       >
         <Mail className="mr-2 h-4 w-4" />
         Email AnNoor

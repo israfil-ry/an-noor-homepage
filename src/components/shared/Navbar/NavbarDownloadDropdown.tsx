@@ -29,10 +29,14 @@ export function NavbarDownloadDropdown({
           render={
             <Button
               size="sm"
-              className="gap-1.5 rounded-xl bg-primary text-primary-foreground font-medium shadow-xs hover:bg-primary-hover active:scale-[0.98] min-h-[38px] px-3.5 cursor-pointer select-none"
+              className="gap-1.5 rounded-full bg-primary text-primary-foreground font-medium shadow-xs hover:bg-primary-hover active:scale-[0.98] min-h-[38px] px-3.5 cursor-pointer select-none"
               aria-label="Download An-Noor App options"
             >
-              <HugeiconsIcon icon={Download01Icon} size={15} strokeWidth={1.5} />
+              <HugeiconsIcon
+                icon={Download01Icon}
+                size={15}
+                strokeWidth={1.5}
+              />
               <span>Get The App</span>
               <HugeiconsIcon
                 icon={ChevronDownIcon}
