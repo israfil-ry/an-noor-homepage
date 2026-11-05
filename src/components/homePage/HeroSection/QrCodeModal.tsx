@@ -12,6 +12,8 @@ import {
 } from "@/components/ui/dialog";
 import { QrPlatformCard } from "./QrPlatformCard";
 import { cn } from "@/lib/utils";
+import GooglePlayButton from "@/components/shared/GooglePlayButton";
+import AppStoreButton from "@/components/shared/AppStoreButton";
 
 export interface QrCodeModalProps {
   className?: string;
@@ -27,24 +29,25 @@ export function QrCodeModal({ className, defaultOpen }: QrCodeModalProps) {
             type="button"
             aria-label="Scan QR Code to Download An-Noor"
             className={cn(
-              "group inline-flex items-center gap-2.5 rounded-xl border border-border/40 bg-foreground text-background font-medium transition-all duration-200 hover:opacity-90 active:scale-[0.98] focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring h-[44px] px-3.5 sm:px-4 cursor-pointer select-none shadow-xs",
-              className
+              "group inline-flex h-[3.25rem] min-w-[10.5rem] items-center gap-3 rounded-2xl bg-[#0f1f14] px-4 text-white shadow-[0_10px_24px_-12px_rgb(15_31_20/0.6)] transition duration-200 hover:-translate-y-0.5 hover active:scale-[0.98] cursor-pointer select-none",
+              className,
             )}
           >
             <HugeiconsIcon
               icon={QrCode01Icon}
-              size={20}
+              size={24}
               strokeWidth={1.8}
-              className="shrink-0 text-background"
+              className="shrink-0 text-white"
             />
-            <div className="flex flex-col text-left leading-tight">
-              <span className="text-[9px] font-normal uppercase tracking-wider text-background/80">
+            <span className="flex flex-col text-start leading-none">
+              <span className="text-[0.68rem] font-medium tracking-wide text-white/70">
                 Scan To Get
               </span>
-              <span className="text-xs sm:text-sm font-semibold tracking-tight">
+
+              <span className="mt-1 font-display text-[1.05rem] font-semibold tracking-tight">
                 QR Code
               </span>
-            </div>
+            </span>
           </button>
         }
       />
@@ -55,7 +58,8 @@ export function QrCodeModal({ className, defaultOpen }: QrCodeModalProps) {
             Download An-Noor App
           </DialogTitle>
           <DialogDescription className="text-xs sm:text-sm text-muted-foreground max-w-md mx-auto">
-            Scan the QR code with your smartphone camera to open the official app store directly.
+            Scan the QR code with your smartphone camera to open the official
+            app store directly.
           </DialogDescription>
         </DialogHeader>
 
@@ -65,23 +69,24 @@ export function QrCodeModal({ className, defaultOpen }: QrCodeModalProps) {
             platform="android"
             title="Android"
             subtitle="For Android 8.0 & above"
-            badgeSrc="/images/badges/google-play-badge.png"
-            badgeAlt="GET IT ON Google Play"
+            DownloadButton={GooglePlayButton}
             badgeHref="#"
+            badgeAlt="Get it on Google Play"
           />
           <QrPlatformCard
             platform="ios"
             title="iPhone & iPad"
             subtitle="For iOS 15.0 & above"
-            badgeSrc="/images/badges/app-store-badge.png"
-            badgeAlt="Download on the App Store"
+            DownloadButton={AppStoreButton}
             badgeHref="#"
+            badgeAlt="Download on the App Store"
           />
         </div>
 
         {/* Trust & Compatibility Footnote */}
         <p className="text-center text-xs text-muted-foreground pt-2 border-t border-border">
-          Compatible with Android 8.0+ and iOS 15.0+. 100% free, ad-free & privacy-respecting.
+          Compatible with Android 8.0+ and iOS 15.0+. 100% free, ad-free &
+          privacy-respecting.
         </p>
       </DialogContent>
     </Dialog>

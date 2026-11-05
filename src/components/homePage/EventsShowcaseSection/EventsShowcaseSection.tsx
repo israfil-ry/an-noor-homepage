@@ -47,7 +47,7 @@ export function EventsShowcaseSection({
       aria-label="Islamic Community Events Showcase"
       className={cn(
         "w-full py-16 sm:py-24 bg-gradient-to-b from-background via-muted/20 to-background border-t border-border/60",
-        className
+        className,
       )}
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -89,7 +89,7 @@ export function EventsShowcaseSection({
           <div className="lg:col-span-6 flex flex-col items-start text-left">
             <Badge
               variant="outline"
-              className="mb-4 inline-flex items-center gap-1.5 py-1 px-3.5 text-xs font-semibold border-primary/25 bg-primary/5 text-primary rounded-full shadow-2xs"
+              className="mb-4 inline-flex items-center gap-1.5 p-3 text-xs font-semibold border-primary/25 bg-primary/5 text-primary rounded-full shadow-2xs"
             >
               <HugeiconsIcon icon={Calendar01Icon} size={14} />
               <span>Islamic Community Events</span>
@@ -104,7 +104,10 @@ export function EventsShowcaseSection({
             </h2>
 
             <p className="mt-4 text-sm sm:text-base text-muted-foreground leading-relaxed">
-              Strengthen brotherhood and sisterhood across your diaspora community. An-Noor unifies local Islamic center events, visiting scholar seminars, youth sports tournaments, and sisters&apos; study circles in one reliable, ad-free calendar.
+              Strengthen brotherhood and sisterhood across your diaspora
+              community. An-Noor unifies local Islamic center events, visiting
+              scholar seminars, youth sports tournaments, and sisters&apos;
+              study circles in one reliable, ad-free calendar.
             </p>
 
             {/* 3 Core Value Props */}
@@ -115,7 +118,11 @@ export function EventsShowcaseSection({
                   className="group flex items-start gap-3.5 rounded-2xl border border-border/70 bg-card/60 p-3.5 sm:p-4 transition-all duration-200 hover:border-primary/30 hover:bg-card shadow-2xs"
                 >
                   <div className="flex size-10 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary transition-colors duration-200 group-hover:bg-primary group-hover:text-primary-foreground shadow-2xs">
-                    <HugeiconsIcon icon={pillar.icon} size={20} strokeWidth={1.5} />
+                    <HugeiconsIcon
+                      icon={pillar.icon}
+                      size={20}
+                      strokeWidth={1.5}
+                    />
                   </div>
                   <div>
                     <h3 className="text-sm font-bold text-foreground">
@@ -137,7 +144,8 @@ export function EventsShowcaseSection({
                 className="text-primary shrink-0"
               />
               <span>
-                All community events are vetted by local partner Islamic organizations.
+                All community events are vetted by local partner Islamic
+                organizations.
               </span>
             </div>
           </div>
@@ -146,4 +154,3 @@ export function EventsShowcaseSection({
     </section>
   );
 }
-

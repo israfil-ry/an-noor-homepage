@@ -11,9 +11,9 @@ export default function ContactHero() {
       </div>
 
       <div className="mx-auto max-w-7xl px-5 py-20 text-center sm:px-8 sm:py-24 lg:py-28">
-        <div className="mx-auto mb-6 flex h-14 w-14 items-center justify-center rounded-2xl border border-white/15 bg-white/10 text-emerald-200 shadow-lg backdrop-blur">
+        {/* <div className="mx-auto mb-6 flex h-14 w-14 items-center justify-center rounded-2xl border border-white/15 bg-white/10 text-emerald-200 shadow-lg backdrop-blur">
           <MessageCircle className="h-7 w-7" />
-        </div>
+        </div> */}
 
         <p className="mb-4 text-sm font-semibold uppercase tracking-[0.2em] text-emerald-300">
           We&apos;re here to help

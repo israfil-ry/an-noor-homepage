@@ -13,10 +13,7 @@ import { Badge } from "@/components/ui/badge";
 import { HalalCategoryPills } from "./HalalCategoryPills";
 import { HalalPlaceCard } from "./HalalPlaceCard";
 import { HalalPreviewDialog } from "./HalalPreviewDialog";
-import {
-  HalalCategory,
-  FEATURED_HALAL_PLACES,
-} from "@/types/community.types";
+import { HalalCategory, FEATURED_HALAL_PLACES } from "@/types/community.types";
 import { cn } from "@/lib/utils";
 
 export interface HalalFinderSectionProps {
@@ -45,7 +42,8 @@ const HALAL_PILLARS = [
 ] as const;
 
 export function HalalFinderSection({ className }: HalalFinderSectionProps) {
-  const [selectedCategory, setSelectedCategory] = useState<HalalCategory>("all");
+  const [selectedCategory, setSelectedCategory] =
+    useState<HalalCategory>("all");
 
   const filteredPlaces =
     selectedCategory === "all"
@@ -60,7 +58,7 @@ export function HalalFinderSection({ className }: HalalFinderSectionProps) {
       aria-label="Nearby Halal Directory Showcase"
       className={cn(
         "w-full py-16 sm:py-24 bg-gradient-to-b from-background via-muted/30 to-background border-t border-border/60",
-        className
+        className,
       )}
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -69,7 +67,7 @@ export function HalalFinderSection({ className }: HalalFinderSectionProps) {
           <div className="lg:col-span-6 flex flex-col items-start text-left order-2 lg:order-1">
             <Badge
               variant="outline"
-              className="mb-4 inline-flex items-center gap-1.5 py-1 px-3.5 text-xs font-semibold border-primary/25 bg-primary/5 text-primary rounded-full shadow-2xs"
+              className="mb-4 inline-flex items-center gap-1.5 p-3 text-xs font-semibold border-primary/25 bg-primary/5 text-primary rounded-full shadow-2xs"
             >
               <HugeiconsIcon icon={Restaurant01Icon} size={14} />
               <span>USA &amp; Diaspora Halal Directory</span>
@@ -84,7 +82,11 @@ export function HalalFinderSection({ className }: HalalFinderSectionProps) {
             </h2>
 
             <p className="mt-4 text-sm sm:text-base text-muted-foreground leading-relaxed">
-              Finding genuine hand-slaughtered Halal dining and trustworthy grocery stores across Western metropolitan areas can be difficult. An-Noor eliminates the guesswork with community-verified directories, transparent certification tags, and real patron ratings.
+              Finding genuine hand-slaughtered Halal dining and trustworthy
+              grocery stores across Western metropolitan areas can be difficult.
+              An-Noor eliminates the guesswork with community-verified
+              directories, transparent certification tags, and real patron
+              ratings.
             </p>
 
             {/* Interactive Category Selector */}
@@ -106,7 +108,11 @@ export function HalalFinderSection({ className }: HalalFinderSectionProps) {
                   className="group flex items-start gap-3.5 rounded-2xl border border-border/70 bg-card/60 p-3.5 sm:p-4 transition-all duration-200 hover:border-primary/30 hover:bg-card shadow-2xs"
                 >
                   <div className="flex size-10 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary transition-colors duration-200 group-hover:bg-primary group-hover:text-primary-foreground shadow-2xs">
-                    <HugeiconsIcon icon={pillar.icon} size={20} strokeWidth={1.5} />
+                    <HugeiconsIcon
+                      icon={pillar.icon}
+                      size={20}
+                      strokeWidth={1.5}
+                    />
                   </div>
                   <div>
                     <h3 className="text-sm font-bold text-foreground">
