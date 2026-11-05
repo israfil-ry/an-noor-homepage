@@ -29,7 +29,7 @@ export function GooglePlayBadge({
       aria-label="Download An-Noor on Google Play"
       className={cn(
         "group relative inline-flex items-center justify-center transition-all duration-200 hover:opacity-90 active:scale-[0.98] focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring rounded-xl select-none shrink-0",
-        className
+        className,
       )}
     >
       <Image
@@ -40,10 +40,9 @@ export function GooglePlayBadge({
         priority={priority}
         className={cn(
           SIZE_CLASSES[size],
-          "w-auto rounded-xl object-contain shadow-xs transition-shadow duration-200 group-hover:shadow-md"
+          "w-auto rounded-xl object-contain shadow-xs transition-shadow duration-200 group-hover:shadow-md",
         )}
       />
     </Link>
   );
 }
-

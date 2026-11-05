@@ -12,9 +12,9 @@ export default function ContactInformation() {
       <div className="pointer-events-none absolute -bottom-28 -left-20 h-64 w-64 rounded-full bg-teal-500/20 blur-3xl" />
 
       <div className="relative">
-        <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl border border-white/10 bg-white/10 text-emerald-300">
+        {/* <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl border border-white/10 bg-white/10 text-emerald-300">
           <MessageCircle className="h-7 w-7" />
-        </div>
+        </div> */}
 
         <p className="text-sm font-semibold uppercase tracking-widest text-emerald-300">
           Contact Information

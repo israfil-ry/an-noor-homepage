@@ -84,7 +84,7 @@ export const APP_CONFIG = {
   arabicName: "النور",
   tagline: "Your Daily Islamic Companion & Local Halal Living Guide",
   subTagline:
-    "Accurate prayer times, live mosque Iqamah sync, verified halal dining, and sacred knowledge—beautifully unified and 100% ad-free.",
+    "Accurate prayer times, live mosque Iqamah sync, verified halal dining, and sacred knowledge beautifully unified and 100% ad-free.",
   defaultLocation: "Irving, TX",
   playStoreUrl: "https://play.google.com/store/apps/details?id=com.annoor.app",
   appStoreUrl: "https://apps.apple.com/app/an-noor/id0000000000",

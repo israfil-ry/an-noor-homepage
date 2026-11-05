@@ -1,6 +1,8 @@
 import { GooglePlayBadge, BadgeSize } from "./GooglePlayBadge";
 import { AppStoreBadge } from "./AppStoreBadge";
 import { cn } from "@/lib/utils";
+import GooglePlayButton from "./GooglePlayButton";
+import AppStoreButton from "./AppStoreButton";
 
 export interface StoreDownloadBadgesProps {
   className?: string;
@@ -29,28 +31,31 @@ export function StoreDownloadBadges({
     <div
       className={cn(
         "flex items-center",
-        isColumn ? "flex-col gap-2.5 w-full" : "flex-row flex-wrap gap-3 sm:gap-3.5",
-        className
+        isColumn
+          ? "flex-col gap-2.5 w-full"
+          : "flex-row flex-wrap gap-3 sm:gap-3.5",
+        className,
       )}
     >
       {showGooglePlay && (
-        <GooglePlayBadge
-          size={size}
-          href={googlePlayHref}
-          priority={priority}
-          className={isColumn ? "w-full justify-center" : undefined}
-        />
+        // <GooglePlayBadge
+        //   size={size}
+        //   href={googlePlayHref}
+        //   priority={priority}
+        //   className={isColumn ? "w-full justify-center" : undefined}
+        // />
+        <GooglePlayButton url="#" />
       )}
 
       {showAppStore && (
-        <AppStoreBadge
-          size={size}
-          href={appStoreHref}
-          priority={priority}
-          className={isColumn ? "w-full justify-center" : undefined}
-        />
+        // <AppStoreBadge
+        //   size={size}
+        //   href={appStoreHref}
+        //   priority={priority}
+        //   className={isColumn ? "w-full justify-center" : undefined}
+        // />
+        <AppStoreButton url="#" />
       )}
     </div>
   );
 }
-

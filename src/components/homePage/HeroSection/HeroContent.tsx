@@ -14,15 +14,15 @@ export function HeroContent({ className }: HeroContentProps) {
     <div
       className={cn(
         "flex flex-col items-center lg:items-start text-center lg:text-left",
-        className
+        className,
       )}
     >
       {/* Trust Tag Badge */}
       <Badge
         variant="outline"
-        className="mb-6 inline-flex items-center gap-2 py-1.5 px-4 text-xs font-medium border-primary/25 bg-primary/5 text-primary rounded-full shadow-xs"
+        className="mb-6 inline-flex items-center gap-2 p-3 text-xs font-medium border-primary/25 bg-primary/5 text-primary rounded-full shadow-xs"
       >
-        <span className="size-2 rounded-full bg-accent animate-pulse" />
+        {/* <span className="size-2 rounded-full bg-accent animate-pulse" /> */}
         <span>100% Free • Ad-Free • Built for the Global Ummah</span>
       </Badge>
 
