@@ -17,7 +17,7 @@ export function TrustPledgeSection({ className }: TrustPledgeSectionProps) {
       aria-label="Ethics and Privacy Pledge"
       className={cn(
         "w-full py-16 sm:py-24 bg-gradient-to-b from-background via-muted/30 to-background border-t border-border/60",
-        className
+        className,
       )}
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -25,7 +25,7 @@ export function TrustPledgeSection({ className }: TrustPledgeSectionProps) {
         <div className="mx-auto max-w-3xl text-center mb-12 sm:mb-16">
           <Badge
             variant="outline"
-            className="mb-4 inline-flex items-center gap-1.5 py-1 px-3.5 text-xs font-semibold border-primary/25 bg-primary/5 text-primary rounded-full shadow-2xs"
+            className="mb-4 inline-flex items-center gap-1.5 p-3 text-xs font-semibold border-primary/25 bg-primary/5 text-primary rounded-full shadow-2xs"
           >
             <HugeiconsIcon icon={ShieldCheckIcon} size={14} />
             <span>Ethical &amp; Privacy-First Promise</span>
@@ -39,9 +39,9 @@ export function TrustPledgeSection({ className }: TrustPledgeSectionProps) {
           </h2>
 
           <p className="mt-4 text-sm sm:text-base text-muted-foreground leading-relaxed max-w-2xl mx-auto">
-            We designed An-Noor with a sacred foundation: daily spiritual devotion
-            must never be compromised by commercial advertisements, invasive tracking,
-            or data monetization.
+            We designed An-Noor with a sacred foundation: daily spiritual
+            devotion must never be compromised by commercial advertisements,
+            invasive tracking, or data monetization.
           </p>
         </div>
 
@@ -58,4 +58,3 @@ export function TrustPledgeSection({ className }: TrustPledgeSectionProps) {
     </section>
   );
 }
-

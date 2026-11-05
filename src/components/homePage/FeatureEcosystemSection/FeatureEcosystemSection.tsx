@@ -26,7 +26,7 @@ export function FeatureEcosystemSection({
         <div className="flex flex-col items-center text-center max-w-3xl mx-auto mb-10 sm:mb-14">
           <Badge
             variant="outline"
-            className="mb-4 inline-flex items-center gap-1.5 py-1 px-3.5 text-xs font-semibold border-primary/25 bg-primary/5 text-primary rounded-full shadow-xs"
+            className="mb-4 inline-flex items-center gap-1.5 p-3 text-xs font-semibold border-primary/25 bg-primary/5 text-primary rounded-full shadow-xs"
           >
             <span>Comprehensive Islamic Ecosystem</span>
           </Badge>

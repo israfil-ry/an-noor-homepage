@@ -33,7 +33,7 @@ export function FaqSection({ className }: FaqSectionProps) {
       aria-label="Frequently Asked Questions"
       className={cn(
         "w-full py-16 sm:py-24 bg-background border-t border-border/60",
-        className
+        className,
       )}
     >
       <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
@@ -41,7 +41,7 @@ export function FaqSection({ className }: FaqSectionProps) {
         <div className="text-center mb-10 sm:mb-14">
           <Badge
             variant="outline"
-            className="mb-4 inline-flex items-center gap-1.5 py-1 px-3.5 text-xs font-semibold border-primary/25 bg-primary/5 text-primary rounded-full shadow-2xs"
+            className="mb-4 inline-flex items-center gap-1.5 p-3 text-xs font-semibold border-primary/25 bg-primary/5 text-primary rounded-full shadow-2xs"
           >
             <HugeiconsIcon icon={HelpCircleIcon} size={14} />
             <span>Frequently Asked Questions</span>
@@ -80,4 +80,3 @@ export function FaqSection({ className }: FaqSectionProps) {
     </section>
   );
 }
-

@@ -115,6 +115,17 @@ export const FEATURE_ITEMS: readonly FeatureItem[] = [
     badgeText: "Community",
     href: "#community",
   },
+  {
+  id: "daily-hadith",
+  title: "Daily Hadith",
+  subtitle: "Daily prophetic wisdom",
+  description:
+    "Discover a daily Hadith to inspire reflection and good deeds.",
+  category: "worship",
+  iconName: "book",
+  badgeText: "Daily Worship",
+  href: "#daily-hadith",
+},
 ] as const;
 
 
