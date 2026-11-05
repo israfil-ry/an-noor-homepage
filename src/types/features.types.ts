@@ -36,24 +36,14 @@ export interface SpiritualToolItem {
   previewDetails: readonly string[];
 }
 
+
 export const FEATURE_ITEMS: readonly FeatureItem[] = [
   {
-    id: "prayer-times",
-    title: "Accurate Prayer Times & Azan",
-    subtitle: "Astronomical precision with Adhan alerts",
-    description:
-      "Calculated using verified international standards with custom angle adjustments, audio Azan notifications, and real-time countdown to the next prayer.",
-    category: "worship",
-    iconName: "clock",
-    badgeText: "Daily Worship",
-    href: "#prayer-times",
-  },
-  {
     id: "qibla-direction",
-    title: "Qibla Direction Finder",
-    subtitle: "High-precision Kaaba compass",
+    title: "Qibla Finder",
+    subtitle: "Find the direction of Makkah",
     description:
-      "Calibrated compass with magnetic declination correction and augmented reality camera view, pointing directly to Makkah from anywhere on Earth.",
+      "Find the Kaaba direction with a precise compass.",
     category: "worship",
     iconName: "compass",
     badgeText: "Daily Worship",
@@ -61,32 +51,21 @@ export const FEATURE_ITEMS: readonly FeatureItem[] = [
   },
   {
     id: "ramadan-fasting",
-    title: "Ramadan & Fasting Schedule",
-    subtitle: "Sehri & Iftar timetable alerts",
+    title: "Ramadan & Fasting",
+    subtitle: "Sehri & Iftar reminders",
     description:
-      "Daily fasting countdowns, personalized Imsak notifications, and customizable Sunnah fasting reminders for Mondays, Thursdays, and White Days.",
+      "Sehri, Iftar and Sunnah fasting reminders.",
     category: "worship",
     iconName: "moon",
     badgeText: "Daily Worship",
     href: "#prayer-times",
   },
   {
-    id: "holy-quran",
-    title: "The Holy Quran & Audio",
-    subtitle: "Arabic text, English translation & audio",
-    description:
-      "Crystal-clear Uthmani script with verse-by-verse translation, customizable reading typography, audio recitations by renowned Qaris, and bookmarks.",
-    category: "worship",
-    iconName: "quran",
-    badgeText: "Daily Worship",
-    href: "#spiritual-tools",
-  },
-  {
     id: "duas-supplications",
-    title: "Duas & Hisnul Muslim",
-    subtitle: "Authentic prophetic supplications",
+    title: "Duas & Adhkar",
+    subtitle: "Daily prophetic supplications",
     description:
-      "Categorized daily Adhkar for morning, evening, travel, and distress, complete with Arabic text, English transliteration, and sahih hadith references.",
+      "Authentic daily supplications for every occasion.",
     category: "worship",
     iconName: "book",
     badgeText: "Daily Worship",
@@ -94,10 +73,10 @@ export const FEATURE_ITEMS: readonly FeatureItem[] = [
   },
   {
     id: "digital-tasbih",
-    title: "Digital Tasbih & Dhikr",
-    subtitle: "Minimalist counter with haptic feedback",
+    title: "Digital Tasbih",
+    subtitle: "Simple digital Dhikr counter",
     description:
-      "Gentle tactile vibration, custom target counts, daily amal streak history, and preset morning/evening tasbihat for focused remembrance of Allah.",
+      "Track your Dhikr with a simple digital counter.",
     category: "worship",
     iconName: "tasbih",
     badgeText: "Daily Worship",
@@ -105,10 +84,10 @@ export const FEATURE_ITEMS: readonly FeatureItem[] = [
   },
   {
     id: "mosque-sync",
-    title: "Nearby Mosque Sync & Iqamah",
-    subtitle: "Direct Islamic Center connection",
+    title: "Mosque & Iqamah",
+    subtitle: "Stay connected with local mosques",
     description:
-      "Sync with your local mosque timetable, check verified Iqamah congregation times, receive push alerts before prayer begins, and donate directly.",
+      "View local mosque prayer times and Iqamah updates.",
     category: "community",
     iconName: "mosque",
     badgeText: "Community",
@@ -116,10 +95,10 @@ export const FEATURE_ITEMS: readonly FeatureItem[] = [
   },
   {
     id: "halal-finder",
-    title: "Nearby Halal Directory",
-    subtitle: "Restaurants, butchers & supermarkets",
+    title: "Halal Directory",
+    subtitle: "Find trusted halal places",
     description:
-      "Curated directory of certified hand-slaughtered halal eateries and grocery stores with community reviews, certification tags, and directions.",
+      "Discover trusted halal restaurants and grocery stores.",
     category: "community",
     iconName: "restaurant",
     badgeText: "Community",
@@ -127,16 +106,17 @@ export const FEATURE_ITEMS: readonly FeatureItem[] = [
   },
   {
     id: "community-events",
-    title: "Islamic Community Events",
-    subtitle: "Local halaqas, lectures & dinners",
+    title: "Islamic Events",
+    subtitle: "Local gatherings and programs",
     description:
-      "Discover upcoming Islamic lectures, guest scholar tours, family dinners, and youth programs with instant one-tap calendar synchronization.",
+      "Explore local lectures, gatherings and Islamic events.",
     category: "community",
     iconName: "calendar",
     badgeText: "Community",
     href: "#community",
   },
 ] as const;
+
 
 export const SPIRITUAL_TOOLS: readonly SpiritualToolItem[] = [
   {
