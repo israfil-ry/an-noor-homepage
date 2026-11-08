@@ -43,14 +43,14 @@ export function TrustPledgeSection({ className }: TrustPledgeSectionProps) {
         </div>
 
         {/* 3 Trust Pillar Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 mb-12 sm:mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
           {TRUST_PILLARS.map((pillar) => (
             <TrustPledgeCard key={pillar.id} pillar={pillar} />
           ))}
         </div>
 
         {/* 4-Point Guarantee Strip */}
-        <TrustMetricsStrip metrics={TRUST_METRICS} />
+        {/* <TrustMetricsStrip metrics={TRUST_METRICS} /> */}
       </div>
     </section>
   );

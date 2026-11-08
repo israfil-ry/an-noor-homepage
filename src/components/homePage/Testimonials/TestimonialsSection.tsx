@@ -3,6 +3,7 @@ import { Marquee } from "@/components/shared/Marquee";
 import { TestimonialCard } from "./TestimonialCard";
 import { TESTIMONIALS } from "@/lib/constants";
 import { cn } from "@/lib/utils";
+import { StoreDownloadBadges } from "@/components/shared/StoreDownloadBadges";
 
 export interface TestimonialsSectionProps {
   className?: string;
@@ -49,6 +50,15 @@ export function TestimonialsSection({ className }: TestimonialsSectionProps) {
           <TestimonialCard key={testimonial.id} testimonial={testimonial} />
         ))}
       </Marquee>
+
+      <div className="mx-auto my-4 max-w-7xl px-4 sm:px-6 lg:px-8 flex justify-center">
+        <StoreDownloadBadges
+          size="sm"
+          direction="row"
+          googlePlayHref="#"
+          appStoreHref="#"
+        />
+      </div>
     </section>
   );
 }

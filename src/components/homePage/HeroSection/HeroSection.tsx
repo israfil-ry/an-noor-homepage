@@ -1,6 +1,6 @@
 import { HeroContent } from "./HeroContent";
-import { HeroMockupPreview } from "./HeroMockupPreview";
 import { cn } from "@/lib/utils";
+import Image from "next/image";
 
 export interface HeroSectionProps {
   className?: string;
@@ -22,13 +22,19 @@ export function HeroSection({ className }: HeroSectionProps) {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
           {/* Left Column: Value Proposition & Conversion Actions */}
-          <div className="lg:col-span-7">
+          <div className="lg:col-span-6">
             <HeroContent />
           </div>
 
           {/* Right Column: Native Mobile Phone Mockup & Floating Contextual Cards */}
-          <div className="lg:col-span-5">
-            <HeroMockupPreview />
+          <div className="lg:col-span-6">
+            {/* <HeroMockupPreview /> */}
+            <Image
+              src="/images/app/hero-mockup-preview.png"
+              alt="An-Noor App Mockup Preview"
+              width={1200}
+              height={2400}
+            />
           </div>
         </div>
       </div>

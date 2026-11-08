@@ -48,7 +48,7 @@ export function HeroMockupPreview({ className }: HeroMockupPreviewProps) {
     <div
       className={cn(
         "relative flex flex-col items-center justify-center py-6 select-none",
-        className
+        className,
       )}
     >
       {/* Background Ambient Glow */}
@@ -68,7 +68,11 @@ export function HeroMockupPreview({ className }: HeroMockupPreviewProps) {
           {/* Mobile Screen Header */}
           <div className="flex items-center justify-between px-4 py-2 border-b border-border/40 bg-muted/30">
             <div className="flex items-center gap-1.5">
-              <HugeiconsIcon icon={Location01Icon} size={13} className="text-primary shrink-0" />
+              <HugeiconsIcon
+                icon={Location01Icon}
+                size={13}
+                className="text-primary shrink-0"
+              />
               <span className="text-[11px] font-medium text-foreground truncate max-w-[90px]">
                 Irving, TX
               </span>
@@ -110,19 +114,35 @@ export function HeroMockupPreview({ className }: HeroMockupPreviewProps) {
             {/* Quick Action Pills in Phone */}
             <div className="grid grid-cols-4 gap-1.5 text-center">
               <div className="flex flex-col items-center gap-1 rounded-xl bg-muted/60 p-2 text-foreground">
-                <HugeiconsIcon icon={Compass01Icon} size={16} className="text-primary" />
+                <HugeiconsIcon
+                  icon={Compass01Icon}
+                  size={16}
+                  className="text-primary"
+                />
                 <span className="text-[9px] font-medium">Qibla</span>
               </div>
               <div className="flex flex-col items-center gap-1 rounded-xl bg-muted/60 p-2 text-foreground">
-                <HugeiconsIcon icon={Quran01Icon} size={16} className="text-primary" />
+                <HugeiconsIcon
+                  icon={Quran01Icon}
+                  size={16}
+                  className="text-primary"
+                />
                 <span className="text-[9px] font-medium">Quran</span>
               </div>
               <div className="flex flex-col items-center gap-1 rounded-xl bg-muted/60 p-2 text-foreground">
-                <HugeiconsIcon icon={Restaurant01Icon} size={16} className="text-primary" />
+                <HugeiconsIcon
+                  icon={Restaurant01Icon}
+                  size={16}
+                  className="text-primary"
+                />
                 <span className="text-[9px] font-medium">Halal</span>
               </div>
               <div className="flex flex-col items-center gap-1 rounded-xl bg-muted/60 p-2 text-foreground">
-                <HugeiconsIcon icon={Mosque01Icon} size={16} className="text-primary" />
+                <HugeiconsIcon
+                  icon={Mosque01Icon}
+                  size={16}
+                  className="text-primary"
+                />
                 <span className="text-[9px] font-medium">Mosques</span>
               </div>
             </div>
@@ -130,11 +150,16 @@ export function HeroMockupPreview({ className }: HeroMockupPreviewProps) {
             {/* Simulated Content Feed */}
             <div className="rounded-xl border border-border/60 bg-card p-2.5 space-y-1">
               <div className="flex items-center justify-between text-[10px]">
-                <span className="font-semibold text-foreground">Today&apos;s Hadith</span>
-                <span className="text-primary text-[9px] font-medium">Daily</span>
+                <span className="font-semibold text-foreground">
+                  Today&apos;s Hadith
+                </span>
+                <span className="text-primary text-[9px] font-medium">
+                  Daily
+                </span>
               </div>
               <p className="text-[10px] text-muted-foreground leading-snug line-clamp-2">
-                &ldquo;The best of people are those that bring the most benefit to the rest of mankind.&rdquo;
+                &ldquo;The best of people are those that bring the most benefit
+                to the rest of mankind.&rdquo;
               </p>
             </div>
           </div>

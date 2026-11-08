@@ -27,12 +27,16 @@ export function HeroContent({ className }: HeroContentProps) {
       </Badge>
 
       {/* Value Proposition Headline */}
-      <h1 className="max-w-3xl text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-foreground leading-[1.12]">
-        Your Complete Daily{" "}
+      <h1 className="max-w-3xl text-3xl sm:text-5xl lg:text-[54px] font-bold tracking-tight text-foreground leading-[1.12]">
+        {/* Your Complete Daily{" "}
         <span className="text-primary underline decoration-primary/30 underline-offset-8">
           Islamic Companion
         </span>{" "}
-        & Local Halal Living Guide
+        & Local Halal Living Guide */}
+        Your Faith, Your Community, Your{" "}
+        <span className="text-primary underline decoration-primary/30 underline-offset-8">
+          Everyday Companion{" "}
+        </span>{" "}
       </h1>
 
       {/* Sub-headline */}

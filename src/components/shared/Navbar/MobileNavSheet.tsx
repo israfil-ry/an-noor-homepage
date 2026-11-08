@@ -21,7 +21,10 @@ export interface MobileNavSheetProps {
   defaultOpen?: boolean;
 }
 
-export function MobileNavSheet({ className, defaultOpen = false }: MobileNavSheetProps) {
+export function MobileNavSheet({
+  className,
+  defaultOpen = false,
+}: MobileNavSheetProps) {
   const [open, setOpen] = useState(defaultOpen);
 
   return (
@@ -45,7 +48,7 @@ export function MobileNavSheet({ className, defaultOpen = false }: MobileNavShee
             </SheetHeader>
 
             {/* Location Pill */}
-            <div className="flex items-center">
+            {/* <div className="flex items-center">
               <Badge
                 variant="outline"
                 className="flex items-center gap-1.5 py-1 px-2.5 text-xs font-normal border-border bg-muted/50 text-muted-foreground"
@@ -58,7 +61,7 @@ export function MobileNavSheet({ className, defaultOpen = false }: MobileNavShee
                 />
                 <span>{APP_CONFIG.defaultLocation}</span>
               </Badge>
-            </div>
+            </div> */}
 
             {/* Navigation Anchor Links */}
             <nav aria-label="Mobile Navigation" className="flex flex-col gap-1">

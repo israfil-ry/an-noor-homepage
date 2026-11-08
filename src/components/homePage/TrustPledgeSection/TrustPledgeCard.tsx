@@ -57,7 +57,7 @@ export function TrustPledgeCard({ pillar, className }: TrustPledgeCardProps) {
       </div>
 
       {/* Bullet Highlight List */}
-      <div className="mt-6 pt-5 space-y-2.5">
+      {/* <div className="mt-6 pt-5 space-y-2.5">
         {pillar.highlights.map((highlight) => (
           <div key={highlight} className="flex items-center gap-2.5">
             <HugeiconsIcon
@@ -70,7 +70,7 @@ export function TrustPledgeCard({ pillar, className }: TrustPledgeCardProps) {
             </span>
           </div>
         ))}
-      </div>
+      </div> */}
     </div>
   );
 }

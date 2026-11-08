@@ -104,7 +104,7 @@ export const APP_CONFIG = {
   arabicName: "النور",
   tagline: "Your Daily Islamic Companion & Local Halal Living Guide",
   subTagline:
-    "Accurate prayer times, live mosque Iqamah sync, verified halal dining, and sacred knowledge beautifully unified and 100% ad-free.",
+    "Stay connected with prayer times, Adhan reminders, Quran and Qibla direction. Discover nearby mosques, halal places and local jobs all in one app with AnNoor.",
   defaultLocation: "Irving, TX",
   playStoreUrl: "https://play.google.com/store/apps/details?id=com.annoor.app",
   androidQrCodeUrl: "/AnNoor_App_Google_Play_Store_QR.svg",
