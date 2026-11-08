@@ -28,7 +28,7 @@ export function FaqHelpLinks({ className }: FaqHelpLinksProps) {
       <Link
         href={`tel:${SUPPORT_PHONE}`}
         aria-label={`Call An-Noor Support at ${SUPPORT_PHONE}`}
-        className="inline-flex min-h-[44px] min-w-0 items-center gap-2 rounded-md text-sm font-semibold text-foreground transition-colors duration-200 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+        className="inline-flex min-h-[44px] w-full sm:w-auto min-w-0 items-center justify-center sm:justify-start gap-2 rounded-md text-sm font-semibold text-foreground transition-colors duration-200 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
       >
         <HugeiconsIcon
           icon={Call02Icon}

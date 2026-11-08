@@ -25,20 +25,22 @@ export function TrustPledgeSection({ className }: TrustPledgeSectionProps) {
             className="mb-4 inline-flex items-center gap-1.5 p-3 text-xs font-semibold border-primary/25 bg-primary/5 text-primary rounded-full shadow-2xs"
           >
             {/* <HugeiconsIcon icon={ShieldCheckIcon} size={14} /> */}
-            <span>Ethical &amp; Privacy-First Promise</span>
+            <span>About AnNoor</span>
           </Badge>
 
           <h2 className="text-2xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-foreground leading-[1.15]">
-            Built on Sincerity, Respect, and{" "}
+            Helping You Stay Close to{" "}
             <span className="text-primary underline decoration-primary/30 underline-offset-8">
-              Absolute Privacy
+              {" "}
+              Faith & Community{" "}
             </span>
           </h2>
 
           <p className="mt-4 text-sm sm:text-base text-muted-foreground leading-relaxed max-w-2xl mx-auto">
-            We designed An-Noor with a sacred foundation: daily spiritual
-            devotion must never be compromised by commercial advertisements,
-            invasive tracking, or data monetization.
+            AnNoor brings daily Islamic tools and useful local information
+            together in one app. Our purpose is simple: make it easier to
+            practise your faith, find places you need and stay connected with
+            the people around you.
           </p>
         </div>
 

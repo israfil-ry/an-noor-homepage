@@ -1,9 +1,9 @@
 import { HugeiconsIcon } from "@hugeicons/react";
 import {
   ShieldCheckIcon,
-  SecurityLockIcon,
-  CheckmarkBadge01Icon,
-  CheckmarkCircle01Icon,
+  Clock01Icon,
+  Location01Icon,
+  UserGroupIcon,
 } from "@hugeicons/core-free-icons";
 import { Badge } from "@/components/ui/badge";
 import { TrustPillarItem } from "@/types/trust-faq.types";
@@ -15,9 +15,9 @@ export interface TrustPledgeCardProps {
 }
 
 const ICON_MAP = {
-  shield: ShieldCheckIcon,
-  lock: SecurityLockIcon,
-  verified: CheckmarkBadge01Icon,
+  clock: Clock01Icon,
+  location: Location01Icon,
+  community: UserGroupIcon,
 } as const;
 
 export function TrustPledgeCard({ pillar, className }: TrustPledgeCardProps) {

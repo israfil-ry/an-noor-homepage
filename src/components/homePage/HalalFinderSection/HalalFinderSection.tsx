@@ -4,9 +4,8 @@ import { useState } from "react";
 import Image from "next/image";
 import { HugeiconsIcon } from "@hugeicons/react";
 import {
-  Restaurant01Icon,
-  CheckmarkBadge01Icon,
-  StarIcon,
+  Location01Icon,
+  InformationCircleIcon,
   Navigation01Icon,
 } from "@hugeicons/core-free-icons";
 import { Badge } from "@/components/ui/badge";
@@ -22,22 +21,22 @@ export interface HalalFinderSectionProps {
 
 const HALAL_PILLARS = [
   {
-    icon: CheckmarkBadge01Icon,
-    title: "Certified Halal Verification",
+    icon: Location01Icon,
+    title: "Discover Local Halal Places",
     description:
-      "Strict auditing with recognized certification bodies (HMS, HFSAA) validating hand-slaughtered Zabiha authenticity.",
+      "Browse restaurants, grocery stores and halal businesses near your location, whether you are exploring your neighbourhood or visiting a new city.",
   },
   {
-    icon: StarIcon,
-    title: "Community Reviews & Photos",
+    icon: InformationCircleIcon,
+    title: "Check Details Before You Visit",
     description:
-      "Trusted insights from local Muslim diners and shoppers sharing genuine food quality, family ambiance, and prayer spaces.",
+      "View available business descriptions, photos, opening hours and contact information. Check any listed halal information and contact the business if you need clarification.",
   },
   {
     icon: Navigation01Icon,
-    title: "One-Tap GPS Directions",
+    title: "Find Your Way Easily",
     description:
-      "Instant turn-by-turn navigation, up-to-date operating hours, and takeout phone numbers right at your fingertips.",
+      "Use the listed address and directions to plan your visit, or reach out to the business using its available contact options.",
   },
 ] as const;
 
@@ -69,23 +68,21 @@ export function HalalFinderSection({ className }: HalalFinderSectionProps) {
               variant="outline"
               className="mb-4 inline-flex items-center gap-1.5 p-3 text-xs font-semibold border-primary/25 bg-primary/5 text-primary rounded-full shadow-2xs"
             >
-              <span>USA &amp; Diaspora Halal Directory</span>
+              <span>Halal Food & Business Finder</span>
             </Badge>
 
             <h2 className="text-2xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-foreground leading-[1.15]">
-              Eat &amp; Shop with{" "}
+              Find Halal Restaurants & Grocery{" "}
               <span className="text-primary underline decoration-primary/30 underline-offset-8">
-                Peace of Mind
+                Stores Near You
               </span>
-              , Wherever You Are
             </h2>
 
             <p className="mt-4 text-sm sm:text-base text-muted-foreground leading-relaxed">
-              Finding genuine hand-slaughtered Halal dining and trustworthy
-              grocery stores across Western metropolitan areas can be difficult.
-              An-Noor eliminates the guesswork with community-verified
-              directories, transparent certification tags, and real patron
-              ratings.
+              Looking for a place to eat or shop? Explore halal restaurants,
+              halal grocery stores and local businesses with AnNoor. Find nearby
+              options, review available listing information and get directions
+              to your next stop.
             </p>
 
             {/* Interactive Category Selector */}

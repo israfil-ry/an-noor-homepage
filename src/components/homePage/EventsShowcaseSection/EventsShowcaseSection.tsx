@@ -6,6 +6,7 @@ import {
   CalendarAdd01Icon,
   Location01Icon,
   CheckmarkBadge01Icon,
+  Clock01Icon,
 } from "@hugeicons/core-free-icons";
 import { Badge } from "@/components/ui/badge";
 import { EventHighlightCard } from "./EventHighlightCard";
@@ -19,22 +20,28 @@ export interface EventsShowcaseSectionProps {
 
 const EVENT_PILLARS = [
   {
-    icon: UserGroupIcon,
-    title: "Curated Ummah Gatherings",
+    icon: Location01Icon,
+    title: "Find a Mosque Near You",
     description:
-      "Stay connected through inspirational lectures, family dinners, youth halaqas, and charitable community fundraisers.",
+      "Locate nearby mosques and Islamic centres, view their addresses and check available contact information before visiting.",
+  },
+  {
+    icon: Clock01Icon,
+    title: "Check Available Iqamah Times",
+    description:
+      "View mosque prayer schedules and Iqamah updates where provided. Confirm with the mosque when a timetable is unavailable or needs clarification.",
+  },
+  {
+    icon: UserGroupIcon,
+    title: "Discover Local Islamic Events",
+    description:
+      "Explore lectures, halaqas, family gatherings and other community activities listed by mosques and local organisers.",
   },
   {
     icon: CalendarAdd01Icon,
-    title: "Instant Calendar Sync",
+    title: "Plan Your Visit",
     description:
-      "One-tap synchronization with Google Calendar, Apple iCal, and Outlook so your family never misses a gathering.",
-  },
-  {
-    icon: Location01Icon,
-    title: "RSVP & Family Attendance",
-    description:
-      "Turn-by-turn venue navigation, parking information, and attendee count tracking for seamless community planning.",
+      "Check the event date, time, venue and organiser details so you know where to go and how to take part.",
   },
 ] as const;
 
@@ -59,22 +66,26 @@ export function EventsShowcaseSection({
               className="mb-4 inline-flex items-center gap-1.5 p-3 text-xs font-semibold border-primary/25 bg-primary/5 text-primary rounded-full shadow-2xs"
             >
               {/* <HugeiconsIcon icon={Calendar01Icon} size={14} /> */}
-              <span>Islamic Community Events</span>
+              <span>Nearby Mosques & Islamic Events</span>
             </Badge>
 
             <h2 className="text-2xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-foreground leading-[1.15]">
-              Stay Connected to the{" "}
+              {/* Stay Connected to the{" "}
               <span className="text-primary underline decoration-primary/30 underline-offset-8">
                 Community
               </span>{" "}
-              &amp; Sacred Knowledge
+              &amp; Sacred Knowledge */}
+              Connect with Your Mosque &amp;
+              <span className="text-primary underline decoration-primary/30 underline-offset-8">
+                {" "}
+                Muslim Community
+              </span>
             </h2>
 
             <p className="mt-4 text-sm sm:text-base text-muted-foreground leading-relaxed">
-              Strengthen brotherhood and sisterhood across your diaspora
-              community. An-Noor unifies local Islamic center events, visiting
-              scholar seminars, youth sports tournaments, and sisters&apos;
-              study circles in one reliable, ad-free calendar.
+              Find nearby mosques and discover Islamic events that bring people
+              together. From prayer schedules to community gatherings, AnNoor
+              helps you stay connected to Muslim life in your area.
             </p>
 
             {/* 3 Core Value Props */}

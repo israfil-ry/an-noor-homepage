@@ -28,20 +28,25 @@ export function FeatureEcosystemSection({
             variant="outline"
             className="mb-4 inline-flex items-center gap-1.5 p-3 text-xs font-semibold border-primary/25 bg-primary/5 text-primary rounded-full shadow-xs"
           >
-            <span>Comprehensive Islamic Ecosystem</span>
+            <span>Faith & Everyday Life</span>
           </Badge>
 
           <h2 className="text-2xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-foreground leading-[1.15]">
-            Everything You Need for Faith & Community,{" "}
+            {/* Everything You Need for Faith & Community,{" "}
             <span className="text-primary underline decoration-primary/30 underline-offset-8">
               Unified in One App
+            </span> */}
+            Prayer Times, Quran & Your Local{" "}
+            <span className="text-primary underline decoration-primary/30 underline-offset-8">
+              {" "}
+              Community in One App{" "}
             </span>
           </h2>
 
           <p className="mt-4 text-sm sm:text-base text-muted-foreground leading-relaxed max-w-2xl">
-            Seamlessly balancing daily spiritual devotion with verified local
-            lifestyle tools designed specifically for Muslims in the modern
-            world.
+            Make room for faith in your daily routine with AnNoor. Get Adhan
+            reminders, read the Quran, find Qibla direction, and discover nearby
+            mosques, halal places and local jobs.
           </p>
         </div>
 
@@ -50,7 +55,7 @@ export function FeatureEcosystemSection({
           {/* Prayer Times Card */}
           <FeatureCardLarge
             title="Prayer Times & Adhan"
-            description="Accurate local prayer times, Adhan notifications, and Sehri & Iftar countdowns."
+            description="Check daily prayer times for your location and receive Adhan reminders to help you plan your day around Salah."
             icon={
               <HugeiconsIcon icon={Clock01Icon} size={26} strokeWidth={1.8} />
             }
@@ -64,8 +69,8 @@ export function FeatureEcosystemSection({
 
           {/* Quran Audio Card */}
           <FeatureCardLarge
-            title="Quran Recitation"
-            description="Listen to beautiful recitations, read translations, and bookmark your favorite verses."
+            title="Quran Reading & Recitation"
+            description="Bring Quran reading into your daily routine with recitations, translations and bookmarks for the verses you want to revisit."
             icon={<Headphones size={26} strokeWidth={1.8} />}
             backgroundClassName="bg-[#F0F7F0]"
             textClassName="text-[#14251A]"

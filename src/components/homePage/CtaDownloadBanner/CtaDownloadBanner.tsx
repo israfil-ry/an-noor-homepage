@@ -31,21 +31,23 @@ export function CtaDownloadBanner({ className }: CtaDownloadBannerProps) {
                 className="mb-4 inline-flex items-center gap-1.5 py-1 px-3.5 text-xs font-semibold border-primary-foreground/30 bg-primary-foreground/10 text-primary-foreground rounded-full shadow-2xs backdrop-blur-xs"
               >
                 {/* <HugeiconsIcon icon={SmartPhone01Icon} size={14} /> */}
-                <span>Download Official App</span>
+                <span>Take AnNoor with You</span>
               </Badge>
 
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-primary-foreground leading-[1.12]">
-                Begin Your Daily Journey with{" "}
+                {/* Begin Your Daily Journey with{" "}
+                {" "}
+                Today */}
+                Your Daily Muslim Companion,{" "}
                 <span className="underline decoration-primary-foreground/30 underline-offset-8">
-                  An-Noor
-                </span>{" "}
-                Today
+                  Wherever Life Takes You
+                </span>
               </h2>
 
               <p className="mt-4 sm:mt-5 text-sm sm:text-base text-primary-foreground/90 leading-relaxed max-w-xl">
-                Experience accurate prayer calculations, live mosque Iqamah
-                synchronization, verified nearby halal food, and sacred
-                knowledge—beautifully unified and 100% ad-free.
+                Check prayer times, read the Quran and find Qibla direction
+                wherever you go. Discover nearby mosques, halal food and local
+                jobs with AnNoor—bringing faith and everyday life together.
               </p>
 
               {/* Conversion Actions Group: Official Store Badges + QR Scanner */}

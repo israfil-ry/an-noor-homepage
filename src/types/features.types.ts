@@ -9,6 +9,7 @@ export type FeatureIconName =
   | "tasbih"
   | "mosque"
   | "restaurant"
+  | "briefcase"
   | "calendar";
 
 export interface FeatureItem {
@@ -39,93 +40,94 @@ export interface SpiritualToolItem {
 
 export const FEATURE_ITEMS: readonly FeatureItem[] = [
   {
-    id: "qibla-direction",
+    id: "qibla-finder",
     title: "Qibla Finder",
-    subtitle: "Find the direction of Makkah",
+    subtitle: "Face the Kaaba with confidence",
     description:
-      "Find the Kaaba direction with a precise compass.",
+      "Find Qibla direction from your location so you can prepare for prayer at home, at work or while travelling.",
     category: "worship",
     iconName: "compass",
-    badgeText: "Daily Worship",
+    badgeText: "Prayer Tools",
     href: "#spiritual-tools",
   },
   {
-    id: "ramadan-fasting",
-    title: "Ramadan & Fasting",
-    subtitle: "Sehri & Iftar reminders",
+    id: "suhoor-iftar-times",
+    title: "Suhoor & Iftar Times",
+    subtitle: "Plan your fasting days",
     description:
-      "Sehri, Iftar and Sunnah fasting reminders.",
+      "Check local suhoor and iftar times to plan your fasting days during Ramadan.",
     category: "worship",
     iconName: "moon",
-    badgeText: "Daily Worship",
+    badgeText: "Ramadan",
     href: "#prayer-times",
   },
   {
-    id: "duas-supplications",
-    title: "Duas & Adhkar",
-    subtitle: "Daily prophetic supplications",
+    id: "daily-duas-adhkar",
+    title: "Daily Duas & Adhkar",
+    subtitle: "Supplications for every moment",
     description:
-      "Authentic daily supplications for every occasion.",
+      "Explore duas and daily adhkar for mornings, evenings, travel and other moments throughout your day.",
     category: "worship",
     iconName: "book",
     badgeText: "Daily Worship",
     href: "#spiritual-tools",
   },
   {
-    id: "digital-tasbih",
-    title: "Digital Tasbih",
-    subtitle: "Simple digital Dhikr counter",
+    id: "digital-tasbih-counter",
+    title: "Digital Tasbih Counter",
+    subtitle: "Count your dhikr anywhere",
     description:
-      "Track your Dhikr with a simple digital counter.",
+      "Keep count of your dhikr with a simple digital tasbih counter wherever you are.",
     category: "worship",
     iconName: "tasbih",
-    badgeText: "Daily Worship",
+    badgeText: "Dhikr",
     href: "#spiritual-tools",
   },
   {
-    id: "mosque-sync",
-    title: "Mosque & Iqamah",
-    subtitle: "Stay connected with local mosques",
+    id: "nearby-mosques-iqamah",
+    title: "Nearby Mosques & Iqamah",
+    subtitle: "Plan your mosque visit",
     description:
-      "View local mosque prayer times and Iqamah updates.",
+      "Find mosques near you and view available prayer schedules and Iqamah information before your visit.",
     category: "community",
     iconName: "mosque",
     badgeText: "Community",
     href: "#community",
   },
   {
-    id: "halal-finder",
-    title: "Halal Directory",
-    subtitle: "Find trusted halal places",
+    id: "halal-food-grocery-finder",
+    title: "Halal Food & Grocery Finder",
+    subtitle: "Find halal places nearby",
     description:
-      "Discover trusted halal restaurants and grocery stores.",
+      "Discover nearby halal restaurants, grocery stores and businesses, with listing details to help you plan your visit.",
     category: "community",
     iconName: "restaurant",
-    badgeText: "Community",
+    badgeText: "Nearby",
     href: "#halal-finder",
   },
   {
-    id: "community-events",
-    title: "Islamic Events",
-    subtitle: "Local gatherings and programs",
+    id: "local-job-finder",
+    title: "Local Job Finder",
+    subtitle: "Work opportunities near you",
     description:
-      "Explore local lectures, gatherings and Islamic events.",
+      "Explore jobs near you, review available pay and location details, and contact employers through their listed contact options.",
+    category: "community",
+    iconName: "briefcase",
+    badgeText: "Nearby",
+    href: "#nearby-jobs",
+  },
+  {
+    id: "islamic-events",
+    title: "Islamic Events",
+    subtitle: "Learn and gather with your community",
+    description:
+      "Discover local Islamic events, mosque gatherings and learning opportunities that bring your community together.",
     category: "community",
     iconName: "calendar",
     badgeText: "Community",
     href: "#community",
   },
-  {
-  id: "daily-hadith",
-  title: "Daily Hadith",
-  subtitle: "Daily prophetic wisdom",
-  description:
-    "Discover a daily Hadith to inspire reflection and good deeds.",
-  category: "worship",
-  iconName: "book",
-  badgeText: "Daily Worship",
-  href: "#daily-hadith",
-},
+ 
 ] as const;
 
 

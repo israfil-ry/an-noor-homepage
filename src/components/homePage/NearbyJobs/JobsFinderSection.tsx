@@ -5,11 +5,11 @@ import Image from "next/image";
 import { HugeiconsIcon } from "@hugeicons/react";
 import {
   Location01Icon,
+  InformationCircleIcon,
   Mail01Icon,
-  Add01Icon,
+  Briefcase01Icon,
 } from "@hugeicons/core-free-icons";
 import { Badge } from "@/components/ui/badge";
-import { JobCategoryPills } from "./JobCategoryPills";
 import { JobPlaceCard } from "./JobPlaceCard";
 import { JobPreviewDialog } from "./JobPreviewDialog";
 import { JobCategory, FEATURED_JOBS } from "@/types/community.types";
@@ -22,21 +22,27 @@ export interface JobsFinderSectionProps {
 const JOB_PILLARS = [
   {
     icon: Location01Icon,
-    title: "Jobs Right Around You",
+    title: "Explore Nearby Job Openings",
     description:
-      "See openings sorted by distance, from restaurants and grocery stores to delivery roles, with address, pay, and deadline up front.",
+      "Find opportunities at local businesses and check the job location to see which openings fit your daily commute.",
+  },
+  {
+    icon: InformationCircleIcon,
+    title: "Review the Details That Matter",
+    description:
+      "Read the job description and check available pay, employer information and application deadlines before getting in touch.",
   },
   {
     icon: Mail01Icon,
-    title: "Reach Employers Directly",
+    title: "Contact Employers Directly",
     description:
-      "Skip the application portals. Email, call, or text the employer in one tap, with no middlemen and no waiting.",
+      "Use the email, call or text options provided in the listing to ask questions and discuss how to apply.",
   },
   {
-    icon: Add01Icon,
-    title: "Post a Job in Minutes",
+    icon: Briefcase01Icon,
+    title: "Reach Local Job Seekers",
     description:
-      "Running a business? List your opening for the community, set the pay and deadline, and choose how applicants contact you.",
+      "Post your vacancy with a clear description, location, pay information and preferred contact method to help applicants understand the role.",
   },
 ] as const;
 
@@ -96,22 +102,21 @@ export function JobsFinderSection({ className }: JobsFinderSectionProps) {
               variant="outline"
               className="mb-4 inline-flex items-center gap-1.5 p-3 text-xs font-semibold border-primary/25 bg-primary/5 text-primary rounded-full shadow-2xs"
             >
-              <span>Community Job Board</span>
+              <span>Local Jobs & Community Opportunities</span>
             </Badge>
 
             <h2 className="text-2xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-foreground leading-[1.15]">
-              Find Work{" "}
+              Find Jobs Near You. Connect with{" "}
               <span className="text-primary underline decoration-primary/30 underline-offset-8">
-                Close to Home
+                Local Employers.
               </span>
-              , Hire from Your Community
             </h2>
 
             <p className="mt-4 text-sm sm:text-base text-muted-foreground leading-relaxed">
-              Whether you&apos;re looking for your next shift or your next hire,
-              Nearby Jobs connects Muslim job seekers and local businesses with
-              transparent pay, clear deadlines, and direct contact, all within
-              your neighborhood.
+              Discover local job opportunities with AnNoor’s job finder. Explore
+              nearby openings, review job details and connect with employers.
+              Hiring for your business? Share your vacancy with people searching
+              for work in your area.
             </p>
 
             {/* Interactive Category Selector */}

@@ -10,9 +10,8 @@ import {
   Mosque01Icon,
   Restaurant01Icon,
   Calendar01Icon,
-  ArrowRight01Icon,
+  Briefcase01Icon,
 } from "@hugeicons/core-free-icons";
-import { Badge } from "@/components/ui/badge";
 import { FeatureItem, FeatureIconName } from "@/types/features.types";
 import { cn } from "@/lib/utils";
 
@@ -31,6 +30,7 @@ const FEATURE_ICONS: Record<FeatureIconName, typeof Clock01Icon> = {
   mosque: Mosque01Icon,
   restaurant: Restaurant01Icon,
   calendar: Calendar01Icon,
+  briefcase: Briefcase01Icon,
 };
 
 export function FeatureCard({ item, className }: FeatureCardProps) {
@@ -75,7 +75,7 @@ export function FeatureCard({ item, className }: FeatureCardProps) {
         </p> */}
 
         {/* Description */}
-        <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed line-clamp-3">
+        <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed ">
           {item.description}
         </p>
       </div>

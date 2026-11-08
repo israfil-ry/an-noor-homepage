@@ -3,7 +3,7 @@ export interface TrustPillarItem {
   readonly title: string;
   readonly description: string;
   readonly badgeText: string;
-  readonly iconName: "shield" | "lock" | "verified";
+  readonly iconName: "clock" | "location" | "community";
   readonly highlights: readonly string[];
 }
 
@@ -23,7 +23,6 @@ export interface FaqCategoryDef {
 
 export interface FaqItem {
   readonly id: string;
-  readonly category: FaqCategoryId;
   readonly question: string;
   readonly answer: string;
   readonly keyTakeaway?: string;
@@ -37,42 +36,42 @@ export interface CtaFeaturePoint {
 
 export const TRUST_PILLARS: readonly TrustPillarItem[] = [
   {
-    id: "zero-ads",
-    title: "100% Ad-Free, Forever",
-    badgeText: "Uncompromised Focus",
+    id: "daily-worship",
+    title: "Support for Your Daily Worship",
+    badgeText: "Daily Worship",
     description:
-      "We believe sacred acts of worship must never be monetized or commodified. An-Noor contains zero banner ads, zero interstitial pop-ups, and zero commercial interruptions while you recite Quran, make Dua, or check prayer times.",
-    iconName: "shield",
+      "Access prayer times, Adhan reminders, Quran, duas and Qibla direction in one place, with tools that fit into your everyday routine.",
+    iconName: "clock",
     highlights: [
-      "Zero banner ads or pop-ups",
-      "No sponsor interruptions during Azan",
-      "Clean, dignified spiritual atmosphere",
+      "Prayer times & Adhan reminders",
+      "Quran, duas & Qibla direction",
+      "Built around your daily routine",
     ],
   },
   {
-    id: "privacy-first",
-    title: "On-Device Privacy First",
-    badgeText: "Zero Data Brokerage",
+    id: "local-connections",
+    title: "Useful Connections Close to Home",
+    badgeText: "Nearby Essentials",
     description:
-      "Your faith journey is between you and your Creator. Astronomical prayer calculations and Qibla compass readings are processed 100% locally on your smartphone. We never track, store, or sell your personal location data to advertisers.",
-    iconName: "lock",
+      "Discover nearby mosques, halal restaurants, grocery stores and job opportunities that help you navigate daily life in your community.",
+    iconName: "location",
     highlights: [
-      "100% on-device GPS processing",
-      "No user tracking or data brokering",
-      "Zero registration required to pray",
+      "Nearby mosques & Iqamah details",
+      "Halal restaurants & grocery stores",
+      "Local job opportunities",
     ],
   },
   {
-    id: "community-verified",
-    title: "Verified Community Integrity",
-    badgeText: "Authentic & Curated",
+    id: "community-participation",
+    title: "A Place for Community Participation",
+    badgeText: "Community Driven",
     description:
-      "Every mosque Iqamah timetable, halal certification standard, and Islamic community gathering is curated with care. We partner directly with local Islamic centers and trusted community representatives to guarantee authentic information.",
-    iconName: "verified",
+      "Help people discover your mosque, business or job opportunity. AnNoor gives local organisations and employers a way to share useful information with the community.",
+    iconName: "community",
     highlights: [
-      "Direct mosque administration sync",
-      "Hand-slaughtered halal certification labels",
-      "Vetted community halaqas & family events",
+      "Share your mosque or business",
+      "Post jobs with pay & contact details",
+      "Reach people in your community",
     ],
   },
 ] as const;
@@ -114,52 +113,64 @@ export const FAQ_CATEGORIES: readonly FaqCategoryDef[] = [
 
 export const FAQ_ITEMS: readonly FaqItem[] = [
   {
-    id: "faq-free",
-    category: "general",
-    question: "Is An-Noor completely free? Are there in-app purchases or hidden subscriptions?",
+    id: "faq-what-is-annoor",
+    question: "What is AnNoor?",
     answer:
-      "Yes, An-Noor is 100% free and open to everyone. All core features—including accurate prayer times, Azan notifications, Qibla compass, the Holy Quran with audio recitations, Hisnul Muslim Duas, Tasbih, and community directories—are fully accessible without any paywalls, premium tiers, or hidden charges.",
-    keyTakeaway: "100% free with no premium paywalls.",
+      "AnNoor is a Muslim lifestyle app that brings together prayer times, Adhan reminders, Quran, Qibla direction, duas and local discovery tools. You can also find nearby mosques, halal places, job listings and community events.",
   },
   {
-    id: "faq-calculation",
-    category: "prayer",
-    question: "How are prayer times calculated for my location?",
+    id: "faq-prayer-times",
+    question: "How can I check prayer times for my location?",
     answer:
-      "An-Noor utilizes established astronomical calculation methods, including ISNA (Islamic Society of North America), Muslim World League (MWL), Umm Al-Qura (Makkah), Egyptian General Authority of Survey, and University of Islamic Sciences (Karachi). In addition, you can manually fine-tune prayer offsets or synchronize directly with your local partner Mosque's official timetable.",
-    keyTakeaway: "Accurate astronomical formulas with manual and mosque sync adjustments.",
+      "Use AnNoor’s prayer times feature to view your local daily prayer schedule. Check your location and available prayer settings, and refer to your mosque’s timetable for congregation times.",
   },
   {
-    id: "faq-mosque-listing",
-    category: "community",
-    question: "How can our local Mosque or Islamic Center get listed on An-Noor?",
+    id: "faq-adhan-reminders",
+    question: "Can I receive Adhan and prayer reminders?",
     answer:
-      "Mosque administrators and board members can register their Islamic center by submitting their details through our dedicated partner onboarding channel or emailing support@annoor.app. Once verified, administrators gain direct access to update daily Iqamah schedules, announce community events, and connect donation links.",
-    keyTakeaway: "Free and instant onboarding for verified mosque administrators.",
+      "Yes. AnNoor includes Adhan and prayer reminders. Enable the relevant app notifications and check your phone’s notification settings so reminders can reach you.",
   },
   {
-    id: "faq-halal-verification",
-    category: "community",
-    question: "How are Halal restaurants and grocery stores verified?",
+    id: "faq-qibla",
+    question: "How do I find Qibla direction?",
     answer:
-      "Our diaspora directory prioritizes establishments certified by reputable Halal certifiers (such as HMS, HFSAA, and ISWA) and flags transparency regarding hand-slaughtered meat (Zabiha) and alcohol-free environments. Listings feature community reviews and owner confirmations so families can dine with peace of mind.",
-    keyTakeaway: "Transparent certification badges, Zabiha details, and community validation.",
+      "Open the Qibla finder and follow the on-screen guidance. Your phone’s compass and surroundings can affect the reading, so keep the device away from metal objects and magnetic interference.",
   },
   {
-    id: "faq-ios",
-    category: "general",
-    question: "Is an iOS (iPhone / iPad) version coming soon?",
+    id: "faq-mosques-iqamah",
+    question: "Can I find mosques near me and check Iqamah times?",
     answer:
-      "Yes! While An-Noor is currently available on Android via Google Play and direct APK download, our iOS application is currently in active development for the Apple App Store. You can use our web version and join our mailing list to receive an instant alert when the iOS TestFlight beta launches.",
-    keyTakeaway: "iOS app is in active development with TestFlight beta opening soon.",
+      "AnNoor helps you discover nearby mosques and Islamic centres. Iqamah times and mosque prayer schedules are available where provided; contact the mosque if you need to confirm a time.",
   },
   {
-    id: "faq-offline",
-    category: "privacy",
-    question: "Does the app work offline without an active internet connection?",
+    id: "faq-halal-places",
+    question: "How can I find halal restaurants and grocery stores near me?",
     answer:
-      "Yes! Prayer calculations, Qibla compass sensor readings, the Holy Quran text, Hisnul Muslim Duas, and the Digital Tasbih work 100% offline. An active internet connection is only needed when fetching live mosque Iqamah updates, exploring new nearby Halal places on the map, or streaming Quran audio recitations.",
-    keyTakeaway: "Essential spiritual tools work entirely offline without internet.",
+      "Open the halal finder to explore nearby restaurants, grocery stores and businesses. Review the listing details and contact the business directly if you have questions about its halal practices or certification.",
+  },
+  {
+    id: "faq-local-jobs",
+    question: "Can I search for local jobs on AnNoor?",
+    answer:
+      "Yes. The Nearby Jobs feature lets you explore local job listings and review available information such as the role, location, pay and application deadline. Use the employer’s listed contact options to learn more or apply.",
+  },
+  {
+    id: "faq-post-jobs-listings",
+    question: "Can business owners post jobs or list halal businesses?",
+    answer:
+      "Yes. AnNoor supports halal business listings and job posts. Follow the relevant submission process and review any applicable listing plan, fee and approval requirements before submitting.",
+  },
+  {
+    id: "faq-suhoor-iftar",
+    question: "Does AnNoor include suhoor and iftar times?",
+    answer:
+      "Yes. AnNoor includes local suhoor and iftar times to help you plan your fasting routine during Ramadan.",
+  },
+  {
+    id: "faq-support",
+    question: "How can I contact AnNoor support?",
+    answer:
+      "Email annoor@annoor.app for help, feedback or listing questions. Include a short description of the issue and, for app problems, your device model and app version.",
   },
 ] as const;
 
