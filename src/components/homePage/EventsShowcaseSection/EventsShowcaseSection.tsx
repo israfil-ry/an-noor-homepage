@@ -52,39 +52,6 @@ export function EventsShowcaseSection({
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
-          {/* Left Column: Mobile App Frame + Featured Event Card */}
-          <div className="lg:col-span-6 flex flex-col items-center">
-            <div className="relative w-full max-w-md flex flex-col items-center">
-              {/* Phone Mockup Frame */}
-              <div className="relative overflow-hidden rounded-3xl border-2 border-border/80 bg-card p-3 shadow-md max-w-[280px] sm:max-w-[300px] w-full transition-transform duration-300 hover:scale-[1.01]">
-                <div className="relative overflow-hidden rounded-2xl border border-foreground/10 bg-background shadow-xs">
-                  <Image
-                    src={FEATURED_EVENT.imageSrc}
-                    alt="An-Noor Islamic Events Mobile Screen"
-                    width={780}
-                    height={1688}
-                    className="w-full h-auto object-cover select-none"
-                    sizes="(max-width: 640px) 280px, 300px"
-                    priority={false}
-                  />
-                </div>
-              </div>
-
-              {/* Floating Featured Event Card */}
-              <div className="w-full mt-4 sm:-mt-12 sm:relative sm:z-10 max-w-sm sm:max-w-md">
-                <EventHighlightCard
-                  event={FEATURED_EVENT}
-                  className="shadow-lg border-primary/20 bg-card/95"
-                />
-
-                {/* Event Details Dialog Trigger */}
-                <div className="mt-4 flex justify-center">
-                  <EventDetailDialog event={FEATURED_EVENT} />
-                </div>
-              </div>
-            </div>
-          </div>
-
           {/* Right Column: Narrative & Event Pillars */}
           <div className="lg:col-span-6 flex flex-col items-start text-left">
             <Badge
@@ -147,6 +114,38 @@ export function EventsShowcaseSection({
                 All community events are vetted by local partner Islamic
                 organizations.
               </span>
+            </div>
+          </div>
+          {/* Left Column: Mobile App Frame + Featured Event Card */}
+          <div className="lg:col-span-6 flex flex-col items-center">
+            <div className="relative w-full max-w-md flex flex-col items-center">
+              {/* Phone Mockup Frame */}
+              <div className="relative overflow-hidden rounded-3xl border-2 border-border/80 bg-card p-3 shadow-md max-w-[280px] sm:max-w-[300px] w-full transition-transform duration-300 hover:scale-[1.01]">
+                <div className="relative overflow-hidden rounded-2xl border border-foreground/10 bg-background shadow-xs">
+                  <Image
+                    src={FEATURED_EVENT.imageSrc}
+                    alt="An-Noor Islamic Events Mobile Screen"
+                    width={780}
+                    height={1688}
+                    className="w-full h-auto object-cover select-none"
+                    sizes="(max-width: 640px) 280px, 300px"
+                    priority={false}
+                  />
+                </div>
+              </div>
+
+              {/* Floating Featured Event Card */}
+              <div className="w-full mt-4 sm:-mt-12 sm:relative sm:z-10 max-w-sm sm:max-w-md">
+                <EventHighlightCard
+                  event={FEATURED_EVENT}
+                  className="shadow-lg border-primary/20 bg-card/95"
+                />
+
+                {/* Event Details Dialog Trigger */}
+                <div className="mt-4 flex justify-center">
+                  <EventDetailDialog event={FEATURED_EVENT} />
+                </div>
+              </div>
             </div>
           </div>
         </div>

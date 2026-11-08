@@ -7,6 +7,7 @@ import { FaqSection } from "@/components/homePage/FaqSection/FaqSection";
 import { CtaDownloadBanner } from "@/components/homePage/CtaDownloadBanner/CtaDownloadBanner";
 import { JobsFinderSection } from "@/components/homePage/NearbyJobs/JobsFinderSection";
 import { Metadata } from "next";
+import { TestimonialsSection } from "@/components/homePage/Testimonials/TestimonialsSection";
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -105,6 +106,8 @@ export default function HomePage() {
 
         {/* 9. Trust, Ethics & Privacy Pledge Component (#about) */}
         <TrustPledgeSection />
+
+        <TestimonialsSection />
 
         {/* 10. Frequently Asked Questions Accordion (#faq) */}
         <FaqSection />

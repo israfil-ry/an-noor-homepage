@@ -15,7 +15,7 @@ export function CtaDownloadBanner({ className }: CtaDownloadBannerProps) {
     <section
       id="download"
       aria-label="Download An-Noor App"
-      className={cn("w-full py-16 sm:py-24 bg-primary/5", className)}
+      className={cn("w-full py-16 sm:py-24 ", className)}
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="relative overflow-hidden rounded-[2.5rem] bg-gradient-to-br from-brand-emerald-dark via-primary to-brand-emerald p-8 sm:p-12 lg:p-16 text-primary-foreground shadow-2xl">

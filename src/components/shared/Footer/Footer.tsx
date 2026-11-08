@@ -20,7 +20,7 @@ export function Footer({ className }: FooterProps) {
   return (
     <footer
       className={cn(
-        "w-full border-border bg-card text-card-foreground transition-colors",
+        "w-full border-border bg-primary/5 text-card-foreground transition-colors",
         className,
       )}
     >
