@@ -6,38 +6,68 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://annoor.app"),
 
   title: {
-    default: "AnNoor - Your Islamic Lifestyle Companion",
+    default: "AnNoor: Prayer Times, Quran, Halal & Job Finder",
     template: "%s | AnNoor",
   },
 
   description:
-    "Discover nearby masjids, halal places, prayer times, and more with AnNoor.",
+    "Find nearby mosques, halal restaurants and local jobs with AnNoor. Get Adhan reminders, check prayer times, read the Quran and find your Qibla direction.",
 
+  // Open Graph Metadata
   openGraph: {
-    title: "AnNoor - Your Islamic Lifestyle Companion",
-    description:
-      "Discover nearby masjids, halal places, prayer times, and more.",
-    url: "/",
+    type: "website",
+    locale: "en_US",
+    url: "https://annoor.app/",
     siteName: "AnNoor",
+    title: "AnNoor: Prayer Times, Halal Places & Local Jobs",
+    description:
+      "Discover nearby mosques, halal food and job opportunities with AnNoor. Stay connected with Adhan reminders, prayer times, Quran, duas and a Qibla finder.",
     images: [
       {
-        url: "/images/app/og-image.png",
+        url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "AnNoor - Your Islamic Lifestyle Companion",
+        alt: "AnNoor: Prayer Times, Halal Places & Local Jobs",
       },
     ],
-    locale: "en_US",
-    type: "website",
   },
 
   twitter: {
     card: "summary_large_image",
-    title: "AnNoor - Your Islamic Lifestyle Companion",
+    title: "AnNoor: Prayer Times, Halal Places & Local Jobs",
     description:
-      "Discover nearby masjids, halal places, prayer times, and more.",
-    images: ["/images/app/og-image.png"],
+      "Discover nearby mosques, halal food and job opportunities with AnNoor. Stay connected with Adhan reminders, prayer times, Quran, duas and a Qibla finder.",
+    images: ["/og-image.png"],
   },
+
+  keywords: [
+    // Primary Keyword
+    "Muslim app",
+
+    // Secondary Keywords
+    "prayer times",
+    "Adhan app",
+    "prayer reminder app",
+    "Quran app",
+    "Qibla finder",
+    "mosque finder",
+    "mosques near me",
+    "halal food near me",
+    "halal restaurants near me",
+    "halal grocery stores near me",
+    "halal business directory",
+    "local job finder",
+    "jobs near me",
+    "daily duas",
+    "suhoor and iftar times",
+
+    // Brand Keywords
+    "AnNoor",
+    "AnNoor app",
+    "AnNoor prayer times",
+    "AnNoor halal finder",
+    "AnNoor job finder",
+  ],
 };
 
 export default function CommonLayout({

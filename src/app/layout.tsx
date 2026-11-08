@@ -10,12 +10,17 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-  title: "An-Noor — Your Daily Islamic Companion & Local Halal Living Guide",
+  metadataBase: new URL("https://annoor.app"),
+  title: "AnNoor: Prayer Times, Quran, Halal & Job Finder",
   description:
-    "Accurate prayer times, live mosque Iqamah sync, verified halal dining, and sacred knowledge—beautifully unified and 100% ad-free.",
+    "Find nearby mosques, halal restaurants and local jobs with AnNoor. Get Adhan reminders, check prayer times, read the Quran and find your Qibla direction.",
   icons: {
     icon: "/favicon.ico",
     apple: "/icon.png",
+  },
+  robots: {
+    index: true,
+    follow: true,
   },
 };
 
@@ -25,10 +30,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html
-      lang="en"
-      className={`${montserrat.variable} h-full antialiased`}
-    >
+    <html lang="en" className={`${montserrat.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col font-sans">{children}</body>
     </html>
   );

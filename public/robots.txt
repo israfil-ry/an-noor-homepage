@@ -1,0 +1,8 @@
+# AnNoor website
+# Android app: https://play.google.com/store/apps/details?id=com.annoor.app
+
+User-agent: *
+Allow: /
+Disallow: /admin
+
+Sitemap: https://annoor.app/sitemap.xml

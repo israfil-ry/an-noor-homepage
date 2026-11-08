@@ -1,0 +1,27 @@
+# AnNoor
+
+> AnNoor: Adhan Prayer Quran is an Android app that helps Muslims with daily worship, finding nearby mosques and halal places, and discovering local job opportunities.
+
+AnNoor brings prayer tools and local discovery features together in one mobile app.
+
+## Main Features
+
+- Prayer times and Adhan reminders.
+- Sehri and Iftar times.
+- Qibla direction finder.
+- Quran and duas.
+- Nearby mosque finder.
+- Nearby halal restaurants, grocery stores, and businesses.
+- Nearby jobs and local job opportunities.
+
+## Official Website
+
+- [AnNoor](https://annoor.app/): Official landing page with information about the app and its features.
+
+## Android App
+
+- [AnNoor on Google Play](https://play.google.com/store/apps/details?id=com.annoor.app): Official Android app listing and installation page.
+
+## Support
+
+- Email: annoor@annoor.app

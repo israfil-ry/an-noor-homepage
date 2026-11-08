@@ -106,7 +106,7 @@ export function EventHighlightCard({
       </div>
 
       {/* Action Footer: Add to Calendar */}
-      <div className="mt-5 pt-4 border-t border-border/70 flex items-center justify-between gap-3">
+      {/* <div className="mt-5 pt-4 border-t border-border/70 flex items-center justify-between gap-3">
         <Button
           type="button"
           onClick={handleAddToCalendar}
@@ -126,7 +126,7 @@ export function EventHighlightCard({
             {calendarAdded ? "Added to Calendar!" : "Add to Calendar"}
           </span>
         </Button>
-      </div>
+      </div> */}
     </div>
   );
 }
