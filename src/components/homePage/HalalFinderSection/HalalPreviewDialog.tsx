@@ -30,14 +30,14 @@ export function HalalPreviewDialog({ className }: HalalPreviewDialogProps) {
             variant="outline"
             className={cn(
               "group inline-flex items-center gap-2 rounded-xl border-primary/30 bg-primary/5 text-primary hover:bg-primary hover:text-primary-foreground font-semibold text-xs sm:text-sm py-2 px-4 transition-all duration-200 cursor-pointer shadow-2xs",
-              className
+              className,
             )}
           >
-            <HugeiconsIcon
+            {/* <HugeiconsIcon
               icon={Restaurant01Icon}
               size={16}
               className="transition-transform duration-200 group-hover:scale-110"
-            />
+            /> */}
             <span>Explore Halal Directory Screen</span>
           </Button>
         }
@@ -56,7 +56,11 @@ export function HalalPreviewDialog({ className }: HalalPreviewDialogProps) {
               variant="outline"
               className="border-border bg-background text-muted-foreground text-[10px] font-medium"
             >
-              <HugeiconsIcon icon={Location01Icon} size={11} className="mr-1 inline" />
+              <HugeiconsIcon
+                icon={Location01Icon}
+                size={11}
+                className="mr-1 inline"
+              />
               North America &amp; Diaspora
             </Badge>
           </div>
@@ -65,7 +69,8 @@ export function HalalPreviewDialog({ className }: HalalPreviewDialogProps) {
             Nearby Halal Living in An-Noor
           </DialogTitle>
           <DialogDescription className="text-xs sm:text-sm text-muted-foreground">
-            Filter by hand-slaughtered meat, certification board, customer ratings, and distance.
+            Filter by hand-slaughtered meat, certification board, customer
+            ratings, and distance.
           </DialogDescription>
         </DialogHeader>
 
@@ -92,7 +97,9 @@ export function HalalPreviewDialog({ className }: HalalPreviewDialogProps) {
               <span>HMS &amp; HFSAA Verification Standards</span>
             </div>
             <p className="text-xs text-muted-foreground leading-relaxed">
-              Every restaurant and butcher shop is audited for slaughter authenticity, alcohol-free preparation, and supplier certification.
+              Every restaurant and butcher shop is audited for slaughter
+              authenticity, alcohol-free preparation, and supplier
+              certification.
             </p>
           </div>
         </div>

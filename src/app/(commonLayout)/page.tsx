@@ -1,14 +1,12 @@
 import { HeroSection } from "@/components/homePage/HeroSection/HeroSection";
-import { PrayerSnapshotSection } from "@/components/homePage/PrayerSnapshotSection/PrayerSnapshotSection";
-import { QuickPillarsSection } from "@/components/homePage/QuickPillarsSection/QuickPillarsSection";
 import { FeatureEcosystemSection } from "@/components/homePage/FeatureEcosystemSection/FeatureEcosystemSection";
-import { SpiritualEssentialsSection } from "@/components/homePage/SpiritualEssentialsSection/SpiritualEssentialsSection";
-import { MosqueSyncSection } from "@/components/homePage/MosqueSyncSection/MosqueSyncSection";
 import { HalalFinderSection } from "@/components/homePage/HalalFinderSection/HalalFinderSection";
 import { EventsShowcaseSection } from "@/components/homePage/EventsShowcaseSection/EventsShowcaseSection";
 import { TrustPledgeSection } from "@/components/homePage/TrustPledgeSection/TrustPledgeSection";
 import { FaqSection } from "@/components/homePage/FaqSection/FaqSection";
 import { CtaDownloadBanner } from "@/components/homePage/CtaDownloadBanner/CtaDownloadBanner";
+import { JobsFinderSection } from "@/components/homePage/NearbyJobs/JobsFinderSection";
+import Image from "next/image";
 
 export default function HomePage() {
   return (
@@ -33,6 +31,8 @@ export default function HomePage() {
 
       {/* 7. Community Showcase 2: Nearby Halal Food & Grocery Directory */}
       <HalalFinderSection />
+
+      <JobsFinderSection />
 
       {/* 8. Community Showcase 3: Islamic Community Events & Gatherings */}
       <EventsShowcaseSection />

@@ -15,10 +15,7 @@ export function TrustPledgeSection({ className }: TrustPledgeSectionProps) {
     <section
       id="about"
       aria-label="Ethics and Privacy Pledge"
-      className={cn(
-        "w-full py-16 sm:py-24 bg-gradient-to-b from-background via-muted/30 to-background border-t border-border/60",
-        className,
-      )}
+      className={cn("w-full py-16 sm:py-24 bg-primary/5", className)}
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
@@ -27,7 +24,7 @@ export function TrustPledgeSection({ className }: TrustPledgeSectionProps) {
             variant="outline"
             className="mb-4 inline-flex items-center gap-1.5 p-3 text-xs font-semibold border-primary/25 bg-primary/5 text-primary rounded-full shadow-2xs"
           >
-            <HugeiconsIcon icon={ShieldCheckIcon} size={14} />
+            {/* <HugeiconsIcon icon={ShieldCheckIcon} size={14} /> */}
             <span>Ethical &amp; Privacy-First Promise</span>
           </Badge>
 

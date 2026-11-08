@@ -4,16 +4,35 @@ import Link from "next/link";
 
 interface AppStoreButtonProps {
   url: string;
+  variant?: "dark" | "light";
+  downloadLabel?: string;
 }
 
-export default function AppStoreButton({ url }: AppStoreButtonProps) {
+export default function AppStoreButton({
+  url,
+  variant = "dark",
+  downloadLabel = "Download",
+}: AppStoreButtonProps) {
+  const isLight = variant === "light";
+
   return (
     <Link
       href={url}
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Download on the App Store"
-      className="inline-flex h-[3.25rem] min-w-[10.5rem] items-center gap-3 rounded-2xl bg-[#0f1f14] px-4 text-white shadow-[0_10px_24px_-12px_rgb(15_31_20/0.6)] transition duration-200 hover:-translate-y-0.5 hover:bg-black active:scale-[0.98]"
+      className={`
+        inline-flex h-[3.25rem] min-w-[10.5rem]
+        items-center gap-3 rounded-2xl px-4
+        transition duration-200
+        hover:-translate-y-0.5
+        active:scale-[0.98]
+        ${
+          isLight
+            ? "bg-white text-[#0f1f14] shadow-[0_8px_20px_-12px_rgb(0_0_0/0.2)] hover:bg-gray-50"
+            : "bg-[#0f1f14] text-white shadow-[0_10px_24px_-12px_rgb(15_31_20/0.6)] hover:bg-black"
+        }
+      `}
     >
       {/* Apple Icon */}
       <svg
@@ -29,8 +48,12 @@ export default function AppStoreButton({ url }: AppStoreButtonProps) {
 
       {/* Button Text */}
       <span className="flex flex-col text-start leading-none">
-        <span className="text-[0.68rem] font-medium tracking-wide text-white/70">
-          Download
+        <span
+          className={`text-[0.68rem] font-medium tracking-wide ${
+            isLight ? "text-[#526B59]" : "text-white/70"
+          }`}
+        >
+          {downloadLabel}
         </span>
 
         <span className="mt-1 font-display text-[1.05rem] font-semibold tracking-tight">

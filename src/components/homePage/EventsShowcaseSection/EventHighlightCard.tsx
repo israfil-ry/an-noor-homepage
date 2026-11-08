@@ -35,7 +35,7 @@ export function EventHighlightCard({
     <div
       className={cn(
         "group relative flex flex-col justify-between rounded-3xl border border-border bg-card p-5 sm:p-6 shadow-sm transition-all duration-300 hover:border-primary/40 hover:shadow-md select-none",
-        className
+        className,
       )}
     >
       <div>
@@ -45,7 +45,7 @@ export function EventHighlightCard({
             variant="outline"
             className="text-[10px] font-semibold py-0.5 px-2.5 rounded-full border-primary/30 bg-primary/10 text-primary"
           >
-            <HugeiconsIcon icon={Ticket01Icon} size={11} className="mr-1 inline" />
+            {/* <HugeiconsIcon icon={Ticket01Icon} size={11} className="mr-1 inline" /> */}
             {event.admission}
           </Badge>
 
@@ -115,17 +115,18 @@ export function EventHighlightCard({
             "w-full inline-flex items-center justify-center gap-2 rounded-xl text-xs sm:text-sm font-semibold py-2 transition-all duration-200 cursor-pointer shadow-2xs",
             calendarAdded
               ? "bg-accent text-accent-foreground"
-              : "border-primary/30 text-primary hover:bg-primary hover:text-primary-foreground"
+              : "border-primary/30 text-primary hover:bg-primary hover:text-primary-foreground",
           )}
         >
           <HugeiconsIcon
             icon={calendarAdded ? CheckmarkCircle01Icon : CalendarAdd01Icon}
             size={16}
           />
-          <span>{calendarAdded ? "Added to Calendar!" : "Add to Calendar"}</span>
+          <span>
+            {calendarAdded ? "Added to Calendar!" : "Add to Calendar"}
+          </span>
         </Button>
       </div>
     </div>
   );
 }
-

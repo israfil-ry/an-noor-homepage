@@ -22,14 +22,14 @@ export const NAV_ITEMS: readonly NavItem[] = [
     description: "Explore the comprehensive Islamic ecosystem",
   },
   {
-    label: "Prayer Times",
-    href: "#prayer-times",
-    description: "Accurate astronomical calculations & Adhan",
-  },
-  {
     label: "Nearby Halal",
     href: "#halal-finder",
     description: "Verified halal dining & groceries",
+  },
+  {
+    label: "Nearby Jobs",
+    href: "#nearby-jobs",
+    description: "Job opportunities in the Islamic community",
   },
   {
     label: "Mosques & Events",
@@ -40,6 +40,11 @@ export const NAV_ITEMS: readonly NavItem[] = [
     label: "About",
     href: "#about",
     description: "Our privacy-first and ad-free pledge",
+  },
+  {
+    label: "FAQ",
+    href: "#faq",
+    description: "Frequently asked questions",
   },
 ] as const;
 

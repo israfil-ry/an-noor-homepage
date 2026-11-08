@@ -19,7 +19,7 @@ export function FeatureEcosystemSection({
     <section
       id="features"
       aria-label="Core Feature Ecosystem"
-      className={cn("w-full py-16 sm:py-24 bg-background", className)}
+      className={cn("w-full py-16 sm:py-24 bg-primary/5", className)}
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Section Header */}

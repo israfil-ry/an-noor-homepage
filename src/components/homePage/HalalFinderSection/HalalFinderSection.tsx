@@ -57,7 +57,7 @@ export function HalalFinderSection({ className }: HalalFinderSectionProps) {
       id="halal-finder"
       aria-label="Nearby Halal Directory Showcase"
       className={cn(
-        "w-full py-16 sm:py-24 bg-gradient-to-b from-background via-muted/30 to-background border-t border-border/60",
+        "w-full py-16 sm:py-24 bg-linear-to-b from-background via-muted/30 to-background ",
         className,
       )}
     >
@@ -69,7 +69,6 @@ export function HalalFinderSection({ className }: HalalFinderSectionProps) {
               variant="outline"
               className="mb-4 inline-flex items-center gap-1.5 p-3 text-xs font-semibold border-primary/25 bg-primary/5 text-primary rounded-full shadow-2xs"
             >
-              <HugeiconsIcon icon={Restaurant01Icon} size={14} />
               <span>USA &amp; Diaspora Halal Directory</span>
             </Badge>
 
@@ -90,7 +89,7 @@ export function HalalFinderSection({ className }: HalalFinderSectionProps) {
             </p>
 
             {/* Interactive Category Selector */}
-            <div className="mt-6 w-full">
+            {/* <div className="mt-6 w-full">
               <span className="text-xs font-bold text-muted-foreground uppercase tracking-wider block mb-2">
                 Filter by Establishment Category
               </span>
@@ -98,7 +97,7 @@ export function HalalFinderSection({ className }: HalalFinderSectionProps) {
                 selectedCategory={selectedCategory}
                 onSelectCategory={setSelectedCategory}
               />
-            </div>
+            </div> */}
 
             {/* 3 Core Value Props */}
             <div className="mt-8 space-y-4 w-full">

@@ -190,3 +190,63 @@ export const FEATURED_EVENT: IslamicEventItem = {
   detailsImageSrc: "/images/app/event-details-screen.png",
 };
 
+export type JobCategory = "all" | "restaurant" | "grocery" | "delivery" | "other";
+
+export const JOB_CATEGORIES: { id: JobCategory; label: string }[] = [
+  { id: "all", label: "All Jobs" },
+  { id: "restaurant", label: "Restaurant" },
+  { id: "grocery", label: "Grocery" },
+  { id: "delivery", label: "Delivery" },
+  { id: "other", label: "Other" },
+];
+
+export type JobContactMethod = "email" | "call" | "text";
+
+export interface JobPlaceItem {
+  id: string;
+  title: string;
+  address: string;
+  pay: string; // e.g. "$11/Hour"
+  deadline: string; // e.g. "28 Sep 2026"
+  company: string;
+  category: Exclude<JobCategory, "all">;
+  categoryLabel: string;
+  contactMethods: JobContactMethod[]; // email is optional, like in the app
+}
+
+export const FEATURED_JOBS: JobPlaceItem[] = [
+  {
+    id: "job-1",
+    title: "Looking for Restaurants Server",
+    address: "111 Ave Austin, TX 75100",
+    pay: "$11/Hour",
+    deadline: "28 Sep 2026",
+    company: "RentYard Limited Inc.",
+    category: "restaurant",
+    categoryLabel: "Restaurant",
+    contactMethods: ["email", "call", "text"],
+  },
+  {
+    id: "job-2",
+    title: "Halal Grocery Store Cashier",
+    address: "42 Main St, Dallas, TX 75201",
+    pay: "$13/Hour",
+    deadline: "15 Dec 2026",
+    company: "Baraka Mart",
+    category: "grocery",
+    categoryLabel: "Grocery",
+    contactMethods: ["call", "text"],
+  },
+  {
+    id: "job-3",
+    title: "Part-time Delivery Driver",
+    address: "908 Oak Lane, Houston, TX 77002",
+    pay: "$16/Hour",
+    deadline: "30 Nov 2026",
+    company: "Zabiha Express",
+    category: "delivery",
+    categoryLabel: "Delivery",
+    contactMethods: ["email", "call", "text"],
+  },
+];
+

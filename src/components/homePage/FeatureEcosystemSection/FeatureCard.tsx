@@ -81,7 +81,7 @@ export function FeatureCard({ item, className }: FeatureCardProps) {
       </div>
 
       {/* Bottom Link Prompt */}
-      {/* <div className="mt-5 pt-3.5 border-t border-border/60 flex items-center justify-between text-xs font-semibold text-primary">
+      {/* <div className="mt-5 pt-3.5 flex items-center justify-between text-xs font-semibold text-primary">
         <span>Learn More</span>
         <HugeiconsIcon
           icon={ArrowRight01Icon}

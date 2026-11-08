@@ -35,14 +35,14 @@ export function EventDetailDialog({
             variant="outline"
             className={cn(
               "group inline-flex items-center gap-2 rounded-xl border-primary/30 bg-primary/5 text-primary hover:bg-primary hover:text-primary-foreground font-semibold text-xs sm:text-sm py-2 px-4 transition-all duration-200 cursor-pointer shadow-2xs",
-              className
+              className,
             )}
           >
-            <HugeiconsIcon
+            {/* <HugeiconsIcon
               icon={Calendar01Icon}
               size={16}
               className="transition-transform duration-200 group-hover:scale-110"
-            />
+            /> */}
             <span>View Event Details &amp; RSVP</span>
           </Button>
         }
@@ -55,14 +55,22 @@ export function EventDetailDialog({
               variant="outline"
               className="border-primary/30 bg-primary/10 text-primary text-[10px] font-bold"
             >
-              <HugeiconsIcon icon={Ticket01Icon} size={11} className="mr-1 inline" />
+              <HugeiconsIcon
+                icon={Ticket01Icon}
+                size={11}
+                className="mr-1 inline"
+              />
               {event.admission}
             </Badge>
             <Badge
               variant="outline"
               className="border-border bg-background text-muted-foreground text-[10px] font-medium"
             >
-              <HugeiconsIcon icon={Calendar01Icon} size={11} className="mr-1 inline" />
+              <HugeiconsIcon
+                icon={Calendar01Icon}
+                size={11}
+                className="mr-1 inline"
+              />
               {event.timeString}
             </Badge>
           </div>
@@ -93,7 +101,10 @@ export function EventDetailDialog({
               Program Highlights
             </span>
             {event.highlights.map((item) => (
-              <div key={item} className="flex items-start gap-2 text-xs text-muted-foreground">
+              <div
+                key={item}
+                className="flex items-start gap-2 text-xs text-muted-foreground"
+              >
                 <HugeiconsIcon
                   icon={CheckmarkCircle01Icon}
                   size={14}

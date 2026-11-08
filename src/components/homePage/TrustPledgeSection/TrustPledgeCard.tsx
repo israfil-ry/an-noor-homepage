@@ -27,7 +27,7 @@ export function TrustPledgeCard({ pillar, className }: TrustPledgeCardProps) {
     <div
       className={cn(
         "group relative flex flex-col justify-between rounded-3xl border border-border bg-card p-6 sm:p-8 transition-all duration-300 hover:border-primary/30 hover:shadow-lg hover:-translate-y-1",
-        className
+        className,
       )}
     >
       <div>
@@ -57,7 +57,7 @@ export function TrustPledgeCard({ pillar, className }: TrustPledgeCardProps) {
       </div>
 
       {/* Bullet Highlight List */}
-      <div className="mt-6 pt-5 border-t border-border/60 space-y-2.5">
+      <div className="mt-6 pt-5 space-y-2.5">
         {pillar.highlights.map((highlight) => (
           <div key={highlight} className="flex items-center gap-2.5">
             <HugeiconsIcon
@@ -74,4 +74,3 @@ export function TrustPledgeCard({ pillar, className }: TrustPledgeCardProps) {
     </div>
   );
 }
-

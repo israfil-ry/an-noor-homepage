@@ -31,10 +31,7 @@ export function FaqSection({ className }: FaqSectionProps) {
     <section
       id="faq"
       aria-label="Frequently Asked Questions"
-      className={cn(
-        "w-full py-16 sm:py-24 bg-background border-t border-border/60",
-        className,
-      )}
+      className={cn("w-full py-16 sm:py-24 bg-background", className)}
     >
       <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
@@ -43,7 +40,7 @@ export function FaqSection({ className }: FaqSectionProps) {
             variant="outline"
             className="mb-4 inline-flex items-center gap-1.5 p-3 text-xs font-semibold border-primary/25 bg-primary/5 text-primary rounded-full shadow-2xs"
           >
-            <HugeiconsIcon icon={HelpCircleIcon} size={14} />
+            {/* <HugeiconsIcon icon={HelpCircleIcon} size={14} /> */}
             <span>Frequently Asked Questions</span>
           </Badge>
 

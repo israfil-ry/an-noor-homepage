@@ -43,10 +43,10 @@ export function EventsShowcaseSection({
 }: EventsShowcaseSectionProps) {
   return (
     <section
-      id="events"
+      id="community"
       aria-label="Islamic Community Events Showcase"
       className={cn(
-        "w-full py-16 sm:py-24 bg-gradient-to-b from-background via-muted/20 to-background border-t border-border/60",
+        "w-full py-16 sm:py-24 bg-linear-to-b from-background via-muted/20 to-background",
         className,
       )}
     >
@@ -91,7 +91,7 @@ export function EventsShowcaseSection({
               variant="outline"
               className="mb-4 inline-flex items-center gap-1.5 p-3 text-xs font-semibold border-primary/25 bg-primary/5 text-primary rounded-full shadow-2xs"
             >
-              <HugeiconsIcon icon={Calendar01Icon} size={14} />
+              {/* <HugeiconsIcon icon={Calendar01Icon} size={14} /> */}
               <span>Islamic Community Events</span>
             </Badge>
 

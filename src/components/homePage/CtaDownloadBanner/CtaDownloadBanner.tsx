@@ -15,7 +15,7 @@ export function CtaDownloadBanner({ className }: CtaDownloadBannerProps) {
     <section
       id="download"
       aria-label="Download An-Noor App"
-      className={cn("w-full py-16 sm:py-24 bg-background", className)}
+      className={cn("w-full py-16 sm:py-24 bg-primary/5", className)}
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="relative overflow-hidden rounded-[2.5rem] bg-gradient-to-br from-brand-emerald-dark via-primary to-brand-emerald p-8 sm:p-12 lg:p-16 text-primary-foreground shadow-2xl">
@@ -30,7 +30,7 @@ export function CtaDownloadBanner({ className }: CtaDownloadBannerProps) {
                 variant="outline"
                 className="mb-4 inline-flex items-center gap-1.5 py-1 px-3.5 text-xs font-semibold border-primary-foreground/30 bg-primary-foreground/10 text-primary-foreground rounded-full shadow-2xs backdrop-blur-xs"
               >
-                <HugeiconsIcon icon={SmartPhone01Icon} size={14} />
+                {/* <HugeiconsIcon icon={SmartPhone01Icon} size={14} /> */}
                 <span>Download Official App</span>
               </Badge>
 
@@ -44,8 +44,8 @@ export function CtaDownloadBanner({ className }: CtaDownloadBannerProps) {
 
               <p className="mt-4 sm:mt-5 text-sm sm:text-base text-primary-foreground/90 leading-relaxed max-w-xl">
                 Experience accurate prayer calculations, live mosque Iqamah
-                synchronization, verified nearby halal food, and sacred knowledge—beautifully
-                unified and 100% ad-free.
+                synchronization, verified nearby halal food, and sacred
+                knowledge—beautifully unified and 100% ad-free.
               </p>
 
               {/* Conversion Actions Group: Official Store Badges + QR Scanner */}
@@ -55,6 +55,7 @@ export function CtaDownloadBanner({ className }: CtaDownloadBannerProps) {
                   direction="row"
                   googlePlayHref="#"
                   appStoreHref="#"
+                  variant="light"
                   className="[&_a]:border-primary-foreground/20"
                 />
 
@@ -69,7 +70,8 @@ export function CtaDownloadBanner({ className }: CtaDownloadBannerProps) {
                   className="shrink-0 text-primary-foreground"
                 />
                 <span>
-                  Compatible with Android 8.0+ &amp; iOS 15.0+ • 100% Free &amp; Ad-Free • No Data Monetization
+                  Compatible with Android 8.0+ &amp; iOS 15.0+ • 100% Free &amp;
+                  Ad-Free • No Data Monetization
                 </span>
               </div>
             </div>

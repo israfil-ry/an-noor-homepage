@@ -13,6 +13,7 @@ export interface StoreDownloadBadgesProps {
   showGooglePlay?: boolean;
   showAppStore?: boolean;
   priority?: boolean;
+  variant?: "dark" | "light";
 }
 
 export function StoreDownloadBadges({
@@ -24,6 +25,7 @@ export function StoreDownloadBadges({
   showGooglePlay = true,
   showAppStore = true,
   priority = false,
+  variant = "dark",
 }: StoreDownloadBadgesProps) {
   const isColumn = direction === "column";
 
@@ -44,7 +46,7 @@ export function StoreDownloadBadges({
         //   priority={priority}
         //   className={isColumn ? "w-full justify-center" : undefined}
         // />
-        <GooglePlayButton />
+        <GooglePlayButton variant={variant} />
       )}
 
       {showAppStore && (
@@ -54,7 +56,7 @@ export function StoreDownloadBadges({
         //   priority={priority}
         //   className={isColumn ? "w-full justify-center" : undefined}
         // />
-        <AppStoreButton url={appStoreHref} />
+        <AppStoreButton url={appStoreHref} variant={variant} />
       )}
     </div>
   );
