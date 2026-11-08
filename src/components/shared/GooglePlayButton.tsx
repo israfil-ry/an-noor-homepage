@@ -1,15 +1,12 @@
 "use client";
 
+import { APP_CONFIG } from "@/lib/constants";
 import Link from "next/link";
 
-interface GooglePlayButtonProps {
-  url: string;
-}
-
-export default function GooglePlayButton({ url }: GooglePlayButtonProps) {
+export default function GooglePlayButton() {
   return (
     <Link
-      href={url}
+      href={APP_CONFIG.playStoreUrl}
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Download on Google Play"

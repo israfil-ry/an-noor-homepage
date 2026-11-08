@@ -87,8 +87,9 @@ export const APP_CONFIG = {
     "Accurate prayer times, live mosque Iqamah sync, verified halal dining, and sacred knowledge beautifully unified and 100% ad-free.",
   defaultLocation: "Irving, TX",
   playStoreUrl: "https://play.google.com/store/apps/details?id=com.annoor.app",
-  appStoreUrl: "https://apps.apple.com/app/an-noor/id0000000000",
-  apkDownloadUrl: "https://annoor.app/download/annoor-latest.apk",
+  androidQrCodeUrl: "/AnNoor_App_Google_Play_Store_QR.svg",
+  appStoreUrl: "#",
+  apkDownloadUrl: "#",
   supportEmail: "support@annoor.app",
   copyrightYear: 2026,
 } as const;

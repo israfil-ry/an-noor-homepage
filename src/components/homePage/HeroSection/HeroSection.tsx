@@ -12,7 +12,7 @@ export function HeroSection({ className }: HeroSectionProps) {
       id="hero"
       aria-label="Hero Section"
       className={cn(
-        "relative overflow-hidden pt-12 pb-16 sm:pt-20 sm:pb-24 lg:pt-28 lg:pb-32 bg-gradient-to-b from-muted/40 via-background to-background",
+        "relative overflow-hidden pt-12 pb-16 sm:pt-20 sm:pb-24 lg:pt-28 lg:pb-32 bg-linear-to-b from-muted/40 via-background to-background",
         className,
       )}
     >

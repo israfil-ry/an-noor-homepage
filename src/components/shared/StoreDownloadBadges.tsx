@@ -44,7 +44,7 @@ export function StoreDownloadBadges({
         //   priority={priority}
         //   className={isColumn ? "w-full justify-center" : undefined}
         // />
-        <GooglePlayButton url="#" />
+        <GooglePlayButton />
       )}
 
       {showAppStore && (
@@ -54,7 +54,7 @@ export function StoreDownloadBadges({
         //   priority={priority}
         //   className={isColumn ? "w-full justify-center" : undefined}
         // />
-        <AppStoreButton url="#" />
+        <AppStoreButton url={appStoreHref} />
       )}
     </div>
   );

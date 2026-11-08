@@ -1,6 +1,7 @@
 import { HugeiconsIcon } from "@hugeicons/react";
 import { UserCircle02Icon, StarIcon } from "@hugeicons/core-free-icons";
 import { cn } from "@/lib/utils";
+import Image from "next/image";
 
 export interface CommunityAvatar {
   readonly id: string;
@@ -8,6 +9,7 @@ export interface CommunityAvatar {
   readonly city: string;
   readonly bgClass: string;
   readonly textClass: string;
+  readonly imgSrc: string; // Optional image source for the avatar
 }
 
 export interface HeroSocialProofProps {
@@ -21,6 +23,7 @@ const COMMUNITY_MEMBERS: readonly CommunityAvatar[] = [
     city: "Irving, TX",
     bgClass: "bg-primary/20",
     textClass: "text-primary",
+    imgSrc: "/images/random-persons/1.jpg", // Example image source
   },
   {
     id: "tx-dallas",
@@ -28,6 +31,7 @@ const COMMUNITY_MEMBERS: readonly CommunityAvatar[] = [
     city: "Dallas, TX",
     bgClass: "bg-accent/25",
     textClass: "text-accent",
+    imgSrc: "/images/random-persons/2.jpg",
   },
   {
     id: "il-chicago",
@@ -35,6 +39,7 @@ const COMMUNITY_MEMBERS: readonly CommunityAvatar[] = [
     city: "Chicago, IL",
     bgClass: "bg-secondary",
     textClass: "text-secondary-foreground",
+    imgSrc: "/images/random-persons/3.jpg",
   },
   {
     id: "uk-london",
@@ -42,6 +47,7 @@ const COMMUNITY_MEMBERS: readonly CommunityAvatar[] = [
     city: "London, UK",
     bgClass: "bg-primary/10",
     textClass: "text-primary",
+    imgSrc: "/images/random-persons/4.jpg",
   },
 ] as const;
 
@@ -50,7 +56,7 @@ export function HeroSocialProof({ className }: HeroSocialProofProps) {
     <div
       className={cn(
         "mt-8 flex flex-wrap items-center justify-center lg:justify-start gap-3 text-xs text-muted-foreground",
-        className
+        className,
       )}
     >
       {/* Community Avatar Stack */}
@@ -66,15 +72,21 @@ export function HeroSocialProof({ className }: HeroSocialProofProps) {
             className={cn(
               "relative flex size-7 sm:size-8 items-center justify-center rounded-full ring-2 ring-background shadow-xs transition-transform duration-200 hover:scale-110 hover:z-10 select-none",
               member.bgClass,
-              member.textClass
+              member.textClass,
             )}
           >
-            <HugeiconsIcon
+            <Image
+              src={member.imgSrc}
+              alt={member.label}
+              fill
+              className="rounded-full"
+            />
+            {/* <HugeiconsIcon
               icon={UserCircle02Icon}
               size={18}
               strokeWidth={1.75}
               aria-hidden="true"
-            />
+            /> */}
           </div>
         ))}
       </div>
@@ -92,10 +104,11 @@ export function HeroSocialProof({ className }: HeroSocialProofProps) {
         </div>
         <span className="text-muted-foreground/60">•</span>
         <span>
-          Trusted by <strong className="font-semibold text-foreground">10,000+</strong> Muslims in Irving, Dallas, Chicago, London &amp; beyond.
+          Trusted by{" "}
+          <strong className="font-semibold text-foreground">10,000+</strong>{" "}
+          Muslims in Irving, Dallas, Chicago, London &amp; beyond.
         </span>
       </div>
     </div>
   );
 }
-

@@ -14,6 +14,7 @@ import { QrPlatformCard } from "./QrPlatformCard";
 import { cn } from "@/lib/utils";
 import GooglePlayButton from "@/components/shared/GooglePlayButton";
 import AppStoreButton from "@/components/shared/AppStoreButton";
+import { APP_CONFIG } from "@/lib/constants";
 
 export interface QrCodeModalProps {
   className?: string;
@@ -70,8 +71,9 @@ export function QrCodeModal({ className, defaultOpen }: QrCodeModalProps) {
             title="Android"
             subtitle="For Android 8.0 & above"
             DownloadButton={GooglePlayButton}
-            badgeHref="#"
+            badgeHref={APP_CONFIG.playStoreUrl}
             badgeAlt="Get it on Google Play"
+            qrCodeSrc={APP_CONFIG.androidQrCodeUrl}
           />
           <QrPlatformCard
             platform="ios"
@@ -80,6 +82,7 @@ export function QrCodeModal({ className, defaultOpen }: QrCodeModalProps) {
             DownloadButton={AppStoreButton}
             badgeHref="#"
             badgeAlt="Download on the App Store"
+            qrCodeSrc={APP_CONFIG.androidQrCodeUrl}
           />
         </div>
 
