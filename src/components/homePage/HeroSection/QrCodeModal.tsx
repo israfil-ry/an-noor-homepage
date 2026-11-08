@@ -70,7 +70,7 @@ export function QrCodeModal({ className, defaultOpen }: QrCodeModalProps) {
             platform="android"
             title="Android"
             subtitle="For Android 8.0 & above"
-            DownloadButton={GooglePlayButton}
+            DownloadButton={() => <GooglePlayButton />}
             badgeHref={APP_CONFIG.playStoreUrl}
             badgeAlt="Get it on Google Play"
             qrCodeSrc={APP_CONFIG.androidQrCodeUrl}
