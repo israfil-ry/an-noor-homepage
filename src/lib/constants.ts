@@ -223,7 +223,7 @@ export const APP_CONFIG = {
   defaultLocation: "Irving, TX",
   playStoreUrl: "https://play.google.com/store/apps/details?id=com.annoor.app",
   androidQrCodeUrl: "/AnNoor_App_Google_Play_Store_QR.svg",
-  appStoreUrl: "https://apps.apple.com/sg/app/annoor-adhan-prayer-quran/id6819280456",
+  appStoreUrl: "https://apps.apple.com/us/app/annoor-adhan-prayer-quran/id6819280456",
   iosQrCodeUrl: "/AnNoor_App_Apple_App_Store_QR.svg",
   apkDownloadUrl: "#",
   supportEmail: "support@annoor.app",
