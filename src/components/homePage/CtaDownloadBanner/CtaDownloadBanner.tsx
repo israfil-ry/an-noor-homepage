@@ -5,6 +5,7 @@ import { StoreDownloadBadges } from "@/components/shared/StoreDownloadBadges";
 import { CtaQrScannerBox } from "./CtaQrScannerBox";
 import { CtaMockupVisual } from "./CtaMockupVisual";
 import { cn } from "@/lib/utils";
+import { APP_CONFIG } from "@/lib/constants";
 
 export interface CtaDownloadBannerProps {
   className?: string;
@@ -56,7 +57,7 @@ export function CtaDownloadBanner({ className }: CtaDownloadBannerProps) {
                   size="md"
                   direction="row"
                   googlePlayHref="#"
-                  appStoreHref="#"
+                  appStoreHref={APP_CONFIG.appStoreUrl}
                   variant="light"
                   className="[&_a]:border-primary-foreground/20"
                 />

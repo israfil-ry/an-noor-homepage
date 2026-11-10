@@ -85,7 +85,7 @@ export function MobileNavSheet({
               direction="column"
               size="md"
               googlePlayHref="#"
-              appStoreHref="#"
+              appStoreHref={APP_CONFIG.appStoreUrl}
               className="w-full"
             />
             <p className="text-center text-[11px] text-muted-foreground">

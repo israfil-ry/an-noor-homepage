@@ -79,10 +79,12 @@ export function QrCodeModal({ className, defaultOpen }: QrCodeModalProps) {
             platform="ios"
             title="iPhone & iPad"
             subtitle="For iOS 15.0 & above"
-            DownloadButton={AppStoreButton}
-            badgeHref="#"
+            DownloadButton={() => (
+              <AppStoreButton url={APP_CONFIG.appStoreUrl} />
+            )}
+            badgeHref={APP_CONFIG.appStoreUrl}
             badgeAlt="Download on the App Store"
-            qrCodeSrc={APP_CONFIG.androidQrCodeUrl}
+            qrCodeSrc={APP_CONFIG.iosQrCodeUrl}
           />
         </div>
 

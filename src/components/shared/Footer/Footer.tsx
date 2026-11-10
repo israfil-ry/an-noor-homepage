@@ -53,7 +53,7 @@ export function Footer({ className }: FooterProps) {
               size="sm"
               direction="row"
               googlePlayHref="#"
-              appStoreHref="#"
+              appStoreHref={APP_CONFIG.appStoreUrl}
             />
 
             <div className="flex items-center gap-2 text-xs font-medium text-primary">

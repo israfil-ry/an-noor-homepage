@@ -10,6 +10,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { StoreDownloadBadges } from "@/components/shared/StoreDownloadBadges";
 import { cn } from "@/lib/utils";
+import { APP_CONFIG } from "@/lib/constants";
 
 export interface NavbarDownloadDropdownProps {
   className?: string;
@@ -63,7 +64,7 @@ export function NavbarDownloadDropdown({
             direction="column"
             size="sm"
             googlePlayHref="#"
-            appStoreHref="#"
+            appStoreHref={APP_CONFIG.appStoreUrl}
             className="w-full"
           />
         </DropdownMenuContent>

@@ -99,21 +99,6 @@ export const FOOTER_CATEGORIES: readonly FooterCategory[] = [
   },
 ] as const;
 
-export const APP_CONFIG = {
-  name: "An-Noor",
-  arabicName: "النور",
-  tagline: "Your Daily Islamic Companion & Local Halal Living Guide",
-  subTagline:
-    "AnNoor helps make everyday Muslim life easier with prayer times, Adhan reminders, Quran, duas and Qibla direction. Explore nearby mosques, halal restaurants, grocery stores, local jobs and community events.",
-  defaultLocation: "Irving, TX",
-  playStoreUrl: "https://play.google.com/store/apps/details?id=com.annoor.app",
-  androidQrCodeUrl: "/AnNoor_App_Google_Play_Store_QR.svg",
-  appStoreUrl: "#",
-  apkDownloadUrl: "#",
-  supportEmail: "support@annoor.app",
-  copyrightYear: 2026,
-} as const;
-
 // PLACEHOLDER CONTENT: replace with real, consented user testimonials before launch.
 export const TESTIMONIALS: readonly Testimonial[] = [
   {
@@ -227,4 +212,22 @@ export const TESTIMONIALS: readonly Testimonial[] = [
     countryName: "United Arab Emirates",
   },
 ];
+
+
+export const APP_CONFIG = {
+  name: "An-Noor",
+  arabicName: "النور",
+  tagline: "Your Daily Islamic Companion & Local Halal Living Guide",
+  subTagline:
+    "AnNoor helps make everyday Muslim life easier with prayer times, Adhan reminders, Quran, duas and Qibla direction. Explore nearby mosques, halal restaurants, grocery stores, local jobs and community events.",
+  defaultLocation: "Irving, TX",
+  playStoreUrl: "https://play.google.com/store/apps/details?id=com.annoor.app",
+  androidQrCodeUrl: "/AnNoor_App_Google_Play_Store_QR.svg",
+  appStoreUrl: "https://apps.apple.com/sg/app/annoor-adhan-prayer-quran/id6819280456",
+  iosQrCodeUrl: "/AnNoor_App_Apple_App_Store_QR.svg",
+  apkDownloadUrl: "#",
+  supportEmail: "support@annoor.app",
+  copyrightYear: 2026,
+} as const;
+
 

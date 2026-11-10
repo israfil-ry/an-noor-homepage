@@ -1,7 +1,7 @@
 import { Badge } from "@/components/ui/badge";
 import { Marquee } from "@/components/shared/Marquee";
 import { TestimonialCard } from "./TestimonialCard";
-import { TESTIMONIALS } from "@/lib/constants";
+import { APP_CONFIG, TESTIMONIALS } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 import { StoreDownloadBadges } from "@/components/shared/StoreDownloadBadges";
 
@@ -56,7 +56,7 @@ export function TestimonialsSection({ className }: TestimonialsSectionProps) {
           size="sm"
           direction="row"
           googlePlayHref="#"
-          appStoreHref="#"
+          appStoreHref={APP_CONFIG.appStoreUrl}
         />
       </div>
     </section>

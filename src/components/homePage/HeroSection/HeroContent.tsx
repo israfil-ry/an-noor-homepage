@@ -46,7 +46,7 @@ export function HeroContent({ className }: HeroContentProps) {
 
       {/* CTA Group: Official Store Badges + Harmonized Dark QR Code Trigger */}
       <div className="mt-8 sm:mt-10 flex flex-wrap items-center justify-center lg:justify-start gap-3 sm:gap-3.5">
-        <HeroStoreBadges />
+        <HeroStoreBadges appStoreHref={APP_CONFIG.appStoreUrl} />
         <QrCodeModal />
       </div>
 
