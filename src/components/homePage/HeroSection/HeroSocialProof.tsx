@@ -2,54 +2,11 @@ import { HugeiconsIcon } from "@hugeicons/react";
 import { UserCircle02Icon, StarIcon } from "@hugeicons/core-free-icons";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
-
-export interface CommunityAvatar {
-  readonly id: string;
-  readonly label: string;
-  readonly city: string;
-  readonly bgClass: string;
-  readonly textClass: string;
-  readonly imgSrc: string; // Optional image source for the avatar
-}
+import { COMMUNITY_MEMBERS } from "@/lib/constants";
 
 export interface HeroSocialProofProps {
   readonly className?: string;
 }
-
-const COMMUNITY_MEMBERS: readonly CommunityAvatar[] = [
-  {
-    id: "tx-irving",
-    label: "Muslim community member in Irving, TX",
-    city: "Irving, TX",
-    bgClass: "bg-primary/20",
-    textClass: "text-primary",
-    imgSrc: "/images/random-persons/1.jpg", // Example image source
-  },
-  {
-    id: "tx-dallas",
-    label: "Muslim community member in Dallas, TX",
-    city: "Dallas, TX",
-    bgClass: "bg-accent/25",
-    textClass: "text-accent",
-    imgSrc: "/images/random-persons/2.jpg",
-  },
-  {
-    id: "il-chicago",
-    label: "Muslim community member in Chicago, IL",
-    city: "Chicago, IL",
-    bgClass: "bg-secondary",
-    textClass: "text-secondary-foreground",
-    imgSrc: "/images/random-persons/3.jpg",
-  },
-  {
-    id: "uk-london",
-    label: "Muslim community member in London, UK",
-    city: "London, UK",
-    bgClass: "bg-primary/10",
-    textClass: "text-primary",
-    imgSrc: "/images/random-persons/4.jpg",
-  },
-] as const;
 
 export function HeroSocialProof({ className }: HeroSocialProofProps) {
   return (

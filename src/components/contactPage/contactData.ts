@@ -14,12 +14,7 @@ export interface ContactInformationItem {
 }
 
 export const contactInformation: ContactInformationItem[] = [
-  {
-    title: "Website",
-    value: "AnNoor.app",
-    href: "https://annoor.app",
-    icon: Globe,
-  },
+
   {
     title: "Email Address",
     value: "annoor@annoor.app",

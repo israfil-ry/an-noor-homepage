@@ -30,6 +30,50 @@ export interface Testimonial {
   avatarUrl?: string;
 }
 
+export interface CommunityAvatar {
+  readonly id: string;
+  readonly label: string;
+  readonly city: string;
+  readonly bgClass: string;
+  readonly textClass: string;
+  readonly imgSrc: string; // Optional image source for the avatar
+}
+
+export const COMMUNITY_MEMBERS: readonly CommunityAvatar[] = [
+  {
+    id: "tx-irving",
+    label: "Muslim community member in Irving, TX",
+    city: "Irving, TX",
+    bgClass: "bg-primary/20",
+    textClass: "text-primary",
+    imgSrc: "/images/random-persons/1.jpg", // Example image source
+  },
+  {
+    id: "tx-dallas",
+    label: "Muslim community member in Dallas, TX",
+    city: "Dallas, TX",
+    bgClass: "bg-accent/25",
+    textClass: "text-accent",
+    imgSrc: "/images/random-persons/2.jpg",
+  },
+  {
+    id: "il-chicago",
+    label: "Muslim community member in Chicago, IL",
+    city: "Chicago, IL",
+    bgClass: "bg-secondary",
+    textClass: "text-secondary-foreground",
+    imgSrc: "/images/random-persons/3.jpg",
+  },
+  {
+    id: "uk-london",
+    label: "Muslim community member in London, UK",
+    city: "London, UK",
+    bgClass: "bg-primary/10",
+    textClass: "text-primary",
+    imgSrc: "/images/random-persons/4.jpg",
+  },
+] as const;
+
 export const NAV_ITEMS: readonly NavItem[] = [
   {
     label: "Features",
@@ -107,10 +151,11 @@ export const TESTIMONIALS: readonly Testimonial[] = [
       "Between night shifts I used to lose track of prayer times, and I was always unsure about the direction in new places.",
     highlight:
       "An-Noor's Adhan reminders and Qibla finder keep my day on track, wherever I am.",
-    name: "Amina Rahman",
+    name: "Abdullah Rahman",
     role: "Nurse",
     countryCode: "us",
     countryName: "United States",
+    avatarUrl: "/images/random-persons/1.jpg",
   },
   {
     id: "t-2",
@@ -122,6 +167,7 @@ export const TESTIMONIALS: readonly Testimonial[] = [
     role: "Software Engineer",
     countryCode: "gb",
     countryName: "United Kingdom",
+    avatarUrl: "/images/random-persons/2.jpg",
   },
   {
     id: "t-3",
@@ -129,10 +175,11 @@ export const TESTIMONIALS: readonly Testimonial[] = [
       "I read Quran every morning before work, and I never wanted ads popping up in the middle of it.",
     highlight:
       "An-Noor feels like an app built with real respect for the deen.",
-    name: "Maryam Abdullah",
+    name: "Muhammad Abdullah",
     role: "School Teacher",
     countryCode: "ca",
     countryName: "Canada",
+    avatarUrl: "/images/random-persons/3.jpg",
   },
   {
     id: "t-4",
@@ -144,6 +191,7 @@ export const TESTIMONIALS: readonly Testimonial[] = [
     role: "University Student",
     countryCode: "tr",
     countryName: "Türkiye",
+    avatarUrl: "/images/random-persons/4.jpg",
   },
   {
     id: "t-5",
@@ -151,10 +199,11 @@ export const TESTIMONIALS: readonly Testimonial[] = [
       "I posted a server position for our family café through Nearby Jobs,",
     highlight:
       "and within a week I was speaking with reliable candidates from our own community.",
-    name: "Fatima Zahra",
+    name: "Abdul Aziz",
     role: "Café Owner",
     countryCode: "ma",
     countryName: "Morocco",
+    avatarUrl: "/images/random-persons/5.jpg",
   },
   {
     id: "t-6",
@@ -166,6 +215,7 @@ export const TESTIMONIALS: readonly Testimonial[] = [
     role: "Job Seeker",
     countryCode: "eg",
     countryName: "Egypt",
+    avatarUrl: "/images/random-persons/6.jpg",
   },
   {
     id: "t-7",
@@ -173,10 +223,11 @@ export const TESTIMONIALS: readonly Testimonial[] = [
       "During Ramadan, juggling lectures and fasting is hard enough without checking three different websites for timings.",
     highlight:
       "The Sehri and Iftar countdown on my home screen made every day simpler.",
-    name: "Aisha Siddiqui",
+    name: "Ahmed Siddiqui",
     role: "Graduate Student",
     countryCode: "pk",
     countryName: "Pakistan",
+    avatarUrl: "/images/random-persons/7.jpg",
   },
   {
     id: "t-8",
@@ -188,6 +239,7 @@ export const TESTIMONIALS: readonly Testimonial[] = [
     role: "New Muslim",
     countryCode: "au",
     countryName: "Australia",
+    avatarUrl: "/images/random-persons/8.jpg",
   },
   {
     id: "t-9",
@@ -195,10 +247,11 @@ export const TESTIMONIALS: readonly Testimonial[] = [
       "With three kids, I was looking for gatherings where our whole family would feel welcome.",
     highlight:
       "Community Events led us to a weekly family halaqa just ten minutes from our house.",
-    name: "Nurul Huda",
-    role: "Mother of Three",
+    name: "Abdur Rahman",
+    role: "Father of Three",
     countryCode: "my",
     countryName: "Malaysia",
+    avatarUrl: "/images/random-persons/9.jpg",
   },
   {
     id: "t-10",
@@ -210,6 +263,7 @@ export const TESTIMONIALS: readonly Testimonial[] = [
     role: "Business Consultant",
     countryCode: "ae",
     countryName: "United Arab Emirates",
+    avatarUrl: "/images/random-persons/10.jpg",
   },
 ];
 

@@ -4,13 +4,13 @@ import ContactSection from "@/components/contactPage/ContactSection";
 
 export default function ContactPage() {
   return (
-    <div className="min-h-screen bg-white" id="top">
+    <div className="min-h-screen bg-white " id="top">
       <ContactHero />
 
       <ContactSection />
 
-      <section className="px-5 pb-16 sm:px-8 sm:pb-20 lg:pb-24">
-        <div className="mx-auto max-w-7xl">
+      <section className="pb-16 sm:pb-20 lg:pb-24">
+        <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
           <ContactCTA />
         </div>
       </section>

@@ -1,5 +1,3 @@
-import { MessageCircle } from "lucide-react";
-
 export default function ContactHero() {
   return (
     <section className="relative isolate overflow-hidden bg-emerald-950">
@@ -10,7 +8,7 @@ export default function ContactHero() {
         <div className="absolute inset-0 bg-gradient-to-br from-emerald-950 via-emerald-950 to-teal-950" />
       </div>
 
-      <div className="mx-auto max-w-7xl px-5 py-20 text-center sm:px-8 sm:py-24 lg:py-28">
+      <div className="mx-auto w-full max-w-7xl px-4 py-20 text-center sm:px-6 sm:py-24 lg:px-8 lg:py-28">
         {/* <div className="mx-auto mb-6 flex h-14 w-14 items-center justify-center rounded-2xl border border-white/15 bg-white/10 text-emerald-200 shadow-lg backdrop-blur">
           <MessageCircle className="h-7 w-7" />
         </div> */}

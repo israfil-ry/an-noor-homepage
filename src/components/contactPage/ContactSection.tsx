@@ -4,8 +4,8 @@ import ContactForm from "./ContactForm";
 
 export default function ContactSection() {
   return (
-    <section className="px-5 py-16 sm:px-8 sm:py-20 lg:py-24">
-      <div className="mx-auto max-w-7xl">
+    <section className="py-16 sm:py-20 lg:py-24">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Section Heading */}
         <div className="mx-auto max-w-2xl text-center">
           <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-emerald-50 px-4 py-2 text-sm font-medium text-emerald-800">
