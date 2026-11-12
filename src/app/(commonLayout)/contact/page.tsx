@@ -1,6 +1,16 @@
 import ContactCTA from "@/components/contactPage/BottomCta";
 import ContactHero from "@/components/contactPage/ContactHero";
 import ContactSection from "@/components/contactPage/ContactSection";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Contact Us | Get in Touch with AnNoor",
+  description:
+    "Have questions or need assistance with AnNoor? Contact our team for support, feedback, privacy-related inquiries, or general questions. We're happy to help.",
+  alternates: {
+    canonical: "/contact",
+  },
+};
 
 export default function ContactPage() {
   return (

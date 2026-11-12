@@ -12,6 +12,17 @@ import {
 import { Card, CardContent } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Terms & Conditions | AnNoor",
+  description:
+    "Read AnNoor's Terms and Conditions to understand the rules, responsibilities, user account requirements, subscriptions, payments, and policies governing the use of our mobile app, website, and related services.",
+  alternates: {
+    canonical: "/terms-of-service",
+  },
+};
+
 const sections = [
   { id: "about-annoor", title: "About AnNoor.app" },
   { id: "eligibility", title: "Eligibility and Acceptance" },

@@ -12,6 +12,7 @@ import {
 
 import { Card, CardContent } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
+import { Metadata } from "next";
 
 const sections = [
   {
@@ -134,6 +135,15 @@ function BulletList({ items }: { items: string[] }) {
     </ul>
   );
 }
+
+export const metadata: Metadata = {
+  title: "Privacy Policy | AnNoor",
+  description:
+    "Read AnNoor's Privacy Policy to understand how we collect, use, protect, and manage your personal information when using our mobile app, website, and related Islamic services.",
+  alternates: {
+    canonical: "/privacy-policy",
+  },
+};
 
 export default function PrivacyPolicy() {
   return (

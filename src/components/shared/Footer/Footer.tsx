@@ -14,6 +14,7 @@ const LEGAL_LINKS = [
   { label: "Privacy Policy", href: "/privacy-policy" },
   { label: "Terms of Service", href: "/terms-of-service" },
   { label: "Contact & Support", href: "/contact" },
+  { label: "Support AnNoor", href: "/donate" },
 ] as const;
 
 export function Footer({ className }: FooterProps) {
