@@ -38,7 +38,7 @@ export function Navbar({ className }: NavbarProps) {
         {/* Right Action Group */}
         <div className="flex items-center gap-2.5 sm:gap-3">
           <Link
-            href="/donate"
+            href="/support"
             className="group inline-flex min-h-[38px] items-center justify-center gap-1.5 rounded-full bg-primary px-3.5 text-sm font-medium text-primary-foreground shadow-xs transition-all hover:bg-primary-hover active:scale-[0.98] cursor-pointer select-none"
             aria-label="Support AnNoor"
           >
