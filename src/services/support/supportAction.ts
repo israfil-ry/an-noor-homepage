@@ -86,6 +86,7 @@ export async function createWebsiteDonation(
         isAnonymous: false,
         paymentMethodType: "card",
         message: "Website donation",
+        device: 'website',
       }),
     });
 
