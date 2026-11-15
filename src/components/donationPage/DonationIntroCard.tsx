@@ -1,7 +1,51 @@
+"use client";
 import { HeartHandshake, Sparkles } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
+import { useEffect, useRef } from "react";
+
+import { toast } from "sonner";
+import { confirmWebsiteDonation } from "@/services/support/supportAction";
 
 export default function DonationIntroCard() {
+  const returnHandled = useRef(false);
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+
+    const donationId = Number(params.get("donation_id"));
+    const redirectStatus = params.get("redirect_status");
+
+    if (
+      returnHandled.current ||
+      !Number.isInteger(donationId) ||
+      donationId <= 0 ||
+      !redirectStatus
+    ) {
+      return;
+    }
+
+    returnHandled.current = true;
+
+    const verifyReturnedPayment = async () => {
+      try {
+        const result = await confirmWebsiteDonation(donationId);
+
+        if (result.success && result.status === "succeeded") {
+          toast.success("JazakAllahu Khairan! Your donation was successful.");
+        } else if (result.success) {
+          toast.info("Your payment is being processed.");
+        } else {
+          toast.error(result.message || "Unable to verify your donation.");
+        }
+      } catch {
+        toast.error("Unable to verify your payment.");
+      } finally {
+        window.history.replaceState({}, "", "/support");
+      }
+    };
+
+    void verifyReturnedPayment();
+  }, []);
   return (
     <Card className="h-full rounded-3xl border border-border bg-white py-0 shadow-sm ring-1 ring-foreground/5">
       <CardContent className="p-7 sm:p-9">

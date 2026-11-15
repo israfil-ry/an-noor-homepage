@@ -1,7 +1,9 @@
 "use client";
 
-import { useState } from "react";
-import { Heart, LockKeyhole } from "lucide-react";
+import { useActionState, useState } from "react";
+import { Elements } from "@stripe/react-stripe-js";
+import { Heart, LockKeyhole, LoaderCircle, ArrowLeft } from "lucide-react";
+import { toast } from "sonner";
 
 import {
   Card,
@@ -15,207 +17,390 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 
+import { stripePromise } from "@/lib/stripe";
+
+import DonationPaymentForm from "./DonationPaymentForm";
+import {
+  createWebsiteDonation,
+  type DonationFormState,
+} from "@/services/support/supportAction";
+
 const PRESET_AMOUNTS = [5, 10, 20, 50] as const;
 
 type SelectedPreset = number | "custom";
 
 export default function DonationAmountCard() {
-  const [amount, setAmount] = useState("25");
-  const [selectedPreset, setSelectedPreset] =
-    useState<SelectedPreset>("custom");
+  const [amount, setAmount] = useState("20");
 
-  const [feedback, setFeedback] = useState("");
-  const [feedbackType, setFeedbackType] = useState<
-    "error" | "info" | "success" | ""
-  >("");
+  const [selectedPreset, setSelectedPreset] = useState<SelectedPreset>(20);
 
-  const numericAmount = Number(amount);
+  const [paymentState, setPaymentState] = useState(false);
 
-  const isValidAmount =
-    amount.trim() !== "" &&
-    Number.isFinite(numericAmount) &&
-    numericAmount >= 1 &&
-    numericAmount <= 10000;
+  const initialDonationState: DonationFormState = {
+    status: "idle",
+  };
 
-  const formattedAmount = Number.isFinite(numericAmount)
+  const [state, formAction, isPending] = useActionState(
+    createWebsiteDonation,
+    initialDonationState,
+  );
+
+  const formattedAmount = Number.isFinite(Number(amount))
     ? new Intl.NumberFormat("en-US", {
+        minimumFractionDigits: 2,
         maximumFractionDigits: 2,
-      }).format(numericAmount)
-    : "0";
+      }).format(Number(amount))
+    : "0.00";
 
   const handlePresetSelect = (value: number) => {
     setAmount(String(value));
     setSelectedPreset(value);
-    setFeedback("");
-    setFeedbackType("");
   };
 
   const handleCustomSelect = () => {
-    setSelectedPreset("custom");
-    setFeedback("");
-    setFeedbackType("");
     setAmount("");
-  };
-
-  const handleAmountChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setAmount(event.target.value);
     setSelectedPreset("custom");
-    setFeedback("");
-    setFeedbackType("");
   };
 
-  const handleContinue = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
+  const fieldError = (field: "amount" | "donorName" | "donorEmail") =>
+    state.fieldErrors?.[field]?.[0];
 
-    if (!isValidAmount) {
-      setFeedback(
-        "Please enter a valid donation amount between $1 and $10,000.",
-      );
-      setFeedbackType("error");
-      return;
-    }
+  // PaymentIntent successfully created.
+  const isPaymentReady =
+    state.status === "ready" && !!state.clientSecret && !!state.donationId;
 
-    // TODO: Connect your secure donation payment checkout here.
-    // Pass numericAmount to your payment API or server action.
-    // Never trust the client amount without validating it on the server.
-
-    setFeedback(
-      `Your selected donation is $${formattedAmount}. Payment checkout is not connected yet.`,
-    );
-
-    setFeedbackType("info");
-  };
+  // Show server-side general error.
+  if (state.status === "error" && state.message) {
+    // Errors are displayed below in the normal form.
+  }
 
   return (
-    <Card className="rounded-3xl border border-border bg-white py-0 shadow-sm ring-1 ring-foreground/5">
-      <CardHeader className="px-7 pt-8 sm:px-9 sm:pt-9">
-        {/* <div className="mb-2 flex h-12 w-12 items-center justify-center rounded-xl bg-emerald-50 text-primary">
-          <Heart className="h-6 w-6" />
-        </div> */}
+    <>
+      <Card className="rounded-3xl border border-border bg-white py-0 shadow-sm ring-1 ring-foreground/5">
+        <CardHeader className="px-7 pt-8 sm:px-9 sm:pt-9">
+          <div className="mb-2 flex h-12 w-12 items-center justify-center rounded-xl bg-emerald-50 text-primary">
+            <Heart className="h-6 w-6" />
+          </div>
 
-        <CardTitle className="text-2xl font-bold text-gray-900 sm:text-3xl">
-          Make a Donation
-        </CardTitle>
+          <CardTitle className="text-2xl font-bold text-gray-900 sm:text-3xl">
+            {isPaymentReady ? "Complete Your Donation" : "Make a Donation"}
+          </CardTitle>
 
-        <CardDescription className="text-sm leading-6 sm:text-base">
-          Choose an amount that feels right for you. Every contribution is
-          appreciated.
-        </CardDescription>
-      </CardHeader>
+          <CardDescription className="text-sm leading-6 sm:text-base">
+            {isPaymentReady
+              ? "Your donation details are ready. Enter your card information to complete your contribution."
+              : "Choose an amount and enter your information to support AnNoor."}
+          </CardDescription>
+        </CardHeader>
 
-      <CardContent className="px-7 pb-8 sm:px-9 sm:pb-9">
-        <form onSubmit={handleContinue}>
-          {/* Preset Amounts */}
-          <div className="mt-7">
-            <Label className="mb-4 block text-base font-semibold text-gray-900">
-              Choose an Amount
-            </Label>
+        <CardContent className="px-7 pb-8 sm:px-9 sm:pb-9">
+          {isPaymentReady ? (
+            paymentState ? (
+              <div className="rounded-xl border border-emerald-200 bg-emerald-50 p-6 text-center">
+                <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-emerald-100 text-primary">
+                  <Heart className="h-7 w-7" />
+                </div>
 
-            <div className="grid grid-cols-2 gap-3 sm:grid-cols-5">
-              {PRESET_AMOUNTS.map((value) => {
-                const isSelected = selectedPreset === value;
+                <h3 className="text-xl font-bold text-emerald-800">
+                  Donation Successful!
+                </h3>
 
-                return (
+                <p className="mt-2 text-sm leading-6 text-emerald-700">
+                  JazakAllahu Khairan! Thank you for supporting AnNoor. Your
+                  contribution is greatly appreciated.
+                </p>
+              </div>
+            ) : (
+              <div className="space-y-6">
+                <div className="flex items-center justify-between rounded-xl bg-emerald-50 p-4">
+                  <div>
+                    <p className="text-sm text-gray-600">Your donation</p>
+
+                    <p className="text-2xl font-bold text-primary">
+                      ${formattedAmount} USD
+                    </p>
+                  </div>
+
+                  <LockKeyhole className="h-7 w-7 text-primary" />
+                </div>
+
+                <Elements
+                  key={state.clientSecret}
+                  stripe={stripePromise}
+                  options={{
+                    clientSecret: state.clientSecret!,
+                    appearance: {
+                      theme: "stripe",
+                      variables: {
+                        colorPrimary: "#0D6847",
+                        borderRadius: "10px",
+                        fontFamily: "Montserrat, sans-serif",
+                      },
+                    },
+                  }}
+                >
+                  <DonationPaymentForm
+                    donationId={state.donationId!}
+                    onBack={() => window.location.reload()}
+                    onSuccess={() => {
+                      toast.success(
+                        "JazakAllahu Khairan! Your donation was successful.",
+                      );
+
+                      setPaymentState(true);
+                    }}
+                  />
+                </Elements>
+
+                {paymentState && (
+                  <div className="rounded-xl border border-emerald-200 bg-emerald-50 p-5 text-center">
+                    <h3 className="text-xl font-bold text-emerald-800">
+                      Donation Successful!
+                    </h3>
+
+                    <p className="mt-2 text-sm text-emerald-700">
+                      Thank you for supporting AnNoor. JazakAllahu Khairan!
+                    </p>
+                  </div>
+                )}
+              </div>
+            )
+          ) : (
+            <form action={formAction} noValidate className="space-y-7">
+              {/* Donation Amount */}
+              <div>
+                <Label className="mb-4 block text-base font-semibold text-gray-900">
+                  Choose an Amount
+                </Label>
+
+                <div className="grid grid-cols-2 gap-3 sm:grid-cols-5">
+                  {PRESET_AMOUNTS.map((value) => {
+                    const selected = selectedPreset === value;
+
+                    return (
+                      <button
+                        key={value}
+                        type="button"
+                        disabled={isPending}
+                        aria-pressed={selected}
+                        onClick={() => handlePresetSelect(value)}
+                        className={`flex h-14 items-center justify-center rounded-xl border text-lg font-bold transition-all ${
+                          selected
+                            ? "border-primary bg-primary text-white shadow-sm"
+                            : "border-border bg-white text-gray-900 hover:border-primary hover:bg-emerald-50"
+                        }`}
+                      >
+                        ${value}
+                      </button>
+                    );
+                  })}
+
                   <button
-                    key={value}
                     type="button"
-                    aria-pressed={isSelected}
-                    onClick={() => handlePresetSelect(value)}
-                    className={`flex h-14 items-center justify-center rounded-xl border text-lg font-bold transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 ${
-                      isSelected
-                        ? "border-primary bg-primary text-white shadow-sm"
+                    disabled={isPending}
+                    aria-pressed={selectedPreset === "custom"}
+                    onClick={handleCustomSelect}
+                    className={`col-span-2 flex h-14 items-center justify-center rounded-xl border font-bold transition-all sm:col-span-1 ${
+                      selectedPreset === "custom"
+                        ? "border-primary bg-primary text-white"
                         : "border-border bg-white text-gray-900 hover:border-primary hover:bg-emerald-50"
                     }`}
                   >
-                    ${value}
+                    Custom
                   </button>
-                );
-              })}
+                </div>
 
-              <button
-                type="button"
-                aria-pressed={selectedPreset === "custom"}
-                onClick={handleCustomSelect}
-                className={`col-span-2 flex h-14 items-center justify-center rounded-xl border text-base font-bold transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 sm:col-span-1 ${
-                  selectedPreset === "custom"
-                    ? "border-primary bg-primary text-white shadow-sm"
-                    : "border-border bg-white text-gray-900 hover:border-primary hover:bg-emerald-50"
-                }`}
-              >
-                Custom
-              </button>
-            </div>
-          </div>
+                <div className="mt-5">
+                  <Label
+                    htmlFor="donation-amount"
+                    className="mb-2 block font-semibold"
+                  >
+                    Donation Amount
+                  </Label>
 
-          {/* Custom Amount Input */}
-          <div className="mt-8">
-            <Label
-              htmlFor="donation-amount"
-              className="mb-3 block text-base font-semibold text-gray-900"
-            >
-              Enter Amount (USD)
-            </Label>
+                  <div className="relative">
+                    <span className="absolute left-4 top-1/2 -translate-y-1/2 font-semibold text-gray-600">
+                      $
+                    </span>
 
-            <div className="relative">
-              <span className="pointer-events-none absolute left-5 top-1/2 -translate-y-1/2 text-xl font-medium text-gray-600">
-                $
-              </span>
+                    <Input
+                      id="donation-amount"
+                      name="amount"
+                      type="number"
+                      min="1"
+                      max="10000"
+                      step="0.01"
+                      required
+                      value={amount}
+                      disabled={isPending}
+                      onChange={(event) => {
+                        setAmount(event.target.value);
+                        setSelectedPreset("custom");
+                      }}
+                      placeholder="Enter custom amount"
+                      aria-invalid={!!fieldError("amount")}
+                      className="h-12 rounded-xl bg-gray-50 pl-9 text-base"
+                    />
+                  </div>
 
-              <Input
-                id="donation-amount"
-                type="number"
-                min="1"
-                max="10000"
-                step="0.01"
-                placeholder="Enter donation amount"
-                value={amount}
-                onChange={handleAmountChange}
-                onFocus={handleCustomSelect}
-                aria-invalid={feedbackType === "error" && !isValidAmount}
-                className="h-14 rounded-xl border-2 border-border bg-gray-50 pl-12 text-lg font-medium text-gray-900 transition-colors focus-visible:border-primary focus-visible:ring-primary/20"
-              />
-            </div>
+                  <p className="mt-2 text-xs text-muted-foreground">
+                    Minimum $1.00 · Maximum $10,000
+                  </p>
 
-            <p className="mt-2 text-xs text-muted-foreground">
-              Minimum donation: $1.00
+                  {fieldError("amount") && (
+                    <p className="mt-2 text-sm text-red-600">
+                      {fieldError("amount")}
+                    </p>
+                  )}
+                </div>
+              </div>
+
+              {/* Donor Information */}
+              <div className="space-y-5">
+                <div>
+                  <h3 className="text-lg font-bold text-gray-900">
+                    Donor Information
+                  </h3>
+
+                  <p className="mt-1 text-sm text-muted-foreground">
+                    Please provide your contact information.
+                  </p>
+                </div>
+
+                {/* Full Name */}
+                <div>
+                  <Label
+                    htmlFor="donorName"
+                    className="mb-2 block font-semibold"
+                  >
+                    Full Name <span className="text-red-500">*</span>
+                  </Label>
+
+                  <Input
+                    id="donorName"
+                    name="donorName"
+                    type="text"
+                    placeholder="Enter your full name"
+                    required
+                    minLength={2}
+                    maxLength={100}
+                    disabled={isPending}
+                    aria-invalid={!!fieldError("donorName")}
+                    className="h-12 rounded-xl bg-gray-50"
+                  />
+
+                  {fieldError("donorName") && (
+                    <p className="mt-2 text-sm text-red-600">
+                      {fieldError("donorName")}
+                    </p>
+                  )}
+                </div>
+
+                {/* Email */}
+                <div>
+                  <Label
+                    htmlFor="donorEmail"
+                    className="mb-2 block font-semibold"
+                  >
+                    Email Address <span className="text-red-500">*</span>
+                  </Label>
+
+                  <Input
+                    id="donorEmail"
+                    name="donorEmail"
+                    type="email"
+                    placeholder="example@email.com"
+                    required
+                    maxLength={254}
+                    disabled={isPending}
+                    aria-invalid={!!fieldError("donorEmail")}
+                    className="h-12 rounded-xl bg-gray-50"
+                  />
+
+                  {fieldError("donorEmail") && (
+                    <p className="mt-2 text-sm text-red-600">
+                      {fieldError("donorEmail")}
+                    </p>
+                  )}
+                </div>
+
+                {/* Currency */}
+                <div>
+                  <Label
+                    htmlFor="currency"
+                    className="mb-2 block font-semibold"
+                  >
+                    Currency
+                  </Label>
+
+                  <Input
+                    id="currency"
+                    value="USD - US Dollar"
+                    disabled
+                    readOnly
+                    className="h-12 rounded-xl bg-gray-100 font-medium text-gray-600"
+                  />
+
+                  <p className="mt-2 text-xs text-muted-foreground">
+                    All donations are processed in US Dollars.
+                  </p>
+                </div>
+              </div>
+
+              {/* General Server Error */}
+              {state.status === "error" && state.message && (
+                <div
+                  role="alert"
+                  className="rounded-xl border border-red-200 bg-red-50 p-4 text-sm text-red-700"
+                >
+                  {state.message}
+                </div>
+              )}
+
+              {/* Submit */}
+              <div>
+                <Button
+                  type="submit"
+                  disabled={isPending}
+                  className="h-14 w-full rounded-xl text-base font-bold shadow-md"
+                >
+                  {isPending ? (
+                    <>
+                      <LoaderCircle className="mr-2 h-5 w-5 animate-spin" />
+                      Initializing Donation...
+                    </>
+                  ) : (
+                    `Continue $${formattedAmount} Donation`
+                  )}
+                </Button>
+
+                <div className="mt-5 flex items-center justify-center gap-2 text-center text-xs text-muted-foreground">
+                  <LockKeyhole className="h-4 w-4 shrink-0" />
+
+                  <span>Secure payment processing powered by Stripe.</span>
+                </div>
+              </div>
+            </form>
+          )}
+        </CardContent>
+      </Card>
+
+      {/* Full-screen loading overlay during server action */}
+      {isPending && (
+        <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/45 px-5 backdrop-blur-sm">
+          <div className="flex w-full max-w-sm flex-col items-center rounded-2xl bg-white p-8 text-center shadow-2xl">
+            <LoaderCircle className="mb-5 h-12 w-12 animate-spin text-primary" />
+
+            <h3 className="text-xl font-bold text-gray-900">
+              Preparing Your Donation
+            </h3>
+
+            <p className="mt-2 text-sm leading-6 text-muted-foreground">
+              Please wait while we securely initialize your payment.
             </p>
           </div>
-
-          {/* Feedback */}
-          {feedback && (
-            <div
-              role="status"
-              aria-live="polite"
-              className={`mt-5 rounded-xl border px-4 py-3 text-sm leading-6 ${
-                feedbackType === "error"
-                  ? "border-red-200 bg-red-50 text-red-700"
-                  : "border-emerald-200 bg-emerald-50 text-emerald-800"
-              }`}
-            >
-              {feedback}
-            </div>
-          )}
-
-          {/* Continue Button */}
-          <div className="mt-8">
-            <Button
-              type="submit"
-              size="lg"
-              className="h-14 w-full rounded-xl bg-primary text-base font-bold text-white shadow-md transition-all hover:bg-primary/90 sm:text-lg"
-            >
-              Continue ${formattedAmount} Donation
-            </Button>
-          </div>
-
-          {/* Security Information */}
-          <div className="mt-5 flex items-center justify-center gap-2 text-center text-xs text-muted-foreground">
-            <LockKeyhole className="h-4 w-4 shrink-0" />
-            <span>
-              Secure payment processing will be available at checkout.
-            </span>
-          </div>
-        </form>
-      </CardContent>
-    </Card>
+        </div>
+      )}
+    </>
   );
 }
