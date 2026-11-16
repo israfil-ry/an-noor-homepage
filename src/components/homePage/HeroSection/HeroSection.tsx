@@ -26,14 +26,16 @@ export function HeroSection({ className }: HeroSectionProps) {
             <HeroContent />
           </div>
 
-          {/* Right Column: Native Mobile Phone Mockup & Floating Contextual Cards */}
+          {/* Right Column: Native Mobile Phone Mockup */}
           <div className="lg:col-span-6">
-            {/* <HeroMockupPreview /> */}
             <Image
               src="/images/app/hero-mockup-preview.png"
               alt="An-Noor App Mockup Preview"
-              width={1200}
-              height={2400}
+              width={1006}
+              height={1090}
+              preload
+              sizes="(max-width: 1023px) 100vw, 50vw"
+              className="block h-auto w-full"
             />
           </div>
         </div>
