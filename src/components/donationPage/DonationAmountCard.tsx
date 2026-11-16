@@ -2,7 +2,7 @@
 
 import { useActionState, useState } from "react";
 import { Elements } from "@stripe/react-stripe-js";
-import { Heart, LockKeyhole, LoaderCircle, ArrowLeft } from "lucide-react";
+import { Heart, LockKeyhole, LoaderCircle, X } from "lucide-react";
 import { toast } from "sonner";
 
 import {
@@ -29,12 +29,72 @@ const PRESET_AMOUNTS = [5, 10, 20, 50] as const;
 
 type SelectedPreset = number | "custom";
 
+interface DonationAmountCardContentProps {
+  onDonationSuccess: () => void;
+}
+
 export default function DonationAmountCard() {
+  const [showSuccessMessage, setShowSuccessMessage] = useState(false);
+  const [formInstance, setFormInstance] = useState(0);
+
+  const handleDonationSuccess = () => {
+    setShowSuccessMessage(true);
+
+    // Remount the donation form to reset useActionState and local state.
+    setFormInstance((previous) => previous + 1);
+  };
+
+  return (
+    <div className="space-y-5">
+      {/* Dismissible Donation Success Message */}
+      {showSuccessMessage && (
+        <div
+          role="status"
+          className="relative rounded-2xl border border-emerald-200 bg-emerald-50 p-5 pr-12"
+        >
+          <button
+            type="button"
+            onClick={() => setShowSuccessMessage(false)}
+            aria-label="Dismiss success message"
+            className="absolute right-4 top-4 rounded-full p-1 text-emerald-700 transition-colors hover:bg-emerald-100 hover:text-emerald-900"
+          >
+            <X className="h-5 w-5" />
+          </button>
+
+          <div className="flex items-start gap-3">
+            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-emerald-100 text-primary">
+              <Heart className="h-5 w-5" />
+            </div>
+
+            <div>
+              <h3 className="text-lg font-bold text-emerald-800">
+                Donation Successful!
+              </h3>
+
+              <p className="mt-1 text-sm leading-6 text-emerald-700">
+                JazakAllahu Khairan! Thank you for supporting AnNoor. Your
+                contribution is greatly appreciated.
+              </p>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Donation Form */}
+      <DonationAmountCardContent
+        key={formInstance}
+        onDonationSuccess={handleDonationSuccess}
+      />
+    </div>
+  );
+}
+
+function DonationAmountCardContent({
+  onDonationSuccess,
+}: DonationAmountCardContentProps) {
   const [amount, setAmount] = useState("20");
 
   const [selectedPreset, setSelectedPreset] = useState<SelectedPreset>(20);
-
-  const [paymentState, setPaymentState] = useState(false);
 
   const initialDonationState: DonationFormState = {
     status: "idle",
@@ -69,11 +129,6 @@ export default function DonationAmountCard() {
   const isPaymentReady =
     state.status === "ready" && !!state.clientSecret && !!state.donationId;
 
-  // Show server-side general error.
-  if (state.status === "error" && state.message) {
-    // Errors are displayed below in the normal form.
-  }
-
   return (
     <>
       <Card className="rounded-3xl border border-border bg-white py-0 shadow-sm ring-1 ring-foreground/5">
@@ -95,76 +150,48 @@ export default function DonationAmountCard() {
 
         <CardContent className="px-7 pb-8 sm:px-9 sm:pb-9">
           {isPaymentReady ? (
-            paymentState ? (
-              <div className="rounded-xl border border-emerald-200 bg-emerald-50 p-6 text-center">
-                <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-emerald-100 text-primary">
-                  <Heart className="h-7 w-7" />
+            <div className="space-y-6">
+              <div className="flex items-center justify-between rounded-xl bg-emerald-50 p-4">
+                <div>
+                  <p className="text-sm text-gray-600">Your donation</p>
+
+                  <p className="text-2xl font-bold text-primary">
+                    ${formattedAmount} USD
+                  </p>
                 </div>
 
-                <h3 className="text-xl font-bold text-emerald-800">
-                  Donation Successful!
-                </h3>
-
-                <p className="mt-2 text-sm leading-6 text-emerald-700">
-                  JazakAllahu Khairan! Thank you for supporting AnNoor. Your
-                  contribution is greatly appreciated.
-                </p>
+                <LockKeyhole className="h-7 w-7 text-primary" />
               </div>
-            ) : (
-              <div className="space-y-6">
-                <div className="flex items-center justify-between rounded-xl bg-emerald-50 p-4">
-                  <div>
-                    <p className="text-sm text-gray-600">Your donation</p>
 
-                    <p className="text-2xl font-bold text-primary">
-                      ${formattedAmount} USD
-                    </p>
-                  </div>
-
-                  <LockKeyhole className="h-7 w-7 text-primary" />
-                </div>
-
-                <Elements
-                  key={state.clientSecret}
-                  stripe={stripePromise}
-                  options={{
-                    clientSecret: state.clientSecret!,
-                    appearance: {
-                      theme: "stripe",
-                      variables: {
-                        colorPrimary: "#0D6847",
-                        borderRadius: "10px",
-                        fontFamily: "Montserrat, sans-serif",
-                      },
+              <Elements
+                key={state.clientSecret}
+                stripe={stripePromise}
+                options={{
+                  clientSecret: state.clientSecret!,
+                  appearance: {
+                    theme: "stripe",
+                    variables: {
+                      colorPrimary: "#0D6847",
+                      borderRadius: "10px",
+                      fontFamily: "Montserrat, sans-serif",
                     },
+                  },
+                }}
+              >
+                <DonationPaymentForm
+                  donationId={state.donationId!}
+                  clientSecret={state.clientSecret!}
+                  onBack={() => window.location.reload()}
+                  onSuccess={() => {
+                    toast.success(
+                      "JazakAllahu Khairan! Your donation was successful.",
+                    );
+
+                    onDonationSuccess();
                   }}
-                >
-                  <DonationPaymentForm
-                    donationId={state.donationId!}
-                    onBack={() => window.location.reload()}
-                    onSuccess={() => {
-                      toast.success(
-                        "JazakAllahu Khairan! Your donation was successful.",
-                      );
-
-                      setPaymentState(true);
-                    }}
-                  />
-                </Elements>
-
-                {paymentState && (
-                  <div className="rounded-xl border border-emerald-200 bg-emerald-50 p-5 text-center">
-                    <h3 className="text-xl font-bold text-emerald-800">
-                      Donation Successful!
-                    </h3>
-
-                    <p className="mt-2 text-sm text-emerald-700">
-                      Thank you for supporting AnNoor. JazakAllahu Khairan!
-                    </p>
-                  </div>
-                )}
-              </div>
-            )
+                />
+              </Elements>
+            </div>
           ) : (
             <form action={formAction} noValidate className="space-y-7">
               {/* Donation Amount */}
@@ -325,7 +352,7 @@ export default function DonationAmountCard() {
                 </div>
 
                 {/* Currency */}
-                <div>
+                <div className="hidden">
                   <Label
                     htmlFor="currency"
                     className="mb-2 block font-semibold"
