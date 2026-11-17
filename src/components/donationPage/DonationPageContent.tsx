@@ -1,4 +1,4 @@
-import { ShieldCheck, HeartHandshake } from "lucide-react";
+import { ShieldCheck } from "lucide-react";
 
 import DonationAmountCard from "./DonationAmountCard";
 import DonationIntroCard from "./DonationIntroCard";
