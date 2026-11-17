@@ -9,7 +9,8 @@ import {
   useStripe,
 } from "@stripe/react-stripe-js";
 
-import { LoaderCircle, ShieldCheck } from "lucide-react";
+import { LoaderCircle, ShieldCheck, ChevronDown } from "lucide-react";
+
 import { toast } from "sonner";
 
 import { Button } from "@/components/ui/button";
@@ -207,19 +208,24 @@ export default function DonationPaymentForm({
               Country
             </label>
 
-            <select
-              id="card-country"
-              value={country}
-              onChange={(event) => setCountry(event.target.value)}
-              disabled={loading}
-              className="h-11 w-full rounded-xl border border-input bg-white px-3 text-sm text-gray-700 shadow-sm outline-none transition-colors focus:border-primary disabled:cursor-not-allowed disabled:opacity-60"
-            >
-              {COUNTRIES.map((item) => (
-                <option key={item.code} value={item.code}>
-                  {item.name}
-                </option>
-              ))}
-            </select>
+            <div className="relative">
+              <select
+                id="card-country"
+                value={country}
+                onChange={(event) => setCountry(event.target.value)}
+                disabled={loading}
+                className="h-11 w-full appearance-none rounded-xl border border-input bg-white pl-3 pr-12 text-sm text-gray-700 shadow-sm outline-none transition-colors focus:border-primary disabled:cursor-not-allowed disabled:opacity-60"
+              >
+                {COUNTRIES.map((item) => (
+                  <option key={item.code} value={item.code}>
+                    {item.name}
+                  </option>
+                ))}
+              </select>
+
+              {/* Custom Dropdown Arrow */}
+              <ChevronDown className="pointer-events-none absolute right-4 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-700" />
+            </div>
           </div>
 
           {/* Security Information */}
