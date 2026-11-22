@@ -72,12 +72,6 @@ export async function createWebsiteDonation(
 
     const { amount, donorName, donorEmail } = validation.data;
 
-    console.log("Creating website donation:", {
-      amount,
-      donorName,
-      donorEmail,
-    });
-
     const response = await fetch(`${API_URL}/donations`, {
       method: "POST",
       headers: {

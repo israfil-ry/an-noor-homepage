@@ -62,7 +62,9 @@ export default function DonationPaymentForm({
   const elements = useElements();
 
   const [loading, setLoading] = useState(false);
+  const [cardholderName, setCardholderName] = useState("");
   const [country, setCountry] = useState("BD");
+  const [postalCode, setPostalCode] = useState("");
 
   const handlePayment = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -85,8 +87,10 @@ export default function DonationPaymentForm({
           payment_method: {
             card: cardNumberElement,
             billing_details: {
+              name: cardholderName.trim(),
               address: {
                 country,
+                postal_code: postalCode.trim(),
               },
             },
           },
@@ -153,8 +157,33 @@ export default function DonationPaymentForm({
             </p>
           </div>
 
-          {/* Card Number */}
+          {/* Cardholder Name */}
           <div className="space-y-2">
+            <label
+              htmlFor="cardholder-name"
+              className="text-sm font-medium text-gray-700"
+            >
+              Cardholder name
+            </label>
+
+            <input
+              id="cardholder-name"
+              name="cardholderName"
+              type="text"
+              value={cardholderName}
+              onChange={(event) => setCardholderName(event.target.value)}
+              disabled={loading}
+              required
+              minLength={2}
+              maxLength={100}
+              autoComplete="cc-name"
+              placeholder="Name on card"
+              className="h-11 w-full rounded-xl border border-input bg-white px-3 text-sm text-gray-700 shadow-sm outline-none transition-colors focus:border-primary disabled:cursor-not-allowed disabled:opacity-60"
+            />
+          </div>
+
+          {/* Card Number */}
+          <div className="mt-4 space-y-2">
             <label className="text-sm font-medium text-gray-700">
               Card number
             </label>
@@ -170,8 +199,8 @@ export default function DonationPaymentForm({
             </div>
           </div>
 
-          {/* Expiration Date and Security Code */}
-          <div className="mt-4 grid grid-cols-2 gap-3">
+          {/* Expiration Date, Security Code, and Postal Code */}
+          <div className="mt-4 grid grid-cols-3 gap-3">
             <div className="space-y-2">
               <label className="text-sm font-medium text-gray-700">
                 Expiration date
@@ -196,6 +225,29 @@ export default function DonationPaymentForm({
                   className="w-full"
                 />
               </div>
+            </div>
+
+            <div className="space-y-2">
+              <label
+                htmlFor="card-postal-code"
+                className="text-sm font-medium text-gray-700"
+              >
+                ZIP / postal code
+              </label>
+
+              <input
+                id="card-postal-code"
+                name="postalCode"
+                type="text"
+                value={postalCode}
+                onChange={(event) => setPostalCode(event.target.value)}
+                disabled={loading}
+                required
+                maxLength={20}
+                autoComplete="postal-code"
+                placeholder="Postal code"
+                className="h-11 w-full rounded-xl border border-input bg-white px-3 text-sm text-gray-700 shadow-sm outline-none transition-colors focus:border-primary disabled:cursor-not-allowed disabled:opacity-60"
+              />
             </div>
           </div>
 
