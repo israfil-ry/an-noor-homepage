@@ -242,7 +242,7 @@ function DonationAmountCardContent({
                     htmlFor="donation-amount"
                     className="mb-2 block font-semibold"
                   >
-                    Donation Amount
+                    Donation Amount <span className="text-red-500">*</span>
                   </Label>
 
                   <div className="relative">

@@ -163,7 +163,7 @@ export default function DonationPaymentForm({
               htmlFor="cardholder-name"
               className="text-sm font-medium text-gray-700"
             >
-              Cardholder name
+              Cardholder name <span className="text-red-500">*</span>
             </label>
 
             <input
@@ -185,7 +185,7 @@ export default function DonationPaymentForm({
           {/* Card Number */}
           <div className="mt-4 space-y-2">
             <label className="text-sm font-medium text-gray-700">
-              Card number
+              Card number <span className="text-red-500">*</span>
             </label>
 
             <div className="flex h-11 items-center rounded-xl border border-input bg-white px-3 shadow-sm transition-colors focus-within:border-primary">
@@ -203,7 +203,7 @@ export default function DonationPaymentForm({
           <div className="mt-4 grid grid-cols-3 gap-3">
             <div className="space-y-2">
               <label className="text-sm font-medium text-gray-700">
-                Expiration date
+                Expiration date <span className="text-red-500">*</span>
               </label>
 
               <div className="flex h-11 items-center rounded-xl border border-input bg-white px-3 shadow-sm transition-colors focus-within:border-primary">
@@ -216,7 +216,7 @@ export default function DonationPaymentForm({
 
             <div className="space-y-2">
               <label className="text-sm font-medium text-gray-700">
-                Security code
+                Security code <span className="text-red-500">*</span>
               </label>
 
               <div className="flex h-11 items-center rounded-xl border border-input bg-white px-3 shadow-sm transition-colors focus-within:border-primary">
@@ -232,7 +232,7 @@ export default function DonationPaymentForm({
                 htmlFor="card-postal-code"
                 className="text-sm font-medium text-gray-700"
               >
-                ZIP / postal code
+                ZIP / postal code <span className="text-red-500">*</span>
               </label>
 
               <input
@@ -257,7 +257,7 @@ export default function DonationPaymentForm({
               htmlFor="card-country"
               className="text-sm font-medium text-gray-700"
             >
-              Country
+              Country <span className="text-red-500">*</span>
             </label>
 
             <div className="relative">
